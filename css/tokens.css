@@ -1,0 +1,68 @@
+/* Design Tokens — Stratum Flooring Co. */
+:root {
+  /* ─── Color Palette ─── */
+  --color-base:       #F4F1EC;   /* limestone off-white */
+  --color-ink:        #1C1B19;   /* charcoal near-black */
+  --color-accent:     #B5764C;   /* muted terracotta */
+  --color-secondary:  #8C8A7E;   /* stone grey */
+  --color-surface:    #EDE9E2;   /* slightly darker off-white for cards */
+  --color-ink-light:  #3A3935;   /* lighter charcoal for mid-weight text */
+
+  /* ─── Typography ─── */
+  --font-serif:   'Fraunces', 'Georgia', serif;
+  --font-sans:    'DM Sans', 'Helvetica Neue', sans-serif;
+
+  /* Fluid type scale using clamp() */
+  --text-xs:    clamp(0.688rem, 0.65vw + 0.5rem, 0.75rem);
+  --text-sm:    clamp(0.813rem, 0.75vw + 0.6rem, 0.875rem);
+  --text-base:  clamp(0.938rem, 0.9vw + 0.7rem, 1rem);
+  --text-md:    clamp(1rem, 1vw + 0.75rem, 1.125rem);
+  --text-lg:    clamp(1.125rem, 1.5vw + 0.8rem, 1.375rem);
+  --text-xl:    clamp(1.375rem, 2vw + 1rem, 1.75rem);
+  --text-2xl:   clamp(1.75rem, 3vw + 1rem, 2.5rem);
+  --text-3xl:   clamp(2.25rem, 5vw + 1rem, 3.75rem);
+  --text-hero:  clamp(3rem, 7.5vw + 1rem, 8rem);
+
+  /* ─── Spacing ─── */
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-6:   1.5rem;
+  --space-7:   1.75rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-14:  3.5rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+  --space-32:  8rem;
+  --space-48: 12rem;
+
+  /* ─── Borders & Radii ─── */
+  --radius-sm:  3px;
+  --radius-md:  6px;
+  --radius-lg:  12px;
+  --border-hair: 1px solid rgba(28, 27, 25, 0.12);
+  --border-accent: 1px solid var(--color-accent);
+
+  /* ─── Motion ─── */
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --dur-fast:   150ms;
+  --dur-base:   300ms;
+  --dur-slow:   500ms;
+  --dur-reveal: 600ms;
+
+  /* ─── Shadows ─── */
+  --shadow-sm:  0 1px 3px rgba(28,27,25,0.08), 0 1px 2px rgba(28,27,25,0.04);
+  --shadow-md:  0 4px 16px rgba(28,27,25,0.10), 0 2px 4px rgba(28,27,25,0.06);
+  --shadow-lg:  0 12px 40px rgba(28,27,25,0.14), 0 4px 8px rgba(28,27,25,0.06);
+
+  /* ─── Z-Index ─── */
+  --z-base:    1;
+  --z-above:   10;
+  --z-header:  100;
+  --z-cursor:  9999;
+}
