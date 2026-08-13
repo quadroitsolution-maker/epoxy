@@ -1,7 +1,13 @@
-/* cursor.js — Custom cursor behavior */
+/* cursor.js — Custom cursor behavior with Funky Metallic Particle Sparkle Trail */
 
 (function () {
   'use strict';
+
+  // Respect reduced motion & touch screens
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+    return;
+  }
 
   const cursor = document.querySelector('.cursor');
   const ring   = document.querySelector('.cursor-ring');
@@ -9,23 +15,58 @@
 
   let mx = 0, my = 0;
   let rx = 0, ry = 0;
-  let rafId = null;
+  let lastX = 0, lastY = 0;
 
-  // Track mouse
+  const funkyColors = ['#F5D77F', '#60A8F8', '#C084FC', '#34D399', '#FF6B6B', '#F472B6'];
+
+  // Spawn funky sparkle trail
+  function createSparkle(x, y) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'funky-sparkle';
+
+    const color = funkyColors[Math.floor(Math.random() * funkyColors.length)];
+    const size = Math.random() * 6 + 4; // 4px to 10px
+    const vx = (Math.random() - 0.5) * 40; // float offset X
+    const vy = (Math.random() - 0.7) * 50; // float up offset Y
+
+    sparkle.style.left = x + 'px';
+    sparkle.style.top = y + 'px';
+    sparkle.style.width = size + 'px';
+    sparkle.style.height = size + 'px';
+    sparkle.style.backgroundColor = color;
+    sparkle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+    sparkle.style.setProperty('--vx', vx + 'px');
+    sparkle.style.setProperty('--vy', vy + 'px');
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+      sparkle.remove();
+    }, 800);
+  }
+
+  // Track mouse and emit sparkles
   document.addEventListener('mousemove', (e) => {
     mx = e.clientX;
     my = e.clientY;
     cursor.style.left = mx + 'px';
     cursor.style.top  = my + 'px';
+
+    const dist = Math.hypot(mx - lastX, my - lastY);
+    if (dist > 18) {
+      createSparkle(mx, my);
+      lastX = mx;
+      lastY = my;
+    }
   });
 
   // Smooth ring follow
   function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
+    rx += (mx - rx) * 0.14;
+    ry += (my - ry) * 0.14;
     ring.style.left = rx + 'px';
     ring.style.top  = ry + 'px';
-    rafId = requestAnimationFrame(animateRing);
+    requestAnimationFrame(animateRing);
   }
   animateRing();
 
