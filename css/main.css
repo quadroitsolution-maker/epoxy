@@ -22,10 +22,10 @@ body::before {
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.028;
+  opacity: 0.035;
   pointer-events: none;
   z-index: var(--z-cursor);
-  mix-blend-mode: multiply;
+  mix-blend-mode: overlay;
 }
 
 /* ─── Custom Cursor ─── */
@@ -33,7 +33,7 @@ body::before {
   position: fixed;
   top: 0; left: 0;
   width: 10px; height: 10px;
-  background: var(--color-ink);
+  background: var(--color-accent);
   border-radius: 50%;
   pointer-events: none;
   z-index: var(--z-cursor);
@@ -42,14 +42,13 @@ body::before {
               height var(--dur-base) var(--ease-out),
               background var(--dur-base) var(--ease-out),
               opacity var(--dur-base) var(--ease-out);
-  mix-blend-mode: multiply;
 }
 
 .cursor-ring {
   position: fixed;
   top: 0; left: 0;
   width: 36px; height: 36px;
-  border: 1.5px solid var(--color-ink);
+  border: 1.5px solid var(--color-accent);
   border-radius: 50%;
   pointer-events: none;
   z-index: var(--z-cursor);
@@ -61,10 +60,10 @@ body::before {
   opacity: 0.5;
 }
 
-.cursor.is-hovering { width: 6px; height: 6px; background: var(--color-accent); }
-.cursor-ring.is-hovering { width: 52px; height: 52px; border-color: var(--color-accent); opacity: 0.6; }
+.cursor.is-hovering { width: 6px; height: 6px; background: var(--color-ink); }
+.cursor-ring.is-hovering { width: 52px; height: 52px; border-color: var(--color-ink); opacity: 0.6; }
 .cursor.is-gallery { width: 6px; height: 6px; background: var(--color-base); }
-.cursor-ring.is-gallery { width: 72px; height: 72px; border-color: var(--color-base); opacity: 0.8; }
+.cursor-ring.is-gallery { width: 72px; height: 72px; border-color: var(--color-accent); opacity: 0.8; }
 
 /* ─── Utility: section eyebrow label ─── */
 .eyebrow {
@@ -80,7 +79,7 @@ body::before {
 .divider {
   width: 100%;
   height: 1px;
-  background: rgba(28,27,25,0.1);
+  background: rgba(242,239,233,0.1);
   border: none;
 }
 
@@ -132,7 +131,7 @@ body::before {
 }
 
 .site-header.scrolled {
-  background: rgba(244, 241, 236, 0.94);
+  background: rgba(14, 13, 11, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: var(--border-hair);
@@ -711,7 +710,7 @@ body::before {
   left: 20px;
   top: 0; bottom: 0;
   width: 1px;
-  background: rgba(28,27,25,0.1);
+  background: rgba(242,239,233,0.1);
 }
 
 .process-step {
@@ -872,7 +871,7 @@ body::before {
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(28,27,25,0.75) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(14,13,11,0.85) 0%, transparent 60%);
   z-index: 2;
 }
 
@@ -1200,7 +1199,7 @@ body::before {
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(28,27,25,0.2);
+  border-bottom: 1px solid rgba(242,239,233,0.2);
   padding: var(--space-4) 0 var(--space-3);
   font-size: var(--text-base);
   color: var(--color-ink);

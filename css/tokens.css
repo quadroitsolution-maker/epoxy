@@ -1,12 +1,24 @@
-/* Design Tokens — Stratum Flooring Co. */
+/* Design Tokens — Stratum Flooring Co. — Vibrant Metallic Edition */
 :root {
   /* ─── Color Palette ─── */
-  --color-base:       #F4F1EC;   /* limestone off-white */
-  --color-ink:        #1C1B19;   /* charcoal near-black */
-  --color-accent:     #B5764C;   /* muted terracotta */
-  --color-secondary:  #8C8A7E;   /* stone grey */
-  --color-surface:    #EDE9E2;   /* slightly darker off-white for cards */
-  --color-ink-light:  #3A3935;   /* lighter charcoal for mid-weight text */
+  --color-base:       #0E0D0B;   /* near-black — the floor */
+  --color-ink:        #F2EFE9;   /* warm white — main text */
+  --color-accent:     #C8A84A;   /* metallic gold */
+  --color-secondary:  #8C8A7E;   /* stone grey — subtext */
+  --color-surface:    #161410;   /* elevated dark surface */
+  --color-surface-2:  #1E1C18;   /* more elevated */
+  --color-ink-light:  #D4D1CA;   /* lighter text variant */
+  --color-dark-panel: #131110;   /* services / testimonial panels */
+
+  /* ─── Epoxy Swirl Colors ─── */
+  --color-cobalt:    #3A7BD5;
+  --color-violet:    #8B47B8;
+  --color-emerald:   #22A870;
+  --color-copper:    #C8682A;
+  --color-gold-bright: #F0CF60;
+  --color-cobalt-bright: #60A8F8;
+  --color-violet-bright: #C084FC;
+  --color-emerald-bright: #4ADE9A;
 
   /* ─── Typography ─── */
   --font-serif:   'Fraunces', 'Georgia', ui-serif, serif;
@@ -45,11 +57,11 @@
   --radius-sm:  3px;
   --radius-md:  6px;
   --radius-lg:  12px;
-  --border-hair: 1px solid rgba(28, 27, 25, 0.12);
+  --border-hair: 1px solid rgba(242, 239, 233, 0.1);
   --border-accent: 1px solid var(--color-accent);
 
   /* ─── Motion ─── */
-  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
   --dur-fast:   150ms;
   --dur-base:   300ms;
@@ -57,9 +69,9 @@
   --dur-reveal: 600ms;
 
   /* ─── Shadows ─── */
-  --shadow-sm:  0 1px 3px rgba(28,27,25,0.08), 0 1px 2px rgba(28,27,25,0.04);
-  --shadow-md:  0 4px 16px rgba(28,27,25,0.10), 0 2px 4px rgba(28,27,25,0.06);
-  --shadow-lg:  0 12px 40px rgba(28,27,25,0.14), 0 4px 8px rgba(28,27,25,0.06);
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.3);
 
   /* ─── Z-Index ─── */
   --z-base:    1;
