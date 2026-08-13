@@ -52,10 +52,14 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts — loaded non-blocking so a timeout never hangs the page -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..500&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..500&display=swap" rel="stylesheet" />
+  </noscript>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./css/reset.css" />

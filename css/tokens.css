@@ -9,8 +9,8 @@
   --color-ink-light:  #3A3935;   /* lighter charcoal for mid-weight text */
 
   /* ─── Typography ─── */
-  --font-serif:   'Fraunces', 'Georgia', serif;
-  --font-sans:    'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-serif:   'Fraunces', 'Georgia', ui-serif, serif;
+  --font-sans:    'DM Sans', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
 
   /* Fluid type scale using clamp() */
   --text-xs:    clamp(0.688rem, 0.65vw + 0.5rem, 0.75rem);
@@ -28,6 +28,7 @@
   --space-2:   0.5rem;
   --space-3:   0.75rem;
   --space-4:   1rem;
+  --space-5:   1.25rem;
   --space-6:   1.5rem;
   --space-7:   1.75rem;
   --space-8:   2rem;
