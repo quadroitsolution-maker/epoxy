@@ -1,988 +1,589 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
-  <style>
-    .skip-link {
-      position: absolute;
-      top: -40px; left: 0;
-      background: #1C1B19;
-      color: #F4F1EC;
-      padding: 0.75rem 1.5rem;
-      z-index: 9999;
-      font-size: 0.875rem;
-      font-family: sans-serif;
-      transition: top 200ms;
-    }
-    .skip-link:focus { top: 0; }
-    .sr-only {
-      position: absolute;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-  </style>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F4F1EC" />
-
-  <!-- Primary Meta -->
-  <title>Stratum Flooring Co. — Premium Resin &amp; Epoxy Flooring Melbourne</title>
-  <meta name="description" content="Stratum Flooring Co. installs precision-poured resin and epoxy floors for Melbourne's most demanding residential and commercial projects. Polished concrete look, metallic epoxy, and industrial coatings. Melbourne · Geelong · Mornington Peninsula." />
-  <meta name="keywords" content="epoxy flooring Melbourne, resin floors, polished concrete epoxy, metallic epoxy, flake systems, industrial coatings, Geelong, Mornington Peninsula" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.stratumflooring.com.au/" />
-
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://www.stratumflooring.com.au/" />
-  <meta property="og:title"       content="Stratum Flooring Co. — Floors Engineered to Disappear Into the Room" />
-  <meta property="og:description" content="High-end epoxy and resin flooring for Melbourne's most discerning homes and commercial spaces. Precision installation. 10-year warranty." />
-  <meta property="og:image"       content="https://www.stratumflooring.com.au/assets/og-image.jpg" />
-  <meta property="og:locale"      content="en_AU" />
-  <meta property="og:site_name"   content="Stratum Flooring Co." />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Stratum Flooring Co. — Premium Resin &amp; Epoxy Flooring Melbourne" />
-  <meta name="twitter:description" content="Precision-poured resin and epoxy floors for Melbourne's high-spec properties." />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
-
-  <!-- Google Fonts — loaded non-blocking so a timeout never hangs the page -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..500&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..500&display=swap" rel="stylesheet" />
-  </noscript>
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="./css/reset.css" />
-  <link rel="stylesheet" href="./css/tokens.css" />
-  <link rel="stylesheet" href="./css/main.css" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Stratum Flooring Co.",
-    "description": "Premium epoxy and resin flooring for residential and commercial spaces in Melbourne, Geelong, and the Mornington Peninsula.",
-    "url": "https://www.stratumflooring.com.au/",
-    "telephone": "+61-3-9000-4821",
-    "email": "hello@stratumflooring.com.au",
-    "foundingDate": "2014",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "14 Ferrars Place",
-      "addressLocality": "South Melbourne",
-      "addressRegion": "VIC",
-      "postalCode": "3205",
-      "addressCountry": "AU"
-    },
-    "areaServed": ["Melbourne", "Geelong", "Mornington Peninsula"],
-    "priceRange": "$$$"
-  }
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rapid Epoxy — Commercial & Residential Epoxy Flooring Victoria</title>
+  <meta name="description" content="Melbourne's trusted epoxy flooring specialists. High-grade garage flake systems, metallic resin pours, and diamond-ground concrete resurfacing with a 10-year warranty.">
+  
+  <!-- Google Fonts: DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
-  <!-- ─── Custom Cursor ─── -->
-  <div class="cursor"      aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
-
-  <!-- ─── Mobile Nav Overlay ─── -->
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="#services"     class="mobile-nav-link">Services</a>
-    <a href="#process"      class="mobile-nav-link">Process</a>
-    <a href="#work"         class="mobile-nav-link">Work</a>
-    <a href="#why-stratum"  class="mobile-nav-link">Why Stratum</a>
-    <a href="#contact"      class="mobile-nav-link">Contact</a>
-  </nav>
 
   <!-- ═══════════════════════════════════════
-       HEADER
+       HEADER & NAVIGATION
   ═══════════════════════════════════════ -->
-  <header class="site-header" id="header" role="banner">
-    <!-- Wordmark -->
-    <a href="#" class="wordmark" aria-label="Stratum Flooring Co. — home">
-      <!-- Logo mark: layered floors motif -->
-      <svg class="wordmark-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="4"  y="22" width="24" height="2"   rx="0.5" fill="#1C1B19" opacity="1"/>
-        <rect x="4"  y="17" width="24" height="2"   rx="0.5" fill="#B5764C" opacity="0.9"/>
-        <rect x="4"  y="12" width="24" height="2"   rx="0.5" fill="#1C1B19" opacity="0.5"/>
-        <rect x="4"  y="7"  width="24" height="2"   rx="0.5" fill="#1C1B19" opacity="0.25"/>
-      </svg>
-      <div class="wordmark-text">
-        <span class="wordmark-name">Stratum</span>
-        <span class="wordmark-sub">Flooring Co.</span>
-      </div>
-    </a>
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <!-- Logo -->
+      <a href="#" class="logo-brand" aria-label="Rapid Epoxy Home">
+        <div class="logo-monogram">RE</div>
+        <span>Rapid Epoxy</span>
+      </a>
 
-    <!-- Desktop Nav -->
-    <nav class="nav-links" aria-label="Primary navigation">
-      <a href="#services"    class="nav-link">Services</a>
-      <a href="#process"     class="nav-link">Process</a>
-      <a href="#work"        class="nav-link">Work</a>
-      <a href="#why-stratum" class="nav-link">Why Stratum</a>
-    </nav>
+      <!-- Desktop Nav -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link">Home</a></li>
+          <li><a href="#services" class="nav-link">Products &amp; Finishes ▾</a></li>
+          <li><a href="#services" class="nav-link">Services ▾</a></li>
+          <li><a href="#owner" class="nav-link">About &amp; Contact ▾</a></li>
+        </ul>
+      </nav>
 
-    <a href="#contact" class="btn-primary header-cta" id="header-cta">
-      <span>Book a Site Visit</span>
-    </a>
+      <!-- Header Action -->
+      <a href="#contact" class="btn btn-gold">Request Quote</a>
 
-    <!-- Mobile Toggle -->
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <!-- Mobile Toggle -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">☰</button>
+    </div>
   </header>
+
+  <!-- Mobile Menu Drawer Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <a href="#" class="mobile-nav-link">Home</a>
+    <a href="#services" class="mobile-nav-link">Products &amp; Finishes</a>
+    <a href="#services" class="mobile-nav-link">Our Services</a>
+    <a href="#packages" class="mobile-nav-link">Garage Packages</a>
+    <a href="#prep" class="mobile-nav-link">Concrete Prep</a>
+    <a href="#owner" class="mobile-nav-link">About Us</a>
+    <a href="#contact" class="mobile-nav-link">Contact &amp; Quotes</a>
+    <a href="#contact" class="btn btn-gold" style="margin-top:var(--space-4);">Request Quote</a>
+  </div>
+
 
   <main id="main-content">
 
     <!-- ═══════════════════════════════════════
-         HERO
+         HERO SECTION
     ═══════════════════════════════════════ -->
-    <section class="hero" id="hero" aria-labelledby="hero-headline">
-      <div class="glow-orb glow-orb-violet"></div>
-      <div class="glow-orb glow-orb-gold"></div>
-
-      <!-- Left: copy -->
-      <div class="hero-copy">
-        <div class="hero-location reveal" data-delay="0">
-          <span class="hero-location-dot" aria-hidden="true"></span>
-          <span class="hero-location-text">Melbourne · Geelong · Mornington Peninsula</span>
-        </div>
-
-        <h1 class="hero-headline reveal" data-delay="1" id="hero-headline">
-          Floors<br>
-          <em class="funky-text">engineered</em><br>
-          to disappear.
-        </h1>
-
-        <p class="hero-tagline reveal" data-delay="2">
-          High-end resin and epoxy flooring for residential and commercial spaces that demand precision. Not the cheapest — the most exact.
-        </p>
-
-        <div class="hero-actions reveal" data-delay="3">
-          <a href="#contact" class="btn-primary" id="hero-cta">
-            <span>Book a Site Visit</span>
-          </a>
-          <a href="#work" class="btn-outline" id="hero-work-link">
-            <span>View Work</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Right: resin floor visual -->
-      <div class="hero-visual" aria-hidden="true" role="presentation">
-        <div class="hero-visual-inner" id="hero-visual-inner">
-          <!-- Bespoke SVG resin floor — Vibrant Metallic Epoxy Stream -->
-          <svg class="resin-svg" viewBox="0 0 800 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%"   stop-color="#0E0D0B"/>
-                <stop offset="50%"  stop-color="#141210"/>
-                <stop offset="100%" stop-color="#0A0908"/>
-              </linearGradient>
-              <linearGradient id="gold-flow" x1="0%" y1="20%" x2="100%" y2="80%">
-                <stop offset="0%"   stop-color="#E6BE68" stop-opacity="0.9"/>
-                <stop offset="50%"  stop-color="#C89038" stop-opacity="0.6"/>
-                <stop offset="100%" stop-color="#8A5A18" stop-opacity="0.1"/>
-              </linearGradient>
-              <linearGradient id="cobalt-flow" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%"   stop-color="#4B90E2" stop-opacity="0.85"/>
-                <stop offset="50%"  stop-color="#2255A4" stop-opacity="0.5"/>
-                <stop offset="100%" stop-color="#0E2450" stop-opacity="0.05"/>
-              </linearGradient>
-              <linearGradient id="violet-flow" x1="100%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%"   stop-color="#A855F7" stop-opacity="0.8"/>
-                <stop offset="60%"  stop-color="#6B21A8" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#3B0764" stop-opacity="0.05"/>
-              </linearGradient>
-              <linearGradient id="emerald-flow" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%"   stop-color="#34D399" stop-opacity="0.75"/>
-                <stop offset="50%"  stop-color="#059669" stop-opacity="0.35"/>
-                <stop offset="100%" stop-color="#064E3B" stop-opacity="0.05"/>
-              </linearGradient>
-              <radialGradient id="gloss-highlight" cx="40%" cy="30%" r="60%">
-                <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.22"/>
-                <stop offset="40%"  stop-color="#F5D77F" stop-opacity="0.08"/>
-                <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-              </radialGradient>
-              <filter id="resin-blur" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="15"/>
-              </filter>
-              <filter id="soft-glow">
-                <feGaussianBlur stdDeviation="6"/>
-              </filter>
-              <clipPath id="hero-clip">
-                <rect width="800" height="900"/>
-              </clipPath>
-            </defs>
-
-            <g clip-path="url(#hero-clip)">
-              <!-- Base floor background -->
-              <rect width="800" height="900" fill="url(#bg-grad)"/>
-
-              <!-- Deep Metallic Swirl Basins (Blurred) -->
-              <path d="M-100 200 Q150 50 450 300 Q750 550 900 350 L900 950 L-100 950 Z" fill="url(#violet-flow)" filter="url(#resin-blur)"/>
-              <path d="M-50 600 Q250 350 550 650 Q850 950 950 700 L950 950 L-50 950 Z" fill="url(#cobalt-flow)" filter="url(#resin-blur)"/>
-
-              <!-- Main Vibrant Metallic Swirl Rivers -->
-              <path d="M-50 120 C180 80, 260 380, 520 280 C780 180, 720 580, 850 620 L850 720 C680 680, 720 280, 480 380 C240 480, 120 180, -50 220 Z" fill="url(#gold-flow)"/>
-              <path d="M-80 480 C120 320, 320 620, 580 440 C840 260, 680 800, 880 840 L880 920 C650 880, 780 340, 520 520 C260 700, 80 400, -80 560 Z" fill="url(#cobalt-flow)"/>
-              <path d="M100 -50 C280 180, 120 480, 420 580 C720 680, 620 950, 850 950 L750 950 C550 950, 620 740, 350 640 C80 540, 200 220, 20 -50 Z" fill="url(#violet-flow)"/>
-              <path d="M-50 750 C220 580, 380 880, 680 720 C820 640, 750 420, 850 380 L850 450 C780 480, 740 700, 620 780 C320 940, 180 640, -50 820 Z" fill="url(#emerald-flow)"/>
-
-              <!-- Fine Glowing Metallic Veins -->
-              <path d="M-30 140 Q200 100 320 260 T680 340 T850 600" fill="none" stroke="#F5D77F" stroke-width="3" opacity="0.8" filter="url(#soft-glow)"/>
-              <path d="M-20 490 Q150 360 380 520 T720 460 T880 820" fill="none" stroke="#60A8F8" stroke-width="2.5" opacity="0.85" filter="url(#soft-glow)"/>
-              <path d="M120 -30 Q260 160 220 380 T520 620 T780 920" fill="none" stroke="#C084FC" stroke-width="2.5" opacity="0.8" filter="url(#soft-glow)"/>
-              <path d="M-30 770 Q200 620 420 780 T750 740" fill="none" stroke="#34D399" stroke-width="2" opacity="0.75" filter="url(#soft-glow)"/>
-
-              <!-- Metallic Pigment Flakes & Sparkles -->
-              <g opacity="0.9">
-                <circle cx="180" cy="220" r="2.5" fill="#FFF" />
-                <circle cx="340" cy="180" r="1.8" fill="#F5D77F" />
-                <circle cx="480" cy="320" r="3" fill="#60A8F8" />
-                <circle cx="280" cy="450" r="2" fill="#C084FC" />
-                <circle cx="580" cy="480" r="2.5" fill="#FFF" />
-                <circle cx="650" cy="360" r="1.5" fill="#F5D77F" />
-                <circle cx="220" cy="620" r="2.2" fill="#34D399" />
-                <circle cx="420" cy="580" r="2.8" fill="#FFF" />
-                <circle cx="720" cy="680" r="2" fill="#60A8F8" />
-                <circle cx="150" cy="780" r="1.8" fill="#F5D77F" />
-                <circle cx="520" cy="740" r="2.5" fill="#C084FC" />
-                <circle cx="620" cy="820" r="1.5" fill="#FFF" />
-              </g>
-
-              <!-- Glossy Clear Coat Sheen -->
-              <rect width="800" height="900" fill="url(#gloss-highlight)" style="mix-blend-mode: screen;"/>
-            </g>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Scroll hint -->
-      <div class="hero-scroll-hint" aria-hidden="true" id="hero-scroll-hint">
-        <span class="hero-scroll-label">Scroll</span>
-        <div class="hero-scroll-line"></div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════
-         INTRO STATEMENT
-    ═══════════════════════════════════════ -->
-    <section class="section-intro" id="about" aria-labelledby="intro-heading">
-      <div class="glow-orb glow-orb-cobalt"></div>
-      <div class="intro-inner">
-        <div class="intro-label-col">
-          <span class="eyebrow reveal funky-text">Est. 2014</span>
-          <div class="intro-founded reveal" data-delay="1">
-            <div class="intro-founded-line"></div>
-            <span>South Melbourne</span>
-          </div>
-        </div>
-        <div class="intro-text-col">
-          <h2 class="intro-statement reveal" id="intro-heading">
-            We don't treat flooring as a finish.<br>
-            We treat it as the <strong class="funky-text">material logic</strong> of a room.
-          </h2>
-          <p class="intro-sub reveal" data-delay="1">
-            Stratum was built around a simple premise: the floor is the only surface every person in a space makes physical contact with. It deserves the same rigour as every other design decision. We work with architects, builders, and homeowners who share that conviction.
-          </p>
-          <div class="intro-founded reveal" data-delay="2">
-            <div class="intro-founded-line"></div>
-            <span>Family-run · 6 certified installers · Melbourne, Victoria</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" aria-hidden="true">
-
-
-    <!-- ═══════════════════════════════════════
-         SERVICES — STICKY SCROLL
-    ═══════════════════════════════════════ -->
-    <section class="section-services" id="services" aria-labelledby="services-heading">
-      <div class="services-inner">
-
-        <!-- Left: Sticky panel -->
-        <div class="services-sticky" aria-hidden="true">
-          <div class="services-label">Our Systems</div>
-
-          <!-- Morphing visual panel -->
-          <div class="services-visual-wrap" role="presentation">
-
-            <!-- Visual 1: Metallic Epoxy -->
-            <div class="service-visual is-active" data-service="0">
-              <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <defs>
-                  <linearGradient id="m1-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stop-color="#0F0C1B"/>
-                    <stop offset="100%" stop-color="#08070D"/>
-                  </linearGradient>
-                  <linearGradient id="m1-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stop-color="#F5D77F"/>
-                    <stop offset="50%"  stop-color="#D49A38"/>
-                    <stop offset="100%" stop-color="#8A5818"/>
-                  </linearGradient>
-                  <linearGradient id="m1-cobalt" x1="100%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%"   stop-color="#60A8F8"/>
-                    <stop offset="50%"  stop-color="#2B68D8"/>
-                    <stop offset="100%" stop-color="#0D2B78"/>
-                  </linearGradient>
-                  <linearGradient id="m1-violet" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%"   stop-color="#D8B4FE"/>
-                    <stop offset="50%"  stop-color="#9333EA"/>
-                    <stop offset="100%" stop-color="#4C1D95"/>
-                  </linearGradient>
-                  <filter id="svg-blur">
-                    <feGaussianBlur stdDeviation="8"/>
-                  </filter>
-                </defs>
-                <rect width="420" height="420" fill="url(#m1-bg)"/>
-
-                <!-- Glowing Resin Underlayers -->
-                <path d="M-50 150 C120 40, 240 320, 470 200 Z" fill="url(#m1-violet)" opacity="0.6" filter="url(#svg-blur)"/>
-                <path d="M-20 320 C180 180, 320 450, 470 300 Z" fill="url(#m1-cobalt)" opacity="0.6" filter="url(#svg-blur)"/>
-
-                <!-- Flowing Vibrant Metallic Veins -->
-                <path d="M-20 180 Q100 120 220 220 T440 180 L440 260 Q300 280 180 200 Q60 140 -20 230 Z" fill="url(#m1-gold)" opacity="0.9"/>
-                <path d="M-20 260 Q140 200 280 300 T440 240 L440 310 Q280 340 140 260 Q40 220 -20 300 Z" fill="url(#m1-cobalt)" opacity="0.85"/>
-                <path d="M-20 100 Q80 40 200 120 T440 80 L440 130 Q220 170 100 90 Q30 60 -20 130 Z" fill="url(#m1-violet)" opacity="0.8"/>
-
-                <!-- Metallic Pigment Sparkles -->
-                <circle cx="210" cy="200" r="2" fill="#FFFFFF" opacity="0.9"/>
-                <circle cx="310" cy="165" r="1.5" fill="#F5D77F" opacity="0.8"/>
-                <circle cx="130" cy="230" r="2.2" fill="#60A8F8" opacity="0.85"/>
-                <circle cx="260" cy="270" r="1.8" fill="#D8B4FE" opacity="0.8"/>
-                <circle cx="370" cy="210" r="2.5" fill="#FFFFFF" opacity="0.9"/>
-
-                <!-- Clear Resin Sheen -->
-                <path d="M0 0 L420 0 L420 180 Q210 240 0 160 Z" fill="#FFFFFF" opacity="0.05"/>
-              </svg>
-            </div>
-
-            <!-- Visual 2: Flake Systems -->
-            <div class="service-visual" data-service="1">
-              <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <defs>
-                  <linearGradient id="f1-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stop-color="#141824"/>
-                    <stop offset="100%" stop-color="#0A0C14"/>
-                  </linearGradient>
-                </defs>
-                <rect width="420" height="420" fill="url(#f1-bg)"/>
-
-                <!-- Multicolored Flake System (Cobalt, Gold, Emerald, Violet, Pure White) -->
-                <!-- Cobalt & Blue Flakes -->
-                <g opacity="0.85">
-                  <rect x="40"  y="85"  width="12" height="5" rx="1" fill="#3B82F6" transform="rotate(-18 46 87)"/>
-                  <rect x="160" y="65"  width="14" height="5" rx="1" fill="#60A5FA" transform="rotate(-5 167 67)"/>
-                  <rect x="310" y="80"  width="11" height="5" rx="1" fill="#2563EB" transform="rotate(-12 315 82)"/>
-                  <rect x="55"  y="200" width="13" height="5" rx="1" fill="#3B82F6" transform="rotate(6 61 202)"/>
-                  <rect x="280" y="230" width="12" height="5" rx="1" fill="#60A5FA" transform="rotate(10 286 232)"/>
-                  <rect x="90"  y="330" width="14" height="5" rx="1" fill="#2563EB" transform="rotate(3 97 332)"/>
-                  <rect x="320" y="380" width="10" height="4" rx="1" fill="#3B82F6" transform="rotate(12 325 382)"/>
-                </g>
-
-                <!-- Gold & Amber Flakes -->
-                <g opacity="0.9">
-                  <rect x="80"  y="140" width="10" height="4" rx="1" fill="#F59E0B" transform="rotate(8 85 142)"/>
-                  <rect x="230" y="120" width="11" height="5" rx="1" fill="#FBBF24" transform="rotate(22 235 122)"/>
-                  <rect x="370" y="155" width="9"  height="4" rx="1" fill="#F59E0B" transform="rotate(15 374 157)"/>
-                  <rect x="130" y="260" width="12" height="5" rx="1" fill="#FBBF24" transform="rotate(-20 135 262)"/>
-                  <rect x="350" y="300" width="10" height="4" rx="1" fill="#F59E0B" transform="rotate(-8 354 302)"/>
-                  <rect x="200" y="360" width="11" height="5" rx="1" fill="#FBBF24" transform="rotate(-16 205 362)"/>
-                </g>
-
-                <!-- Emerald & Teal Flakes -->
-                <g opacity="0.85">
-                  <rect x="120" y="95"  width="11" height="4" rx="1" fill="#10B981" transform="rotate(-10 125 97)"/>
-                  <rect x="260" y="145" width="12" height="5" rx="1" fill="#34D399" transform="rotate(-22 266 147)"/>
-                  <rect x="40"  y="280" width="13" height="5" rx="1" fill="#059669" transform="rotate(-6 46 282)"/>
-                  <rect x="240" y="290" width="9"  height="4" rx="1" fill="#34D399" transform="rotate(-18 244 292)"/>
-                  <rect x="110" y="380" width="10" height="4" rx="1" fill="#10B981" transform="rotate(-3 114 382)"/>
-                </g>
-
-                <!-- Violet & Purple Flakes -->
-                <g opacity="0.85">
-                  <rect x="60"  y="120" width="9"  height="4" rx="1" fill="#8B5CF6" transform="rotate(25 64 122)"/>
-                  <rect x="190" y="180" width="10" height="4" rx="1" fill="#A78BFA" transform="rotate(5 194 182)"/>
-                  <rect x="340" y="200" width="9"  height="4" rx="1" fill="#7C3AED" transform="rotate(18 344 202)"/>
-                  <rect x="160" y="310" width="11" height="5" rx="1" fill="#A78BFA" transform="rotate(14 165 312)"/>
-                  <rect x="380" y="340" width="10" height="4" rx="1" fill="#8B5CF6" transform="rotate(8 385 342)"/>
-                </g>
-
-                <!-- White & Silver Accent Chips -->
-                <g opacity="0.9">
-                  <rect x="100" y="70"  width="8" height="3" rx="0.5" fill="#FFFFFF" transform="rotate(30 103 71)"/>
-                  <rect x="200" y="50"  width="9" height="3" rx="0.5" fill="#E2E8F0" transform="rotate(-15 204 51)"/>
-                  <rect x="290" y="110" width="8" height="3" rx="0.5" fill="#FFFFFF" transform="rotate(8 294 111)"/>
-                  <rect x="170" y="220" width="7" height="3" rx="0.5" fill="#E2E8F0" transform="rotate(-25 173 221)"/>
-                  <rect x="320" y="265" width="9" height="3" rx="0.5" fill="#FFFFFF" transform="rotate(20 324 266)"/>
-                  <rect x="70"  y="350" width="8" height="3" rx="0.5" fill="#E2E8F0" transform="rotate(-12 74 351)"/>
-                  <rect x="250" y="395" width="7" height="3" rx="0.5" fill="#FFFFFF" transform="rotate(5 253 396)"/>
-                </g>
-
-                <rect width="420" height="420" fill="radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1), transparent)" opacity="0.5"/>
-              </svg>
-            </div>
-
-            <!-- Visual 3: Polished Concrete Look -->
-            <div class="service-visual" data-service="2">
-              <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <defs>
-                  <linearGradient id="pc-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stop-color="#1E2430"/>
-                    <stop offset="50%"  stop-color="#141822"/>
-                    <stop offset="100%" stop-color="#0D1017"/>
-                  </linearGradient>
-                  <radialGradient id="pc-sheen" cx="60%" cy="35%" r="55%">
-                    <stop offset="0%"   stop-color="#60A8F8" stop-opacity="0.3"/>
-                    <stop offset="50%"  stop-color="#3A7BD5" stop-opacity="0.1"/>
-                    <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-                <rect width="420" height="420" fill="url(#pc-bg)"/>
-
-                <!-- Metallic Aggregate Particles -->
-                <g opacity="0.3">
-                  <circle cx="45"  cy="60"  r="2.5" fill="#93C5FD"/>
-                  <circle cx="120" cy="35"  r="1.8" fill="#F5D77F"/>
-                  <circle cx="200" cy="80"  r="2.2" fill="#93C5FD"/>
-                  <circle cx="280" cy="50"  r="1.6" fill="#C084FC"/>
-                  <circle cx="360" cy="90"  r="2"   fill="#93C5FD"/>
-                  <circle cx="90"  cy="150" r="2.4" fill="#F5D77F"/>
-                  <circle cx="170" cy="130" r="1.7" fill="#93C5FD"/>
-                  <circle cx="250" cy="170" r="2.1" fill="#C084FC"/>
-                  <circle cx="340" cy="145" r="1.9" fill="#93C5FD"/>
-                  <circle cx="210" cy="240" r="2.2" fill="#F5D77F"/>
-                  <circle cx="290" cy="215" r="1.8" fill="#93C5FD"/>
-                  <circle cx="380" cy="250" r="2"   fill="#C084FC"/>
-                  <circle cx="150" cy="290" r="2.4" fill="#93C5FD"/>
-                  <circle cx="320" cy="305" r="2.1" fill="#F5D77F"/>
-                </g>
-
-                <!-- Liquid Mirror Reflections -->
-                <ellipse cx="252" cy="145" rx="160" ry="60" fill="#60A8F8" opacity="0.15"/>
-                <ellipse cx="180" cy="300" rx="120" ry="45" fill="#F5D77F" opacity="0.1"/>
-                <rect width="420" height="420" fill="url(#pc-sheen)"/>
-              </svg>
-            </div>
-
-            <!-- Visual 4: Industrial Coatings -->
-            <div class="service-visual" data-service="3">
-              <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <defs>
-                  <linearGradient id="ic-bg" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%"   stop-color="#121620"/>
-                    <stop offset="100%" stop-color="#0A0C12"/>
-                  </linearGradient>
-                </defs>
-                <rect width="420" height="420" fill="url(#ic-bg)"/>
-
-                <!-- Glowing Saw-cut Joint Grid (Electric Cyan/Blue & Gold) -->
-                <line x1="140" y1="0" x2="140" y2="420" stroke="#3B82F6" stroke-width="1.5" opacity="0.6"/>
-                <line x1="280" y1="0" x2="280" y2="420" stroke="#3B82F6" stroke-width="1.5" opacity="0.6"/>
-                <line x1="0" y1="140" x2="420" y2="140" stroke="#3B82F6" stroke-width="1.5" opacity="0.6"/>
-                <line x1="0" y1="280" x2="420" y2="280" stroke="#3B82F6" stroke-width="1.5" opacity="0.6"/>
-
-                <!-- High Gloss Panel Reflections -->
-                <rect x="1"   y="1"   width="138" height="138" fill="#3B82F6" opacity="0.08"/>
-                <rect x="141" y="141" width="138" height="138" fill="#F59E0B" opacity="0.1"/>
-                <rect x="281" y="281" width="138" height="138" fill="#3B82F6" opacity="0.08"/>
-
-                <!-- Safety Warning Chevron Accents -->
-                <path d="M0 400 L25 420 L0 420 Z" fill="#F59E0B" opacity="0.75"/>
-                <path d="M35 420 L75 420 L50 400 Z" fill="#F59E0B" opacity="0.75"/>
-                <path d="M85 420 L125 420 L100 400 Z" fill="#F59E0B" opacity="0.75"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Current service name -->
-          <div class="services-current-name" id="services-current-name" aria-live="polite">
-            Metallic Epoxy
-          </div>
-
-          <!-- Progress dots -->
-          <div class="services-progress" role="progressbar" aria-label="Service navigation">
-            <div class="services-progress-item is-active"></div>
-            <div class="services-progress-item"></div>
-            <div class="services-progress-item"></div>
-            <div class="services-progress-item"></div>
-          </div>
-        </div>
-
-        <!-- Right: scrolling copy -->
-        <div class="services-copy">
-          <h2 class="sr-only" id="services-heading">Our Flooring Systems</h2>
-
-          <!-- Service 1 -->
-          <article class="service-item" data-service="0">
-            <div class="service-number">01 / 04</div>
-            <h3 class="service-title">Metallic Epoxy</h3>
-            <p class="service-desc">
-              A two-component system where metallic pigments are broadcast into the wet epoxy layer, creating depth and movement that reads differently from every angle. Each pour is unrepeatable. Suited to residential showpieces, hospitality interiors, and retail environments where the floor needs to work as a design feature in its own right.
+    <section class="hero-section" id="hero">
+      <div class="container">
+        
+        <!-- Hero Media Wrap -->
+        <div class="hero-media-wrap">
+          <img src="img/hero_epoxy.jpg" alt="Architectural Metallic Epoxy Floor Pour" class="hero-img">
+          
+          <div class="hero-overlay-content">
+            <span class="eyebrow">— Greater Melbourne &amp; Victoria</span>
+            <h1 class="hero-headline">Industrial-Grade Epoxy Floors. Built for Life.</h1>
+            <p class="hero-sub">
+              Diamond-ground substrate prep, 100% solid resin, and UV-stable polyaspartic topcoats. Engineered for seamless garage, commercial, and retail surfaces.
             </p>
-            <div class="service-details">
-              <div class="service-detail">2–4mm pour depth</div>
-              <div class="service-detail">Gloss or satin finish</div>
-              <div class="service-detail">Custom metallic pigment blending</div>
-              <div class="service-detail">Suitable for radiant heating substrates</div>
-            </div>
-          </article>
-
-          <!-- Service 2 -->
-          <article class="service-item" data-service="1">
-            <div class="service-number">02 / 04</div>
-            <h3 class="service-title">Flake Systems</h3>
-            <p class="service-desc">
-              Coloured vinyl flakes broadcast into a coloured base coat, sealed with a clear topcoat. The result is textured, slip-resistant, and extraordinarily durable. We blend our own flake ratios — no bag-mixed standard chips — which gives a finish that holds its own alongside architectural tile and stone work.
-            </p>
-            <div class="service-details">
-              <div class="service-detail">Custom flake colour blending</div>
-              <div class="service-detail">Slip-resistant textures available</div>
-              <div class="service-detail">High-traffic residential and commercial</div>
-              <div class="service-detail">Seamless with coved skirting</div>
-            </div>
-          </article>
-
-          <!-- Service 3 -->
-          <article class="service-item" data-service="2">
-            <div class="service-number">03 / 04</div>
-            <h3 class="service-title">Polished Concrete Look</h3>
-            <p class="service-desc">
-              Architectural-grade resin overlays that replicate the tonal depth of polished concrete without the moisture sensitivity or heating limitations. Applied over existing slabs — no demolition required. The preferred specification for Melbourne's high-spec residential market where in-slab hydronic heating is already installed.
-            </p>
-            <div class="service-details">
-              <div class="service-detail">No slab replacement required</div>
-              <div class="service-detail">Hydronic-heating compatible</div>
-              <div class="service-detail">Micro-cement and overlay options</div>
-              <div class="service-detail">Warm and cool tone palettes</div>
-            </div>
-          </article>
-
-          <!-- Service 4 -->
-          <article class="service-item" data-service="3">
-            <div class="service-number">04 / 04</div>
-            <h3 class="service-title">Industrial Coatings</h3>
-            <p class="service-desc">
-              High-build epoxy systems engineered for environments that demand chemical resistance, point-load performance, and saw-cut joint systems. Warehouses, workshops, food-grade facilities, and commercial garages. We specify to AS/NZS standards and provide documentation packages for compliance requirements.
-            </p>
-            <div class="service-details">
-              <div class="service-detail">Chemical and solvent-resistant</div>
-              <div class="service-detail">AS/NZS compliance documentation</div>
-              <div class="service-detail">Saw-cut joint systems included</div>
-              <div class="service-detail">Forklift and pallet-jack rated</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════
-         PROCESS
-    ═══════════════════════════════════════ -->
-    <section class="section-process" id="process" aria-labelledby="process-heading">
-      <div class="glow-orb glow-orb-emerald"></div>
-      <div class="process-header">
-        <div>
-          <span class="eyebrow reveal funky-text">How We Work</span>
-          <h2 class="process-headline reveal" data-delay="1" id="process-heading">
-            Four steps.<br>No surprises.
-          </h2>
-        </div>
-        <p class="process-sub reveal">
-          Every Stratum installation follows the same rigorous sequence — regardless of whether the project is a 40m² apartment kitchen or a 2,000m² warehouse. Precision at each stage is what protects the result.
-        </p>
-      </div>
-
-      <div class="process-timeline" role="list">
-        <div class="process-line" aria-hidden="true"></div>
-
-        <div class="process-step reveal" data-delay="1" role="listitem">
-          <div class="process-step-num">
-            <div class="process-circle" aria-hidden="true">01</div>
-          </div>
-          <div class="process-step-body">
-            <div class="process-step-label">Site Assessment</div>
-            <h3 class="process-step-title">Consult &amp; Specify</h3>
-            <p class="process-step-desc">
-              We visit the site before quoting — always. Moisture testing, substrate assessment, existing coatings, and heating systems are all documented. We then specify the correct product system in writing, with a fixed price. No ambiguity.
-            </p>
-            <span class="process-step-duration">Typically 1–2 days from enquiry</span>
-          </div>
-        </div>
-
-        <div class="process-step reveal" data-delay="2" role="listitem">
-          <div class="process-step-num">
-            <div class="process-circle" aria-hidden="true">02</div>
-          </div>
-          <div class="process-step-body">
-            <div class="process-step-label">Surface Preparation</div>
-            <h3 class="process-step-title">Prep &amp; Diamond Grind</h3>
-            <p class="process-step-desc">
-              The substrate carries the entire system. We diamond-grind to the correct profile (CSP 2–4 depending on system), remove laitance, repair cracks and low spots, and prime. Every hour spent here directly extends the life of the finished floor.
-            </p>
-            <span class="process-step-duration">1–2 days · dustless equipment</span>
-          </div>
-        </div>
-
-        <div class="process-step reveal" data-delay="3" role="listitem">
-          <div class="process-step-num">
-            <div class="process-circle" aria-hidden="true">03</div>
-          </div>
-          <div class="process-step-body">
-            <div class="process-step-label">Installation</div>
-            <h3 class="process-step-title">Pour &amp; Cure</h3>
-            <p class="process-step-desc">
-              Mixed on-site in calibrated batches. Application in controlled conditions — we monitor ambient temperature, dew point, and humidity throughout. Cure times are respected, not shortened. We don't cut cure windows to hit a handover date.
-            </p>
-            <span class="process-step-duration">1–3 days depending on system</span>
-          </div>
-        </div>
-
-        <div class="process-step reveal" data-delay="4" role="listitem">
-          <div class="process-step-num">
-            <div class="process-circle" aria-hidden="true">04</div>
-          </div>
-          <div class="process-step-body">
-            <div class="process-step-label">Completion</div>
-            <h3 class="process-step-title">Topcoat, Seal &amp; Handover</h3>
-            <p class="process-step-desc">
-              Final topcoat applied, cured, and inspected under raking light before handover. You receive a written care guide, warranty certificate, and product data sheets. The floor is documented in our records — if you ever need a repair or extension, we have the exact specification on file.
-            </p>
-            <span class="process-step-duration">Full cure: 48–72 hours before foot traffic</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════
-         FEATURED WORK
-    ═══════════════════════════════════════ -->
-    <section class="section-gallery" id="work" aria-labelledby="gallery-heading">
-      <div class="glow-orb glow-orb-violet"></div>
-      <div class="gallery-header reveal">
-        <div>
-          <span class="eyebrow funky-text">Selected Projects</span>
-          <h2 class="gallery-headline" id="gallery-heading">Recent Work</h2>
-        </div>
-        <p class="gallery-note">Melbourne · Geelong · Peninsula<br>2022–2024</p>
-      </div>
-
-      <div class="gallery-grid" role="list">
-
-        <!-- Project 1: South Yarra Penthouse -->
-        <div class="gallery-item reveal" role="listitem" tabindex="0" aria-label="South Yarra Penthouse — Metallic Epoxy, 2024">
-          <div class="gallery-visual">
-            <svg viewBox="0 0 700 550" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <radialGradient id="sy-bg" cx="45%" cy="40%" r="75%">
-                  <stop offset="0%"   stop-color="#141828"/>
-                  <stop offset="60%"  stop-color="#0A0C14"/>
-                  <stop offset="100%" stop-color="#05060A"/>
-                </radialGradient>
-                <linearGradient id="sy-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%"   stop-color="#F5D77F"/>
-                  <stop offset="50%"  stop-color="#D49A38"/>
-                  <stop offset="100%" stop-color="#7A4E12"/>
-                </linearGradient>
-                <linearGradient id="sy-blue" x1="100%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%"   stop-color="#60A8F8"/>
-                  <stop offset="50%"  stop-color="#2563EB"/>
-                  <stop offset="100%" stop-color="#1E3A8A"/>
-                </linearGradient>
-                <linearGradient id="sy-purple" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%"   stop-color="#C084FC"/>
-                  <stop offset="50%"  stop-color="#9333EA"/>
-                  <stop offset="100%" stop-color="#581C87"/>
-                </linearGradient>
-                <filter id="sy-blur">
-                  <feGaussianBlur stdDeviation="12"/>
-                </filter>
-              </defs>
-              <rect width="700" height="550" fill="url(#sy-bg)"/>
-
-              <!-- Swirling Metallic Pours -->
-              <path d="M-50 200 C150 50, 350 450, 750 300 L750 550 L-50 550 Z" fill="url(#sy-purple)" opacity="0.6" filter="url(#sy-blur)"/>
-              <path d="M-50 300 C200 150, 450 500, 750 250 L750 550 L-50 550 Z" fill="url(#sy-blue)" opacity="0.7" filter="url(#sy-blur)"/>
-
-              <path d="M-20 240 Q180 160 380 320 T720 280 L720 360 Q480 440 280 280 Q100 180 -20 310 Z" fill="url(#sy-gold)" opacity="0.9"/>
-              <path d="M-20 160 Q120 80 280 200 T680 140 L680 210 Q380 300 180 140 Q40 60 -20 200 Z" fill="url(#sy-blue)" opacity="0.85"/>
-
-              <!-- Sparkles -->
-              <circle cx="350" cy="240" r="3" fill="#FFFFFF" opacity="0.9"/>
-              <circle cx="480" cy="195" r="2" fill="#F5D77F" opacity="0.85"/>
-              <circle cx="180" cy="270" r="2.5" fill="#60A8F8" opacity="0.9"/>
-              <circle cx="580" cy="310" r="2" fill="#C084FC" opacity="0.8"/>
-            </svg>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true"></div>
-          <div class="gallery-caption">
-            <span class="gallery-project-type">Metallic Epoxy · 2024</span>
-            <h3 class="gallery-project-name">South Yarra Penthouse</h3>
-            <p class="gallery-project-detail">210m² · Cobalt, Gold &amp; Violet metallic blend · Residential</p>
-          </div>
-        </div>
-
-        <!-- Project 2: Toorak Wine Cellar -->
-        <div class="gallery-item reveal" data-delay="1" role="listitem" tabindex="0" aria-label="Toorak Wine Cellar — Polished Concrete Look, 2023">
-          <div class="gallery-visual">
-            <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <linearGradient id="tk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%"   stop-color="#1A1828"/>
-                  <stop offset="100%" stop-color="#0B0914"/>
-                </linearGradient>
-                <radialGradient id="tk-sh" cx="55%" cy="40%" r="60%">
-                  <stop offset="0%"   stop-color="#C084FC" stop-opacity="0.3"/>
-                  <stop offset="60%"  stop-color="#3B82F6" stop-opacity="0.1"/>
-                  <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-                </radialGradient>
-              </defs>
-              <rect width="400" height="280" fill="url(#tk-bg)"/>
-
-              <!-- Metallic Smoke Swirls -->
-              <path d="M-20 140 Q150 40 280 180 T420 120" fill="none" stroke="#C084FC" stroke-width="25" opacity="0.25" filter="url(#sy-blur)"/>
-              <path d="M-20 80 Q200 180 320 60 T420 180" fill="none" stroke="#60A8F8" stroke-width="20" opacity="0.3" filter="url(#sy-blur)"/>
-
-              <ellipse cx="240" cy="105" rx="140" ry="50" fill="#F5D77F" opacity="0.08"/>
-              <rect width="400" height="280" fill="url(#tk-sh)"/>
-            </svg>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true"></div>
-          <div class="gallery-caption">
-            <span class="gallery-project-type">Polished Concrete Look · 2023</span>
-            <h3 class="gallery-project-name">Toorak Wine Cellar</h3>
-            <p class="gallery-project-detail">48m² · Metallic smoke micro-cement overlay · Residential</p>
-          </div>
-        </div>
-
-        <!-- Project 3: Geelong Warehouse Studio -->
-        <div class="gallery-item reveal" data-delay="2" role="listitem" tabindex="0" aria-label="Geelong Warehouse Studio — Industrial Coating, 2023">
-          <div class="gallery-visual">
-            <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <linearGradient id="gw-bg" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%"   stop-color="#0F172A"/>
-                  <stop offset="100%" stop-color="#020617"/>
-                </linearGradient>
-              </defs>
-              <rect width="400" height="280" fill="url(#gw-bg)"/>
-
-              <!-- Grid joints (Electric Cyan/Blue & Amber) -->
-              <line x1="133" y1="0" x2="133" y2="280" stroke="#38BDF8" stroke-width="1.2" opacity="0.5"/>
-              <line x1="267" y1="0" x2="267" y2="280" stroke="#38BDF8" stroke-width="1.2" opacity="0.5"/>
-              <line x1="0" y1="93"  x2="400" y2="93"  stroke="#38BDF8" stroke-width="1.2" opacity="0.5"/>
-              <line x1="0" y1="187" x2="400" y2="187" stroke="#38BDF8" stroke-width="1.2" opacity="0.5"/>
-
-              <!-- Panel sheens -->
-              <rect x="1"   y="1"   width="131" height="91"  fill="#38BDF8" opacity="0.08"/>
-              <rect x="135" y="95"  width="131" height="91"  fill="#F59E0B" opacity="0.12"/>
-              <rect x="269" y="189" width="131" height="91"  fill="#38BDF8" opacity="0.08"/>
-
-              <!-- Surface sheen line -->
-              <path d="M0 0 L400 0 L400 3 Q200 8 0 3 Z" fill="#38BDF8" opacity="0.6"/>
-            </svg>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true"></div>
-          <div class="gallery-caption">
-            <span class="gallery-project-type">Industrial Coating · 2023</span>
-            <h3 class="gallery-project-name">Geelong Warehouse Studio</h3>
-            <p class="gallery-project-detail">1,200m² · High-build epoxy, glowing joint system · Commercial</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════
-         WHY STRATUM
-    ═══════════════════════════════════════ -->
-    <section class="section-why" id="why-stratum" aria-labelledby="why-heading">
-      <div class="glow-orb glow-orb-gold"></div>
-      <div class="why-header">
-        <span class="eyebrow reveal funky-text">Why Stratum</span>
-        <h2 class="why-headline reveal" data-delay="1" id="why-heading">
-          Built on three non-negotiables.
-        </h2>
-      </div>
-
-      <div class="why-pillars">
-
-        <!-- Pillar 1: 10-Year Warranty -->
-        <div class="why-pillar reveal">
-          <!-- Custom SVG: shield with checkmark motif -->
-          <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M20 4 L34 9 L34 20 C34 28 27 34 20 37 C13 34 6 28 6 20 L6 9 Z"
-                  stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
-            <path d="M13 20 L18 25 L28 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div class="why-pillar-stat">
-            <span data-count="10" data-suffix="">10</span><span class="counter-suffix">-Year</span>
-          </div>
-          <div class="why-pillar-title">Written Warranty</div>
-          <p class="why-pillar-desc">
-            Every system we install carries a written 10-year structural warranty. Not a verbal assurance — a document. We specify correctly so we don't have to revisit.
-          </p>
-        </div>
-
-        <!-- Pillar 2: Zero-VOC Materials -->
-        <div class="why-pillar reveal" data-delay="1">
-          <!-- Custom SVG: leaf/molecule motif -->
-          <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M20 36 C20 36 8 28 8 16 C8 10 13 6 20 6 C27 6 32 10 32 16 C32 28 20 36 20 36 Z"
-                  stroke="currentColor" stroke-width="1.5" fill="none"/>
-            <path d="M20 36 L20 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M20 24 C20 24 14 20 12 15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M20 20 C20 20 26 16 28 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <div class="why-pillar-stat">
-            Zero<span class="counter-suffix">-VOC</span>
-          </div>
-          <div class="why-pillar-title">Materials</div>
-          <p class="why-pillar-desc">
-            We source only zero and ultra-low VOC resin systems. Safe for installation in occupied residential buildings and essential for food-grade commercial environments.
-          </p>
-        </div>
-
-        <!-- Pillar 3: 48-Hour Cure -->
-        <div class="why-pillar reveal" data-delay="2">
-          <!-- Custom SVG: clock/timer motif -->
-          <svg class="why-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="20" cy="22" r="14" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M20 22 L20 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M20 22 L27 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M16 6 L24 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M20 4 L20 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <div class="why-pillar-stat">
-            <span data-count="48" data-suffix="">48</span><span class="counter-suffix">-Hour</span>
-          </div>
-          <div class="why-pillar-title">Cure Systems</div>
-          <p class="why-pillar-desc">
-            Our preferred systems achieve light foot traffic in 48 hours and full vehicular load capacity within 7 days. Fast without compromise — no heat-accelerated shortcuts.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════
-         TESTIMONIAL
-    ═══════════════════════════════════════ -->
-    <section class="section-testimonial" id="testimonial" aria-labelledby="testimonial-quote">
-      <div class="testimonial-inner">
-        <div class="testimonial-mark" aria-hidden="true">&ldquo;</div>
-        <blockquote>
-          <p class="testimonial-quote reveal" id="testimonial-quote">
-            We've specified Stratum on three projects now. Their prep process is the most rigorous I've encountered — they diamond-ground an existing slab that two other contractors said would need replacing, and the result is flawless. The metallic system in the South Yarra apartment reads like a material decision, not a coating. That's exactly the brief.
-          </p>
-          <footer class="testimonial-attr reveal" data-delay="1">
-            <cite class="testimonial-name">Harriet Voss</cite>
-            <span class="testimonial-title">Principal Architect, Voss &amp; Hallam Studio · Melbourne</span>
-          </footer>
-        </blockquote>
-      </div>
-      <div class="testimonial-bg-text" aria-hidden="true">SF</div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════
-         CTA / CONTACT
-    ═══════════════════════════════════════ -->
-    <section class="section-contact" id="contact" aria-labelledby="contact-heading">
-      <div class="contact-grid">
-
-        <!-- Left: copy + details -->
-        <div class="contact-left">
-          <span class="eyebrow reveal funky-text">Get in Touch</span>
-          <h2 class="contact-headline reveal" data-delay="1" id="contact-heading">
-            Start with a site visit.
-          </h2>
-          <p class="contact-desc reveal" data-delay="2">
-            We don't quote from plans alone. Every project begins with a site assessment — it's how we guarantee the result. Reach out and we'll arrange a visit within the week.
-          </p>
-
-          <div class="contact-details">
-            <div class="contact-detail reveal" data-delay="3">
-              <span class="contact-detail-label">Email</span>
-              <span class="contact-detail-value">
-                <a href="mailto:hello@stratumflooring.com.au">hello@stratumflooring.com.au</a>
-              </span>
-            </div>
-            <div class="contact-detail reveal" data-delay="3">
-              <span class="contact-detail-label">Phone</span>
-              <span class="contact-detail-value">
-                <a href="tel:+61390004821">+61 3 9000 4821</a>
-              </span>
-            </div>
-            <div class="contact-detail reveal" data-delay="4">
-              <span class="contact-detail-label">Studio</span>
-              <span class="contact-detail-value">14 Ferrars Place, South Melbourne VIC 3205</span>
-            </div>
-            <div class="contact-detail reveal" data-delay="4">
-              <span class="contact-detail-label">Service Area</span>
-              <span class="contact-detail-value">Greater Melbourne · Geelong · Mornington Peninsula</span>
+            <div>
+              <a href="#contact" class="btn btn-gold">
+                Get a Fixed Quote <span style="font-size:1.1rem; line-height:1;">→</span>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Right: form -->
-        <div class="contact-right reveal" data-delay="1">
-          <form class="contact-form" id="contact-form" novalidate aria-label="Project enquiry form">
-
-            <div class="form-row">
-              <div class="form-field" id="field-name">
-                <label for="input-name">Full Name</label>
-                <input type="text"  id="input-name"   name="name"   autocomplete="name"  required/>
-                <div class="form-field-line" aria-hidden="true"></div>
+        <!-- 3 Feature Accessibility Cards -->
+        <div class="hero-cards-grid">
+          
+          <!-- Card 1 -->
+          <div class="hero-card reveal" data-delay="1">
+            <div>
+              <div class="hero-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
               </div>
-              <div class="form-field" id="field-email">
-                <label for="input-email">Email Address</label>
-                <input type="email" id="input-email"  name="email"  autocomplete="email" required/>
-                <div class="form-field-line" aria-hidden="true"></div>
+              <h2 class="hero-card-title">Finishes &amp; Color Palette</h2>
+              <p class="hero-card-desc">
+                Granite vinyl flakes, solid industrial coatings, and custom 3D metallic quartz resin finishes.
+              </p>
+            </div>
+            <a href="#services" class="hero-card-link">View Finishes →</a>
+          </div>
+
+          <!-- Card 2 (Featured Teal) -->
+          <div class="hero-card card-featured reveal" data-delay="2">
+            <div>
+              <div class="hero-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <h2 class="hero-card-title">Instant Fixed Estimate</h2>
+              <p class="hero-card-desc">
+                Receive an itemized quote for your 1, 2, or 3-car garage within 2 hours. Zero hidden site fees.
+              </p>
+            </div>
+            <a href="#contact" class="hero-card-link">Contact Us →</a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="hero-card reveal" data-delay="3">
+            <div>
+              <div class="hero-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h2 class="hero-card-title">Garage Packages</h2>
+              <p class="hero-card-desc">
+                Complete systems with 100% flake broadcast and 10-year structural warranty starting from $1,650.
+              </p>
+            </div>
+            <a href="#packages" class="hero-card-link">See Pricing →</a>
+          </div>
+
+        </div>
+
+        <!-- Authentic Trust Proof Bar -->
+        <div class="trust-bar reveal" data-delay="2">
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>4.9 / 5 Rating (140+ Reviews)</span>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>10-Year Structural Warranty</span>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>48-Hour Rapid Cure</span>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span>VIC License #48291</span>
+          </div>
+        </div>
+
+        <!-- Floating RE Monogram Badge -->
+        <div class="floating-badge-wrap reveal" data-delay="2">
+          <div class="floating-badge">
+            <div class="badge-logo">RE</div>
+            <div style="display:flex; flex-direction:column; line-height:1.2;">
+              <span style="font-weight:900; font-size:1.1rem; color:var(--color-teal);">RAPID EPOXY</span>
+              <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.1em; color:var(--color-muted); text-transform:uppercase;">Licensed Resin Flooring Contractors</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         POPULAR GARAGE PACKAGES
+    ═══════════════════════════════════════ -->
+    <section class="section-packages" id="packages">
+      <div class="container">
+        
+        <div class="packages-header">
+          <div>
+            <h2 class="section-title">Garage Systems &amp; Fixed Packages</h2>
+            <p class="section-desc">
+              All packages include diamond grinding, moisture test, full flake broadcast, and UV polyaspartic clear coat.
+            </p>
+          </div>
+
+          <!-- Package Category Selector Tabs -->
+          <div class="packages-tabs" role="tablist">
+            <button class="tab-btn active" id="tab-flakes" role="tab" aria-selected="true">Vinyl Flakes</button>
+            <button class="tab-btn" id="tab-stone" role="tab" aria-selected="false">Hybrid Stone</button>
+          </div>
+        </div>
+
+        <!-- Packages Grid -->
+        <div class="packages-grid">
+          
+          <!-- Package 1: Base System -->
+          <div class="package-card">
+            <span class="package-system-type">Base System</span>
+            <h3 class="package-title">Full Broadcast Vinyl Flakes</h3>
+            <p class="package-desc">
+              Heavy-duty anti-slip vinyl flake matrix over 100% solid epoxy primer. Hot-tire pick up proof with an R11 slip rating.
+            </p>
+            
+            <div class="package-price-wrap">
+              <span class="package-price-label">Starting from</span>
+              <span class="package-price" id="price-vinyl">$1,650</span>
+            </div>
+
+            <!-- Single / Double / Triple Car Selector -->
+            <div class="garage-options-list" id="opts-vinyl">
+              <div class="option-item selected" data-price="$1,650">
+                <span>Single Car Garage (up to 24m²)</span>
+                <span class="option-check">✓</span>
+              </div>
+              <div class="option-item" data-price="$2,850">
+                <span>Double Car Garage (up to 42m²)</span>
+                <span class="option-check">✓</span>
+              </div>
+              <div class="option-item" data-price="$3,950">
+                <span>Triple Car Garage (up to 65m²)</span>
+                <span class="option-check">✓</span>
               </div>
             </div>
 
-            <div class="form-field" id="field-suburb">
-              <label for="input-suburb">Suburb / Location</label>
-              <input type="text"  id="input-suburb"  name="suburb" autocomplete="address-level2"/>
-              <div class="form-field-line" aria-hidden="true"></div>
+            <button class="btn btn-outline-teal package-cta">Select Vinyl Flakes</button>
+          </div>
+
+          <!-- Package 2: Luxury System -->
+          <div class="package-card">
+            <span class="package-badge">Premium Finish</span>
+            <span class="package-system-type">Luxury System</span>
+            <h3 class="package-title">Hybrid Granite Stone Flakes</h3>
+            <p class="package-desc">
+              Natural micro-granite flake matrix designed to replicate polished terrazzo stone. Scratch-resistant clear shield coat.
+            </p>
+            
+            <div class="package-price-wrap">
+              <span class="package-price-label">Starting from</span>
+              <span class="package-price" id="price-stone">$1,950</span>
             </div>
 
-            <div class="form-field" id="field-message">
-              <label for="input-message">Tell us about your project</label>
-              <textarea id="input-message" name="message" rows="4" required></textarea>
-              <div class="form-field-line" aria-hidden="true"></div>
+            <!-- Single / Double / Triple Car Selector -->
+            <div class="garage-options-list" id="opts-stone">
+              <div class="option-item selected" data-price="$1,950">
+                <span>Single Car Garage (up to 24m²)</span>
+                <span class="option-check" style="color:var(--color-gold);">★</span>
+              </div>
+              <div class="option-item" data-price="$3,450">
+                <span>Double Car Garage (up to 42m²)</span>
+                <span class="option-check" style="color:var(--color-gold);">★</span>
+              </div>
+              <div class="option-item" data-price="$4,850">
+                <span>Triple Car Garage (up to 65m²)</span>
+                <span class="option-check" style="color:var(--color-gold);">★</span>
+              </div>
             </div>
 
-            <div class="form-submit">
-              <button type="submit" class="btn-primary" id="form-submit-btn">
-                <span>Send Enquiry</span>
-              </button>
+            <button class="btn btn-teal package-cta">Select Hybrid Stone</button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         OUR SERVICES GRID
+    ═══════════════════════════════════════ -->
+    <section class="section-services" id="services">
+      <div class="container">
+        
+        <div class="services-top-bar">
+          <div>
+            <h2 class="section-title">Specialist Flooring Systems</h2>
+            <p class="section-desc">
+              Every job begins with mechanical diamond preparation. We install chemical-resistant coatings for garages, retail spaces, and factories.
+            </p>
+          </div>
+          <a href="#contact" class="btn btn-teal">
+            Book Site Visit <span style="font-size:1.1rem; line-height:1;">→</span>
+          </a>
+        </div>
+
+        <!-- 6 Services Grid with Vector SVG Icons -->
+        <div class="services-grid">
+          
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <h3 class="service-card-title">Plain Solid Epoxy Coating</h3>
+            <p class="service-card-desc">
+              High-gloss seamless finish available in standard N23 neutral grey, jet black, or custom RAL shades. Hot-tire resistant.
+            </p>
+            <div class="service-thumb-wrap">
+              <img src="img/plain_epoxy.jpg" alt="Plain Epoxy Garage Floor" class="service-thumb">
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card">
+            <span class="service-badge">From $45/m²</span>
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="service-card-title">Epoxy Flakes Coating</h3>
+            <p class="service-card-desc">
+              Full broadcast vinyl chip floor system. Ideal for residential garages, workshops, and high-foot-traffic utility rooms.
+            </p>
+            <div class="service-thumb-wrap">
+              <img src="img/flake_epoxy.jpg" alt="Epoxy Flakes Texture Floor" class="service-thumb">
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card">
+            <span class="service-badge">From $80/m²</span>
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <h3 class="service-card-title">Metallic Resin Coating</h3>
+            <p class="service-card-desc">
+              Seamless 3D metallic liquid marble effect. Hand-manipulated metallic pigments sealed in clear optical-grade resin.
+            </p>
+            <div class="service-thumb-wrap">
+              <img src="img/metallic_epoxy.jpg" alt="Metallic Resin Interior Floor" class="service-thumb">
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zM12 6v6l4 2"/></svg>
+            </div>
+            <h3 class="service-card-title">Tinted Concrete Sealing</h3>
+            <p class="service-card-desc">
+              Penetrating UV-stable acrylic sealers for exposed aggregate, plain concrete, and alfresco outdoor entertaining areas.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3 class="service-card-title">Driveway &amp; Pergola Sealing</h3>
+            <p class="service-card-desc">
+              High-pressure wash and solvent sealer application that restores color and blocks oil, salt, and weed penetration.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="service-card-title">Commercial &amp; Factory Floors</h3>
+            <p class="service-card-desc">
+              Heavy-duty polyurethane coving and high-build epoxy designed for fork trucks, commercial kitchens, and warehouses.
+            </p>
+            <ul class="service-checklist">
+              <li>HACCP Antimicrobial Compliant</li>
+              <li>Chemical &amp; Oil Resistant</li>
+              <li>Rapid 24-Hour Return to Traffic</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         DARK TEAL PREP FEATURE CONTAINER
+    ═══════════════════════════════════════ -->
+    <section class="section-prep" id="prep">
+      <div class="container">
+        
+        <div class="prep-container">
+          
+          <!-- Left: Copy & 3 Sub-Items -->
+          <div>
+            <span class="eyebrow prep-eyebrow">Mechanical Substrate Prep</span>
+            <h2 class="prep-title">Diamond Grinding &amp; Slab Repair</h2>
+            <p class="prep-desc">
+              Acid etching or pressure washing is not enough. We use heavy planetary diamond grinders with HEPA dust extractors to open the concrete pores to a CSP 2-3 profile. This guarantees a mechanical bond that will never delaminate or peel under hot tires.
+            </p>
+
+            <div class="prep-list">
+              
+              <!-- Item 1 -->
+              <div class="prep-item">
+                <div class="prep-item-num">01</div>
+                <div>
+                  <h3 class="prep-item-title">Planetary Diamond Grinding</h3>
+                  <p class="prep-item-desc">Removes existing paints, latencies, and oils while establishing a rough anchor profile for key adhesion.</p>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="prep-item">
+                <div class="prep-item-num">02</div>
+                <div>
+                  <h3 class="prep-item-title">Polyurea Joint &amp; Crack Filling</h3>
+                  <p class="prep-item-desc">Cracks, spalls, and expansion joints are V-grooved and filled with high-strength rapid curing polyurea.</p>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="prep-item">
+                <div class="prep-item-num">03</div>
+                <div>
+                  <h3 class="prep-item-title">Substrate Moisture Barrier</h3>
+                  <p class="prep-item-desc">High moisture slabs are primed with 100% solids vapor barrier epoxy to block rising damp bubbles.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: Concrete Grinding Media -->
+          <div class="prep-media-wrap">
+            <img src="img/concrete_grinding.jpg" alt="Contractor operating floor grinder machine" class="prep-media-img">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         FOUNDER STORY / ABOUT OWNER
+    ═══════════════════════════════════════ -->
+    <section class="section-owner" id="owner">
+      <div class="container owner-grid">
+        
+        <!-- Left: Image & Badge -->
+        <div class="owner-image-col">
+          <div class="owner-img-wrap">
+            <img src="img/owner.jpg" alt="Rapid Epoxy Founder Portrait" class="owner-img">
+          </div>
+
+          <div class="experience-badge">
+            <div class="exp-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="exp-text">
+              <span class="exp-years">10+ Years Trade</span>
+              <span class="exp-label">Licensed Installers</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Story -->
+        <div class="owner-content-col">
+          <span class="eyebrow">Local Trade Expertise</span>
+          <h2 class="owner-title">Direct Owner Supervision On Every Slab.</h2>
+          
+          <p class="owner-story-text">
+            We don't subcontract work to third-party crews. Our own trained 6-man team completes every diamond grind, repair, and topcoat pour using commercial-grade 100% solid resins.<br><br>
+            By controlling every stage from moisture testing to final polyaspartic clear coat, we guarantee your garage or commercial floor will look flawless and resist peeling, fading, or chipping for over a decade.
+          </p>
+
+          <div class="quote-box">
+            &ldquo;Zero shortcuts in prep. 100% solid resin. Guaranteed for 10 years.&rdquo;
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         GET IN TOUCH & CONTACT FORM
+    ═══════════════════════════════════════ -->
+    <section class="section-contact" id="contact">
+      <div class="container">
+        
+        <div class="contact-header">
+          <span class="eyebrow">Get in Touch</span>
+          <h2 class="section-title">Request Your Fixed Price Quote</h2>
+          <p class="section-desc" style="margin: 0 auto;">
+            Speak directly with our head installer. We offer free on-site moisture testing and slab inspections across Melbourne &amp; regional Victoria.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Direct Contact Card -->
+          <div class="direct-contact-card">
+            <h3 class="contact-card-title">Direct Contact</h3>
+
+            <div class="contact-item-list">
+              
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Direct Phone</div>
+                  <div class="contact-item-val">+61 3 9000 4821</div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-val">quotes@rapidepoxy.com.au</div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Service Region</div>
+                  <div class="contact-item-val">Melbourne Metro · Geelong · Mornington Peninsula</div>
+                </div>
+              </div>
+
             </div>
 
-          </form>
+            <!-- Map / Visual Placeholder Box -->
+            <div style="width:100%; height:140px; background:var(--color-surface-sub); border-radius:var(--radius-sm); margin-top:var(--space-8); display:flex; align-items:center; justify-content:center; color:var(--color-muted); font-size:var(--text-xs); font-weight:700; border:1px dashed var(--color-border);">
+              <span>📍 On-Site Inspections Daily Across Victoria</span>
+            </div>
+          </div>
+
+          <!-- Send an Inquiry Form -->
+          <div class="inquiry-form-card">
+            <h3 class="contact-card-title" style="margin-bottom:var(--space-6);">Send an Inquiry</h3>
+
+            <form id="inquiryForm" onsubmit="handleFormSubmit(event)">
+              
+              <div class="form-grid-row">
+                <div class="form-group">
+                  <label class="form-label" for="fullName">Full Name</label>
+                  <input type="text" id="fullName" class="form-input" placeholder="e.g. David Miller" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="phoneNumber">Phone Number</label>
+                  <input type="tel" id="phoneNumber" class="form-input" placeholder="0400 000 000" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="serviceType">Flooring System</label>
+                <select id="serviceType" class="form-select" required>
+                  <option value="Full Broadcast Vinyl Flakes">Full Broadcast Vinyl Flakes</option>
+                  <option value="Hybrid Stone Flakes">Hybrid Stone Flakes</option>
+                  <option value="3D Metallic Resin">3D Metallic Resin</option>
+                  <option value="Solid Plain Industrial Epoxy">Solid Plain Industrial Epoxy</option>
+                  <option value="Commercial Factory Flooring">Commercial Factory Flooring</option>
+                  <option value="Concrete Sealing & Resurfacing">Concrete Sealing &amp; Resurfacing</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="projectDetails">Approx. Size &amp; Location</label>
+                <textarea id="projectDetails" class="form-textarea" placeholder="e.g. Double car garage (approx 36 sqm) in Brighton. Current slab is plain unsealed concrete..." required></textarea>
+              </div>
+
+              <!-- Form Action Buttons -->
+              <div class="form-actions-row">
+                <!-- Green WhatsApp redirect CTA -->
+                <button type="button" class="btn btn-whatsapp" onclick="sendViaWhatsApp()" style="flex:1;">
+                  <span>Inquire via WhatsApp</span>
+                </button>
+                
+                <span style="font-size:var(--text-xs); color:var(--color-muted);">or</span>
+
+                <button type="submit" class="btn btn-teal" style="flex:1;">
+                  <span>Submit Inquiry →</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+
         </div>
 
       </div>
@@ -994,77 +595,173 @@
   <!-- ═══════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════ -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-
-      <!-- Wordmark -->
-      <div class="footer-wordmark wordmark">
-        <svg class="wordmark-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="4" y="22" width="24" height="2"   rx="0.5" fill="#F4F1EC" opacity="0.8"/>
-          <rect x="4" y="17" width="24" height="2"   rx="0.5" fill="#B5764C" opacity="0.85"/>
-          <rect x="4" y="12" width="24" height="2"   rx="0.5" fill="#F4F1EC" opacity="0.35"/>
-          <rect x="4" y="7"  width="24" height="2"   rx="0.5" fill="#F4F1EC" opacity="0.15"/>
-        </svg>
-        <div class="wordmark-text">
-          <span class="wordmark-name">Stratum</span>
-          <span class="wordmark-sub">Flooring Co.</span>
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div>
+          <a href="#" class="logo-brand">
+            <div class="logo-monogram">RE</div>
+            <span>Rapid Epoxy</span>
+          </a>
+          <p class="footer-brand-desc">
+            Victorian licensed epoxy flooring contractors delivering industrial-grade resin finishes for residential and commercial spaces.
+          </p>
         </div>
+
+        <!-- Solutions Column -->
+        <div>
+          <h4 class="footer-col-title">Systems</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Vinyl Flakes</a></li>
+            <li><a href="#services">Hybrid Stone</a></li>
+            <li><a href="#services">3D Metallic Resin</a></li>
+            <li><a href="#services">Industrial Solid</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Column -->
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#owner">About Our Team</a></li>
+            <li><a href="#packages">Fixed Pricing</a></li>
+            <li><a href="#prep">Diamond Prep Process</a></li>
+          </ul>
+        </div>
+
+        <!-- Support Column -->
+        <div>
+          <h4 class="footer-col-title">Assurance</h4>
+          <ul class="footer-links">
+            <li><a href="#contact">10-Year Warranty</a></li>
+            <li><a href="#contact">Moisture Barrier Test</a></li>
+            <li><a href="#contact">VIC License Details</a></li>
+          </ul>
+        </div>
+
       </div>
 
-      <!-- Nav -->
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="#services"    class="footer-nav-link">Services</a>
-        <a href="#process"     class="footer-nav-link">Process</a>
-        <a href="#work"        class="footer-nav-link">Work</a>
-        <a href="#why-stratum" class="footer-nav-link">Why Stratum</a>
-        <a href="#contact"     class="footer-nav-link">Contact</a>
-      </nav>
-
-      <!-- Right: socials + meta -->
-      <div class="footer-right">
-        <div class="footer-socials" aria-label="Social media links">
-          <!-- Instagram -->
-          <a href="#" class="footer-social" aria-label="Stratum on Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="5"/>
-              <circle cx="12" cy="12" r="4.5"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            </svg>
-          </a>
-          <!-- Pinterest -->
-          <a href="#" class="footer-social" aria-label="Stratum on Pinterest">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.03-2.83.19-.77 1.27-5.38 1.27-5.38s-.32-.65-.32-1.61c0-1.51.88-2.64 1.97-2.64.93 0 1.38.7 1.38 1.53 0 .94-.6 2.34-.91 3.64-.26 1.09.54 1.97 1.6 1.97 1.93 0 3.41-2.03 3.41-4.97 0-2.6-1.87-4.41-4.54-4.41-3.09 0-4.9 2.32-4.9 4.72 0 .93.36 1.93.81 2.48.09.11.1.2.07.31-.08.33-.27 1.09-.3 1.24-.05.2-.17.24-.38.14-1.39-.65-2.26-2.68-2.26-4.32 0-3.52 2.56-6.76 7.37-6.76 3.87 0 6.87 2.75 6.87 6.43 0 3.83-2.42 6.91-5.77 6.91-1.13 0-2.19-.59-2.55-1.28l-.69 2.59c-.25.97-.93 2.18-1.39 2.92.05.01.09.02.13.03.41.1.84.15 1.28.15 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
-            </svg>
-          </a>
-          <!-- Houzz / Archello (using a generic building icon) -->
-          <a href="#" class="footer-social" aria-label="Stratum on Houzz">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M3 9L12 2l9 7v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
-              <rect x="9" y="14" width="6" height="8"/>
-            </svg>
-          </a>
-        </div>
-        <div class="footer-meta">
-          ABN 54 621 830 417<br>
-          hello@stratumflooring.com.au
-        </div>
-      </div>
-
-      <div class="footer-divider"></div>
-
+      <!-- Bottom Bar -->
       <div class="footer-bottom">
-        <span>&copy; 2024 Stratum Flooring Co. Pty Ltd · South Melbourne VIC 3205</span>
-        <span>Floors engineered to disappear into the room.</span>
+        <span>© 2026 Rapid Epoxy Solutions Pty Ltd. All rights reserved. VIC Lic #48291.</span>
+        <div style="display:flex; gap:var(--space-4);">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
 
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="./js/main.js"   defer></script>
-  <script src="./js/scroll.js" defer></script>
-  <script src="./js/cursor.js" defer></script>
+
+  <!-- ═══════════════════════════════════════
+       FLOATING WHATSAPP BUTTON
+  ═══════════════════════════════════════ -->
+  <a href="https://wa.me/61390004821?text=Hi%20Rapid%20Epoxy%2C%20I'm%20interested%20in%20a%20quote%20for%20my%20floor." 
+     target="_blank" 
+     rel="noopener" 
+     class="floating-whatsapp-btn" 
+     aria-label="Chat on WhatsApp">
+    💬
+  </a>
+
+
+  <!-- JS Script -->
+  <script>
+    // Header shadow on scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle Drawer
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu   = document.getElementById('mobileMenu');
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('is-active');
+        mobileToggle.textContent = mobileMenu.classList.contains('is-active') ? '✕' : '☰';
+      });
+
+      // Close menu on link click
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('is-active');
+          mobileToggle.textContent = '☰';
+        });
+      });
+    }
+
+    // Scroll Reveal Observer
+    const revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(el => revealObserver.observe(el));
+    }
+
+    // Category Tabs Switching (Vinyl Flakes vs Hybrid Stone)
+    const tabFlakes = document.getElementById('tab-flakes');
+    const tabStone  = document.getElementById('tab-stone');
+    if (tabFlakes && tabStone) {
+      tabFlakes.addEventListener('click', () => {
+        tabFlakes.classList.add('active');
+        tabStone.classList.remove('active');
+      });
+      tabStone.addEventListener('click', () => {
+        tabStone.classList.add('active');
+        tabFlakes.classList.remove('active');
+      });
+    }
+
+    // Option items selection logic for Garage Packages
+    document.querySelectorAll('.garage-options-list').forEach(list => {
+      const priceDisplay = list.parentElement.querySelector('.package-price');
+      const items = list.querySelectorAll('.option-item');
+      
+      items.forEach(item => {
+        item.addEventListener('click', () => {
+          items.forEach(i => i.classList.remove('selected'));
+          item.classList.add('selected');
+          if (priceDisplay && item.dataset.price) {
+            priceDisplay.textContent = item.dataset.price;
+          }
+        });
+      });
+    });
+
+    // Form Submit Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for reaching out to Rapid Epoxy! We have received your inquiry and will contact you within 2 hours.');
+    }
+
+    // Send Form Details via WhatsApp Redirect
+    function sendViaWhatsApp() {
+      const name = document.getElementById('fullName').value || 'Customer';
+      const phone = document.getElementById('phoneNumber').value || 'N/A';
+      const service = document.getElementById('serviceType').value;
+      const details = document.getElementById('projectDetails').value || 'General inquiry';
+
+      const msg = `Hi Rapid Epoxy! My name is ${name} (${phone}). I am interested in ${service}. Details: ${details}`;
+      const encodedMsg = encodeURIComponent(msg);
+      window.open(`https://wa.me/61390004821?text=${encodedMsg}`, '_blank');
+    }
+  </script>
 
 </body>
 </html>
