@@ -5,15 +5,476 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rapid Epoxy — Home</title>
   <meta name="description" content="Melbourne's trusted epoxy flooring specialists. High-grade garage flake systems, metallic resin pours, and diamond-ground concrete resurfacing with a 10-year warranty.">
-  
+
   <!-- Google Fonts: DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-  
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* ─── Homepage-specific styles ─── */
+
+    /* ── Stats Bar ── */
+    .stats-bar {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-6) var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-12);
+    }
+
+    .stats-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: 0 var(--space-8);
+      flex: 1;
+      justify-content: center;
+    }
+
+    .stats-item + .stats-item {
+      border-left: 1px solid var(--color-border);
+    }
+
+    .stats-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--color-teal-light);
+      color: var(--color-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stats-icon svg {
+      width: 18px; height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .stats-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 1px;
+    }
+
+    .stats-value {
+      font-size: var(--text-sm);
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    /* ── Application Categories ── */
+    .section-categories {
+      padding: var(--space-4) 0 var(--space-20);
+      background: var(--color-base);
+    }
+
+    .categories-header {
+      margin-bottom: var(--space-10);
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .category-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--dur-base) var(--ease-out),
+                  box-shadow var(--dur-base) var(--ease-out);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .category-img-wrap {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .category-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform var(--dur-slow) var(--ease-out);
+    }
+
+    .category-card:hover .category-img {
+      transform: scale(1.06);
+    }
+
+    .category-body {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .category-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-3);
+    }
+
+    .category-title {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .category-arrow {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--color-teal-light);
+      color: var(--color-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: background var(--dur-fast), color var(--dur-fast);
+      flex-shrink: 0;
+    }
+
+    .category-card:hover .category-arrow {
+      background: var(--color-teal);
+      color: #FFF;
+    }
+
+    .category-desc {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.55;
+      margin-bottom: var(--space-5);
+      flex: 1;
+    }
+
+    .category-tags {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .category-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--color-teal-light);
+      color: var(--color-teal);
+    }
+
+    .category-tag.tag-gold {
+      background: var(--color-gold-light);
+      color: var(--color-gold-hover);
+    }
+
+    /* ── Colour Palette Section ── */
+    .section-palette {
+      padding: var(--space-20) 0;
+      background: var(--color-base);
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    .palette-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .palette-title {
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: var(--space-5);
+    }
+
+    .palette-desc {
+      font-size: var(--text-base);
+      color: var(--color-muted);
+      line-height: 1.7;
+      margin-bottom: var(--space-8);
+    }
+
+    .palette-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    .palette-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .palette-option-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--color-teal-light);
+      color: var(--color-teal);
+      font-size: var(--text-xs);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .palette-option-text {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-ink);
+    }
+
+    .palette-view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      transition: gap var(--dur-fast);
+    }
+
+    .palette-view-link:hover {
+      gap: var(--space-3);
+    }
+
+    .palette-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 60px;
+    }
+
+    .palette-orb {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(4, 78, 84, 0.25), 0 8px 20px rgba(0,0,0,0.12);
+      flex-shrink: 0;
+      animation: floatOrb 5s ease-in-out infinite;
+    }
+
+    .palette-orb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .palette-chip-card {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-5);
+      box-shadow: var(--shadow-hover);
+      min-width: 200px;
+    }
+
+    .chip-card-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-3);
+    }
+
+    .chip-card-name {
+      font-size: var(--text-sm);
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .chip-badge-premium {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--color-gold-light);
+      color: var(--color-gold-hover);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(212,163,37,0.3);
+    }
+
+    .chip-swatches {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+
+    .chip-swatch-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .chip-swatch-label {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .chip-swatch {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .chip-dot {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+
+    .chip-dot-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-ink);
+    }
+
+    /* ── CTA Banner ── */
+    .section-cta {
+      padding: var(--space-4) 0 var(--space-16);
+      background: var(--color-base);
+    }
+
+    .cta-container {
+      background: var(--color-teal);
+      border-radius: var(--radius-xl);
+      padding: var(--space-16) var(--space-12);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 50%, rgba(212,163,37,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-eyebrow {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: var(--space-3);
+    }
+
+    .cta-title {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: var(--space-4);
+      letter-spacing: -0.02em;
+    }
+
+    .cta-desc {
+      font-size: var(--text-md);
+      color: rgba(255,255,255,0.75);
+      max-width: 52ch;
+      margin: 0 auto var(--space-10);
+      line-height: 1.6;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .btn-outline-white {
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: #FFFFFF;
+      background: transparent;
+    }
+
+    .btn-outline-white:hover {
+      border-color: #FFFFFF;
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .palette-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+      .palette-orb { width: 240px; height: 240px; }
+    }
+
+    @media (max-width: 768px) {
+      .stats-bar { flex-direction: column; gap: var(--space-4); padding: var(--space-4); }
+      .stats-item { width: 100%; border-left: none !important; border-top: 1px solid var(--color-border); padding: var(--space-4) 0; justify-content: flex-start; }
+      .stats-item:first-child { border-top: none; padding-top: 0; }
+      .categories-grid { grid-template-columns: 1fr; }
+      .palette-orb { width: 200px; height: 200px; }
+      .palette-chip-card { position: static; margin-top: var(--space-6); }
+      .palette-visual { padding-bottom: 0; flex-direction: column; }
+      .cta-container { padding: var(--space-10) var(--space-6); border-radius: var(--radius-lg); }
+      .cta-actions { flex-direction: column; width: 100%; }
+      .cta-actions .btn { width: 100%; justify-content: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -38,8 +499,16 @@
         </ul>
       </nav>
 
-      <!-- Header Action -->
-      <a href="about.html#contact" class="btn btn-gold">Request Quote</a>
+      <!-- Header Actions -->
+      <div style="display:flex; align-items:center; gap:var(--space-3);">
+        <a href="about.html#contact" class="btn btn-gold">Request Quote</a>
+        <!-- Avatar icon -->
+        <a href="account.html" style="width:36px;height:36px;border-radius:50%;background:var(--color-teal-light);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;" aria-label="Account">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+      </div>
 
       <!-- Mobile Toggle -->
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">☰</button>
@@ -54,7 +523,7 @@
     <a href="about.html" class="mobile-nav-link">About Us &amp; Contact</a>
     <a href="about.html#contact" class="btn btn-gold" style="margin-top:var(--space-4);">Request Quote</a>
   </div>
-  
+
   <main id="main-content">
 
     <!-- ═══════════════════════════════════════
@@ -62,105 +531,161 @@
     ═══════════════════════════════════════ -->
     <section class="hero-section" id="hero">
       <div class="container">
-        
+
         <!-- Hero Media Wrap -->
         <div class="hero-media-wrap">
           <img src="img/hero_epoxy.jpg" alt="Architectural Metallic Epoxy Floor Pour" class="hero-img">
-          
+
           <div class="hero-overlay-content">
-            <span class="eyebrow">— Greater Melbourne &amp; Victoria</span>
-            <h1 class="hero-headline">Industrial-Grade Epoxy Floors. Built for Life.</h1>
+            <span class="eyebrow">— High-Performance Surfaces</span>
+            <h1 class="hero-headline">Engineered for Durability.<br>Designed for Impact.</h1>
             <p class="hero-sub">
-              Diamond-ground substrate prep, 100% solid resin, and UV-stable polyaspartic topcoats. Engineered for seamless garage, commercial, and retail surfaces.
+              Discover our comprehensive range of epoxy solutions. From high-traffic industrial facilities to bespoke residential interiors, our flooring systems offer unparalleled resistance, seamless hygiene, and exceptional aesthetic versatility.
             </p>
             <div>
-              <a href="about.html#contact" class="btn btn-gold">
-                Get a Fixed Quote <span style="font-size:1.1rem; line-height:1;">→</span>
+              <a href="products.html" class="btn btn-teal">
+                Explore Collections <span style="font-size:1.1rem; line-height:1;">↓</span>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- 3 Feature Accessibility Cards -->
-        <div class="hero-cards-grid">
-          
-          <!-- Card 1 -->
-          <div class="hero-card reveal" data-delay="1">
-            <div>
-              <div class="hero-card-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              </div>
-              <h2 class="hero-card-title">Finishes &amp; Color Palette</h2>
-              <p class="hero-card-desc">
-                Granite vinyl flakes, solid industrial coatings, and custom 3D metallic quartz resin finishes.
-              </p>
+        <!-- Stats Bar -->
+        <div class="stats-bar reveal" data-delay="1">
+          <div class="stats-item">
+            <div class="stats-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <a href="products.html#colours" class="hero-card-link">View Finishes →</a>
-          </div>
-
-          <!-- Card 2 (Featured Teal) -->
-          <div class="hero-card card-featured reveal" data-delay="2">
             <div>
-              <div class="hero-card-icon">
-                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              </div>
-              <h2 class="hero-card-title">Instant Fixed Estimate</h2>
-              <p class="hero-card-desc">
-                Receive an itemized quote for your 1, 2, or 3-car garage within 2 hours. Zero hidden site fees.
-              </p>
+              <div class="stats-label">Durability</div>
+              <div class="stats-value">10× Stronger than Concrete</div>
             </div>
-            <a href="about.html#contact" class="hero-card-link">Contact Us →</a>
           </div>
 
-          <!-- Card 3 -->
-          <div class="hero-card reveal" data-delay="3">
+          <div class="stats-item">
+            <div class="stats-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
             <div>
-              <div class="hero-card-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <h2 class="hero-card-title">Garage Packages</h2>
-              <p class="hero-card-desc">
-                Complete systems with 100% flake broadcast and 10-year structural warranty starting from $1,650.
-              </p>
+              <div class="stats-label">Protection</div>
+              <div class="stats-value">100% Non-Porous</div>
             </div>
-            <a href="products.html#packages" class="hero-card-link">See Pricing →</a>
           </div>
 
-        </div>
-
-        <!-- Authentic Trust Proof Bar -->
-        <div class="trust-bar reveal" data-delay="2">
-          <div class="trust-item">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <span>4.9 / 5 Rating (140+ Reviews)</span>
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>10-Year Structural Warranty</span>
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            <span>48-Hour Rapid Cure</span>
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            <span>VIC License #48291</span>
+          <div class="stats-item">
+            <div class="stats-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="stats-label">Install Time</div>
+              <div class="stats-value">24–48h Rapid Cure</div>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
+
+    <!-- ═══════════════════════════════════════
+         COLOUR PALETTE & BESPOKE DESIGNS
+    ═══════════════════════════════════════ -->
+    <section class="section-palette" id="palette">
+      <div class="container">
+        <div class="palette-grid">
+
+          <!-- Content -->
+          <div class="palette-content reveal">
+            <span class="eyebrow">Custom Aesthetics</span>
+            <h2 class="palette-title">Color Palette &amp;<br>Bespoke Designs</h2>
+            <p class="palette-desc">
+              Performance doesn't necessitate compromise on design. Our vast library of pigments, flakes, and metallic additives allows for complete architectural freedom.
+            </p>
+
+            <div class="palette-options">
+              <div class="palette-option">
+                <div class="palette-option-num">01</div>
+                <span class="palette-option-text">Solid Colors (RAL Standard matched)</span>
+              </div>
+              <div class="palette-option">
+                <div class="palette-option-num">02</div>
+                <span class="palette-option-text">Decorative Flake Blends (1/4&quot; to 1/16&quot;)</span>
+              </div>
+              <div class="palette-option">
+                <div class="palette-option-num">03</div>
+                <span class="palette-option-text">Metallic Pigment Infusions</span>
+              </div>
+            </div>
+
+            <a href="products.html#colours" class="palette-view-link">
+              View Full Palette →
+            </a>
+          </div>
+
+          <!-- Visual -->
+          <div class="palette-visual reveal" data-delay="2">
+            <div class="palette-orb">
+              <img src="img/metallic_epoxy.jpg" alt="Metallic Oceanic Epoxy Resin Mix">
+            </div>
+
+            <!-- Floating colour chip card -->
+            <div class="palette-chip-card">
+              <div class="chip-card-label">
+                <span class="chip-card-name">Metallic Mix: 'Oceanic'</span>
+                <span class="chip-badge-premium">Premium</span>
+              </div>
+              <div class="chip-swatches">
+                <div class="chip-swatch-group">
+                  <span class="chip-swatch-label">Base</span>
+                  <div class="chip-swatch">
+                    <div class="chip-dot" style="background:#00605A;"></div>
+                    <span class="chip-dot-label">Deep Teal</span>
+                  </div>
+                </div>
+                <div class="chip-swatch-group">
+                  <span class="chip-swatch-label">Accent</span>
+                  <div class="chip-swatch">
+                    <div class="chip-dot" style="background:#C9A227;"></div>
+                    <span class="chip-dot-label">Metallic Gold</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA BANNER
+    ═══════════════════════════════════════ -->
+    <section class="section-cta" id="cta">
+      <div class="container">
+        <div class="cta-container reveal">
+          <span class="cta-eyebrow">Ready to specify your surface?</span>
+          <h2 class="cta-title">Ready to Specify Your Surface?</h2>
+          <p class="cta-desc">
+            Consult with our technical specialists to determine the optimal epoxy system for your facility's operations, requirements and aesthetic goals.
+          </p>
+          <div class="cta-actions">
+            <a href="about.html#contact" class="btn btn-gold">Request a Quote</a>
+            <a href="about.html#contact" class="btn btn-outline-white">Contact Technical Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
-  
+
   <!-- ═══════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════ -->
   <footer class="site-footer">
     <div class="container">
-      
+
       <div class="footer-grid">
-        
+
         <!-- Brand Info -->
         <div>
           <a href="index.html" class="logo-brand">
@@ -168,18 +693,17 @@
             <span>Rapid Epoxy</span>
           </a>
           <p class="footer-brand-desc">
-            Victorian licensed epoxy flooring contractors delivering industrial-grade resin finishes for residential and commercial spaces.
+            High-performance flooring solutions for architectural and industrial excellence.
           </p>
         </div>
 
         <!-- Solutions Column -->
         <div>
-          <h4 class="footer-col-title">Systems</h4>
+          <h4 class="footer-col-title">Solutions</h4>
           <ul class="footer-links">
-            <li><a href="products.html">Vinyl Flakes</a></li>
-            <li><a href="products.html">Hybrid Stone</a></li>
-            <li><a href="products.html">3D Metallic Resin</a></li>
-            <li><a href="products.html">Industrial Solid</a></li>
+            <li><a href="products.html">Residential</a></li>
+            <li><a href="services.html">Industrial</a></li>
+            <li><a href="services.html">Commercial</a></li>
           </ul>
         </div>
 
@@ -187,19 +711,19 @@
         <div>
           <h4 class="footer-col-title">Company</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About Our Team</a></li>
-            <li><a href="products.html#packages">Fixed Pricing</a></li>
-            <li><a href="services.html#prep">Diamond Prep Process</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html#packages">Portfolio</a></li>
+            <li><a href="services.html#prep">Process</a></li>
           </ul>
         </div>
 
         <!-- Support Column -->
         <div>
-          <h4 class="footer-col-title">Assurance</h4>
+          <h4 class="footer-col-title">Support</h4>
           <ul class="footer-links">
-            <li><a href="about.html#contact">10-Year Warranty</a></li>
-            <li><a href="about.html#contact">Moisture Barrier Test</a></li>
-            <li><a href="about.html#contact">VIC License Details</a></li>
+            <li><a href="about.html#contact">FAQs</a></li>
+            <li><a href="about.html#contact">Warranties</a></li>
+            <li><a href="about.html">Sustainability</a></li>
           </ul>
         </div>
 
@@ -207,7 +731,7 @@
 
       <!-- Bottom Bar -->
       <div class="footer-bottom">
-        <span>© 2026 Rapid Epoxy Solutions Pty Ltd. All rights reserved. VIC Lic #48291.</span>
+        <span>&copy; 2024 Rapid Epoxy Solutions. All rights reserved.</span>
         <div style="display:flex; gap:var(--space-4);">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -220,10 +744,10 @@
   <!-- ═══════════════════════════════════════
        FLOATING WHATSAPP BUTTON
   ═══════════════════════════════════════ -->
-  <a href="https://wa.me/61390004821?text=Hi%20Rapid%20Epoxy%2C%20I'm%20interested%20in%20a%20quote%20for%20my%20floor." 
-     target="_blank" 
-     rel="noopener" 
-     class="floating-whatsapp-btn" 
+  <a href="https://wa.me/61390004821?text=Hi%20Rapid%20Epoxy%2C%20I'm%20interested%20in%20a%20quote%20for%20my%20floor."
+     target="_blank"
+     rel="noopener"
+     class="floating-whatsapp-btn"
      aria-label="Chat on WhatsApp">
     💬
   </a>
@@ -248,14 +772,14 @@
     if (mobileToggle && mobileMenu) {
       mobileToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('is-active');
-        mobileToggle.textContent = mobileMenu.classList.contains('is-active') ? '✕' : '☰';
+        mobileToggle.textContent = mobileMenu.classList.contains('is-active') ? 'x' : 'o';
       });
 
       // Close menu on link click
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.remove('is-active');
-          mobileToggle.textContent = '☰';
+          mobileToggle.textContent = 'o';
         });
       });
     }
@@ -275,36 +799,6 @@
       revealEls.forEach(el => revealObserver.observe(el));
     }
 
-    // Category Tabs Switching (Vinyl Flakes vs Hybrid Stone)
-    const tabFlakes = document.getElementById('tab-flakes');
-    const tabStone  = document.getElementById('tab-stone');
-    if (tabFlakes && tabStone) {
-      tabFlakes.addEventListener('click', () => {
-        tabFlakes.classList.add('active');
-        tabStone.classList.remove('active');
-      });
-      tabStone.addEventListener('click', () => {
-        tabStone.classList.add('active');
-        tabFlakes.classList.remove('active');
-      });
-    }
-
-    // Option items selection logic for Garage Packages
-    document.querySelectorAll('.garage-options-list').forEach(list => {
-      const priceDisplay = list.parentElement.querySelector('.package-price');
-      const items = list.querySelectorAll('.option-item');
-      
-      items.forEach(item => {
-        item.addEventListener('click', () => {
-          items.forEach(i => i.classList.remove('selected'));
-          item.classList.add('selected');
-          if (priceDisplay && item.dataset.price) {
-            priceDisplay.textContent = item.dataset.price;
-          }
-        });
-      });
-    });
-
     // Form Submit Handler
     function handleFormSubmit(e) {
       e.preventDefault();
@@ -313,14 +807,14 @@
 
     // Send Form Details via WhatsApp Redirect
     function sendViaWhatsApp() {
-      const name = document.getElementById('fullName') ? document.getElementById('fullName').value : '';
-      const phone = document.getElementById('phoneNumber') ? document.getElementById('phoneNumber').value : '';
-      const service = document.getElementById('serviceType') ? document.getElementById('serviceType').value : '';
+      const name    = document.getElementById('fullName')       ? document.getElementById('fullName').value       : '';
+      const phone   = document.getElementById('phoneNumber')    ? document.getElementById('phoneNumber').value    : '';
+      const service = document.getElementById('serviceType')    ? document.getElementById('serviceType').value    : '';
       const details = document.getElementById('projectDetails') ? document.getElementById('projectDetails').value : '';
 
-      const msg = `Hi Rapid Epoxy! My name is ${name || 'Customer'} (${phone || 'N/A'}). I am interested in ${service || 'a quote'}. Details: ${details || 'General inquiry'}`;
+      const msg = 'Hi Rapid Epoxy! My name is ' + (name || 'Customer') + ' (' + (phone || 'N/A') + '). I am interested in ' + (service || 'a quote') + '. Details: ' + (details || 'General inquiry');
       const encodedMsg = encodeURIComponent(msg);
-      window.open(`https://wa.me/61390004821?text=${encodedMsg}`, '_blank');
+      window.open('https://wa.me/61390004821?text=' + encodedMsg, '_blank');
     }
   </script>
 </body>
