@@ -3,460 +3,811 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rapid Epoxy — Products & Packages</title>
-  <meta name="description" content="Discover our range of premium epoxy flooring products including metallic systems, solid monolithic, vinyl flakes, and specialized garage packages.">
-  
-  <!-- Google Fonts: DM Sans -->
+  <title>Products & Finishes — Rapid Epoxy</title>
+  <meta name="description" content="Epoxy flooring systems we install: vinyl flake, metallic resin, solid colour. Fixed pricing on all garage packages.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-  
-  <!-- CSS -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* ─── Products Page ─── */
+
+    /* Hero */
+    .products-hero {
+      padding-top: 130px;
+      padding-bottom: var(--space-16);
+      background: var(--color-base);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .products-hero-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-12);
+    }
+
+    .products-hero-left h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--color-ink);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: var(--space-5);
+    }
+
+    .products-hero-left h1 span {
+      color: var(--color-teal);
+    }
+
+    .products-hero-right {
+      max-width: 380px;
+      flex-shrink: 0;
+    }
+
+    .products-hero-right p {
+      font-size: var(--text-md);
+      color: var(--color-muted);
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+    }
+
+    /* System cards */
+    .section-systems {
+      padding: var(--space-20) 0;
+      background: var(--color-base);
+    }
+
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .system-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    }
+
+    .system-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .system-card-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .system-card-img-placeholder {
+      width: 100%;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: var(--color-surface-sub);
+    }
+
+    .system-card-body {
+      padding: var(--space-6);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .system-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      background: var(--color-teal-light);
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-4);
+    }
+
+    .system-card-title {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-3);
+    }
+
+    .system-card-desc {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: var(--space-5);
+    }
+
+    .system-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .system-from {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .system-price {
+      font-size: var(--text-xl);
+      font-weight: 900;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+    }
+
+    /* Pricing section */
+    .section-pricing {
+      padding: var(--space-20) 0;
+      background: #F2F0EB;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .pricing-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--space-10);
+      gap: var(--space-8);
+    }
+
+    .pricing-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+
+    .pricing-header p {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.6;
+      max-width: 34ch;
+    }
+
+    .pricing-table {
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* Table header */
+    .pt-head {
+      display: grid;
+      grid-template-columns: 1fr 160px 160px 160px;
+      background: var(--color-teal);
+      color: #FFFFFF;
+    }
+
+    .pt-head-cell {
+      padding: var(--space-5) var(--space-6);
+      font-size: var(--text-xs);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .pt-head-cell:not(:first-child) {
+      text-align: center;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Table rows */
+    .pt-row {
+      display: grid;
+      grid-template-columns: 1fr 160px 160px 160px;
+      border-top: 1px solid var(--color-border);
+      transition: background var(--dur-fast);
+    }
+
+    .pt-row:first-of-type {
+      border-top: none;
+    }
+
+    .pt-row:hover {
+      background: var(--color-base);
+    }
+
+    .pt-system {
+      padding: var(--space-5) var(--space-6);
+    }
+
+    .pt-system-name {
+      font-size: var(--text-base);
+      font-weight: 800;
+      color: var(--color-ink);
+      margin-bottom: 2px;
+    }
+
+    .pt-system-sub {
+      font-size: var(--text-xs);
+      color: var(--color-muted);
+    }
+
+    .pt-cell {
+      padding: var(--space-5) var(--space-6);
+      text-align: center;
+      border-left: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pt-price {
+      font-size: var(--text-lg);
+      font-weight: 900;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+    }
+
+    .pt-size {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      margin-top: 2px;
+    }
+
+    .pt-cta-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-6);
+      background: var(--color-gold-light);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .pt-cta-row p {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+    }
+
+    /* Colour swatches */
+    .section-colours {
+      padding: var(--space-20) 0;
+      background: var(--color-base);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .colours-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--space-10);
+      gap: var(--space-8);
+    }
+
+    .colours-header h2 {
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-12);
+    }
+
+    .swatch {
+      cursor: pointer;
+    }
+
+    .swatch-block {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-2);
+      border: 2px solid transparent;
+      transition: all var(--dur-fast);
+    }
+
+    .swatch:hover .swatch-block {
+      border-color: var(--color-ink);
+      transform: scale(1.04);
+    }
+
+    .swatch-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .swatch-sku {
+      font-size: 0.62rem;
+      color: var(--color-muted);
+    }
+
+    /* Custom work strip */
+    .section-custom {
+      background: var(--color-teal);
+      padding: var(--space-16) 0;
+    }
+
+    .custom-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    .custom-inner h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: var(--space-4);
+    }
+
+    .custom-inner p {
+      font-size: var(--text-base);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+    }
+
+    .custom-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .custom-list li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+
+    .custom-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    .custom-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+
+    .custom-img img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .custom-img-placeholder {
+      width: 100%;
+      height: 400px;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .products-hero-inner { flex-direction: column; align-items: flex-start; }
+      .products-hero-right { max-width: 100%; }
+      .systems-grid { grid-template-columns: 1fr 1fr; }
+      .swatches-grid { grid-template-columns: repeat(4, 1fr); }
+      .custom-inner { grid-template-columns: 1fr; }
+      .custom-img, .custom-img-placeholder { height: 280px; }
+    }
+
+    @media (max-width: 768px) {
+      .pricing-header { flex-direction: column; align-items: flex-start; }
+      .colours-header { flex-direction: column; align-items: flex-start; }
+      .systems-grid { grid-template-columns: 1fr; }
+      .swatches-grid { grid-template-columns: repeat(3, 1fr); }
+      .pt-head, .pt-row { grid-template-columns: 1fr 1fr 1fr; }
+      .pt-head-cell:nth-child(2), .pt-cell:nth-child(2) { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════
-       HEADER & NAVIGATION
-  ═══════════════════════════════════════ -->
   <header class="site-header" id="header">
     <div class="container header-inner">
-      <!-- Logo -->
       <a href="index.html" class="logo-brand" aria-label="Rapid Epoxy Home">
         <div class="logo-monogram">RE</div>
         <span>Rapid Epoxy</span>
       </a>
-
-      <!-- Desktop Nav -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="products.html" class="nav-link active">Products ▾</a></li>
-          <li><a href="services.html" class="nav-link">Services ▾</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="products.html" class="nav-link active">Products</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-
-      <!-- Header Actions -->
       <div style="display:flex; align-items:center; gap:var(--space-3);">
-        <a href="contact.html" class="btn btn-gold">Request Quote</a>
-        <!-- Avatar icon -->
-        <a href="account.html" style="width:36px;height:36px;border-radius:50%;background:var(--color-teal-light);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;" aria-label="Account">
+        <a href="contact.html" class="btn btn-gold">Get a Quote</a>
+        <a href="account.html" style="width:36px;height:36px;border-radius:50%;background:var(--color-teal-light);display:flex;align-items:center;justify-content:center;text-decoration:none;" aria-label="Account">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
           </svg>
         </a>
       </div>
-
-      <!-- Mobile Toggle -->
-      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu">☰</button>
+      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
     </div>
   </header>
 
-  <!-- Mobile Menu Drawer Overlay -->
   <div class="mobile-menu-overlay mobile-nav" id="mobileMenu">
     <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="products.html" class="mobile-nav-link">Products &amp; Finishes</a>
-    <a href="services.html" class="mobile-nav-link">Our Services</a>
-    <a href="about.html" class="mobile-nav-link">About Us</a>
-    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
-    <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-4);">Request Quote</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-4);">Get a Quote</a>
   </div>
-  
+
   <main id="main-content">
 
-    <!-- ═══════════════════════════════════════
-         PRODUCTS HEADER
-    ═══════════════════════════════════════ -->
-    <section class="section-packages" style="padding-top: var(--space-24); background: var(--color-teal); color: white;">
+    <!-- ── Hero ── -->
+    <section class="products-hero">
       <div class="container">
-         <div class="packages-header" style="text-align:center; max-width: 760px; margin:0 auto; padding-bottom:var(--space-12);">
-           <span class="eyebrow" style="color:var(--color-gold);">Products &amp; Finishes</span>
-           <h1 class="section-title" style="color: white; margin-top: var(--space-2);">Epoxy systems we install</h1>
-           <p class="section-desc" style="color: rgba(255,255,255,0.8);">
-             Three main coating types — metallic resin, solid colour, and vinyl flake. Each one suits different spaces and budgets. If you're not sure which is right for yours, just ask and we'll point you in the right direction.
-           </p>
-         </div>
+        <div class="products-hero-inner">
+          <div class="products-hero-left">
+            <span class="eyebrow">Products &amp; Finishes</span>
+            <h1>Three systems.<br>Every floor covered.</h1>
+          </div>
+          <div class="products-hero-right">
+            <p>Vinyl flake, metallic resin, and solid colour epoxy — each one installed properly with diamond grinding, 100% solids primer, and a polyaspartic topcoat. Fixed pricing, no surprises.</p>
+            <div style="display:flex; gap:var(--space-3); flex-wrap:wrap;">
+              <a href="#pricing" class="btn btn-teal">See pricing</a>
+              <a href="contact.html" class="btn btn-outline-teal">Get a quote</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         TYPES OF EPOXY FLOORING
-    ═══════════════════════════════════════ -->
-    <section class="section-services">
+    <!-- ── Systems ── -->
+    <section class="section-systems" id="systems">
       <div class="container">
-        <div class="services-grid">
-          <!-- Metallic System -->
-          <div class="service-card">
-            <span class="service-badge">Decorative</span>
-            <div class="service-icon-box">
-              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            </div>
-            <h3 class="service-card-title">Metallic Resin</h3>
-            <p class="service-card-desc">
-              A self-levelling resin that creates organic, 3D swirl patterns. Every floor looks different. Popular in showrooms, restaurants, and high-end garages.
-            </p>
-            <div class="service-thumb-wrap">
-              <img src="img/metallic_epoxy.jpg" alt="Metallic epoxy floor" class="service-thumb">
-            </div>
-          </div>
-          <!-- Solid Colour -->
-          <div class="service-card">
-            <span class="service-badge">Industrial</span>
-            <div class="service-icon-box">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-            </div>
-            <h3 class="service-card-title">Solid Colour Epoxy</h3>
-            <p class="service-card-desc">
-              Plain, seamless, no-fuss. 100% solids epoxy in a single colour. Tough enough for warehouses and factories — easy to clean, long-lasting.
-            </p>
-            <div class="service-thumb-wrap">
-              <img src="img/plain_epoxy.jpg" alt="Solid colour epoxy floor" class="service-thumb">
-            </div>
-          </div>
+        <div class="systems-grid">
+
           <!-- Vinyl Flake -->
-          <div class="service-card">
-            <span class="service-badge">Most Popular</span>
-            <div class="service-icon-box">
-              <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h3 class="service-card-title">Vinyl Flake</h3>
-            <p class="service-card-desc">
-              Coloured vinyl chips broadcast over an epoxy base and sealed with polyaspartic. Hides imperfections, non-slip, and the most common choice for garage floors.
-            </p>
-            <div class="service-thumb-wrap">
-              <img src="img/flake_epoxy.jpg" alt="Vinyl flake epoxy floor" class="service-thumb">
+          <div class="system-card">
+            <img src="img/residential_epoxy.jpg" alt="Vinyl flake garage floor" class="system-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="system-card-img-placeholder" style="display:none;">🪨</div>
+            <div class="system-card-body">
+              <span class="system-badge">Most popular</span>
+              <h3 class="system-card-title">Vinyl Flake</h3>
+              <p class="system-card-desc">
+                Coloured vinyl chips broadcast wall-to-wall over an epoxy base, sealed with polyaspartic. Non-slip, hides surface imperfections, and one of the most durable finishes available for garage floors.
+              </p>
+              <div class="system-card-footer">
+                <div>
+                  <div class="system-from">From</div>
+                  <div class="system-price">$1,650</div>
+                </div>
+                <a href="#pricing" class="btn btn-teal" style="font-size:var(--text-xs); padding:0.6rem 1.1rem;">See sizes</a>
+              </div>
             </div>
           </div>
+
+          <!-- Metallic Resin -->
+          <div class="system-card">
+            <img src="img/metallic_epoxy.jpg" alt="Metallic resin epoxy floor" class="system-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="system-card-img-placeholder" style="display:none;">✨</div>
+            <div class="system-card-body">
+              <span class="system-badge">Decorative</span>
+              <h3 class="system-card-title">Metallic Resin</h3>
+              <p class="system-card-desc">
+                A self-levelling resin system that creates unique 3D swirl and flow patterns using metallic pigments. Every floor looks different. Common in showrooms, restaurants, and high-end residential spaces.
+              </p>
+              <div class="system-card-footer">
+                <div>
+                  <div class="system-from">From</div>
+                  <div class="system-price">$90<span style="font-size:var(--text-sm); font-weight:600;">/m²</span></div>
+                </div>
+                <a href="contact.html" class="btn btn-teal" style="font-size:var(--text-xs); padding:0.6rem 1.1rem;">Get a quote</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Solid Colour -->
+          <div class="system-card">
+            <img src="img/industrial_epoxy.jpg" alt="Solid colour epoxy warehouse floor" class="system-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="system-card-img-placeholder" style="display:none;">🏭</div>
+            <div class="system-card-body">
+              <span class="system-badge">Industrial</span>
+              <h3 class="system-card-title">Solid Colour Epoxy</h3>
+              <p class="system-card-desc">
+                Plain, seamless coating in a single colour. 100% solids epoxy — no water, no solvents. Built for warehouses, food factories, and workshops. Easy to clean, resistant to heavy machinery and chemical spills.
+              </p>
+              <div class="system-card-footer">
+                <div>
+                  <div class="system-from">From</div>
+                  <div class="system-price">$45<span style="font-size:var(--text-sm); font-weight:600;">/m²</span></div>
+                </div>
+                <a href="contact.html" class="btn btn-teal" style="font-size:var(--text-xs); padding:0.6rem 1.1rem;">Get a quote</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         COLOUR PALETTE & DESIGNS
-    ═══════════════════════════════════════ -->
-    <section class="section-services" style="background: var(--color-surface-sub);" id="colours">
+    <!-- ── Pricing Table ── -->
+    <section class="section-pricing" id="pricing">
       <div class="container">
-        <div class="services-top-bar">
+
+        <div class="pricing-header">
           <div>
-            <span class="eyebrow">Colours &amp; Finishes</span>
-            <h2 class="section-title">Colour options</h2>
-            <p class="section-desc">
-              We stock a solid range of colours, metallic pigments, and flake blends. Custom colour matching to RAL or Pantone is available on request.
-            </p>
+            <span class="eyebrow">Fixed Pricing</span>
+            <h2>Garage packages</h2>
+          </div>
+          <p>All prices are fixed. Everything included — grinding, primer, flake broadcast, and polyaspartic topcoat. No hidden extras.</p>
+        </div>
+
+        <div class="pricing-table">
+
+          <!-- Header row -->
+          <div class="pt-head">
+            <div class="pt-head-cell">System</div>
+            <div class="pt-head-cell">Single Car<br><span style="font-weight:400; opacity:0.7;">up to 24m²</span></div>
+            <div class="pt-head-cell">Double Car<br><span style="font-weight:400; opacity:0.7;">up to 42m²</span></div>
+            <div class="pt-head-cell">Triple Car<br><span style="font-weight:400; opacity:0.7;">up to 65m²</span></div>
+          </div>
+
+          <!-- Vinyl Flake row -->
+          <div class="pt-row">
+            <div class="pt-system">
+              <div class="pt-system-name">Vinyl Flake</div>
+              <div class="pt-system-sub">Full broadcast — 20+ colour blends</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price">$1,650</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price">$2,450</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price">$3,250</div>
+            </div>
+          </div>
+
+          <!-- Hybrid Stone row -->
+          <div class="pt-row" style="background: var(--color-gold-light);">
+            <div class="pt-system">
+              <div class="pt-system-name" style="display:flex; align-items:center; gap:var(--space-2);">
+                Hybrid Stone Flake
+                <span style="font-size:0.6rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-gold); background:rgba(212,163,37,0.15); padding:0.2rem 0.5rem; border-radius:20px;">Popular</span>
+              </div>
+              <div class="pt-system-sub">Micro-granite look — terrazzo style</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price">$1,950</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price">$2,850</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price">$3,750</div>
+            </div>
+          </div>
+
+          <!-- Metallic Resin row -->
+          <div class="pt-row">
+            <div class="pt-system">
+              <div class="pt-system-name">Metallic Resin</div>
+              <div class="pt-system-sub">Quoted by m² — site-specific</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price" style="font-size:var(--text-md);">From $90/m²</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price" style="font-size:var(--text-md);">From $90/m²</div>
+            </div>
+            <div class="pt-cell">
+              <div class="pt-price" style="font-size:var(--text-md);">From $90/m²</div>
+            </div>
+          </div>
+
+          <!-- CTA row -->
+          <div class="pt-cta-row">
+            <p>Need a quote for a different size or a commercial space? We'll measure up and give you a fixed price.</p>
+            <a href="contact.html" class="btn btn-gold">Get a custom quote</a>
+          </div>
+
+        </div>
+
+        <!-- What's included -->
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:var(--space-4); margin-top:var(--space-8);">
+          <div style="display:flex; align-items:center; gap:var(--space-3);">
+            <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:var(--color-teal-light); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:var(--text-xs); font-weight:700; color:var(--color-ink);">Diamond grinding included</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:var(--space-3);">
+            <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:var(--color-teal-light); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:var(--text-xs); font-weight:700; color:var(--color-ink);">Crack repair included</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:var(--space-3);">
+            <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:var(--color-teal-light); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:var(--text-xs); font-weight:700; color:var(--color-ink);">Polyaspartic topcoat included</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:var(--space-3);">
+            <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:var(--color-teal-light); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:var(--text-xs); font-weight:700; color:var(--color-ink);">10-year warranty</span>
           </div>
         </div>
 
-        <!-- Solid Colors Preview -->
-        <h3 style="margin-bottom: var(--space-4);">Solid colours</h3>
-        <p style="margin-bottom: var(--space-6); color: var(--color-muted); max-width: 600px;">
-          Standard stock colours. If you need something specific, bring a sample or RAL code and we'll match it.
-        </p>
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-12);">
+      </div>
+    </section>
+
+    <!-- ── Colour Swatches ── -->
+    <section class="section-colours" id="colours">
+      <div class="container">
+        <div class="colours-header">
           <div>
-            <div style="height:150px; background:#D9DADA; border-radius:var(--radius-sm); margin-bottom:var(--space-2);"></div>
-            <strong>Platinum Grey</strong><br><small style="color:var(--color-muted);">SKU: SS-012</small>
+            <span class="eyebrow">Colour Options</span>
+            <h2>Standard stock colours</h2>
           </div>
-          <div>
-            <div style="height:150px; background:#8590A2; border-radius:var(--radius-sm); margin-bottom:var(--space-2);"></div>
-            <strong>Slate Blue</strong><br><small style="color:var(--color-muted);">SKU: SS-045</small>
+          <p style="font-size:var(--text-sm); color:var(--color-muted); max-width:28ch; line-height:1.6;">Custom RAL or Pantone matching available on request.</p>
+        </div>
+
+        <div class="swatches-grid">
+          <div class="swatch">
+            <div class="swatch-block" style="background:#D9DADA;"></div>
+            <div class="swatch-name">Platinum Grey</div>
+            <div class="swatch-sku">SS-012</div>
           </div>
-          <div>
-            <div style="height:150px; background:#CDA97D; border-radius:var(--radius-sm); margin-bottom:var(--space-2);"></div>
-            <strong>Desert Tan</strong><br><small style="color:var(--color-muted);">SKU: SS-088</small>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#8590A2;"></div>
+            <div class="swatch-name">Slate Blue</div>
+            <div class="swatch-sku">SS-045</div>
           </div>
-          <div>
-            <div style="height:150px; background:#294943; border-radius:var(--radius-sm); margin-bottom:var(--space-2);"></div>
-            <strong>Forest Green</strong><br><small style="color:var(--color-muted);">SKU: SS-102</small>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#CDA97D;"></div>
+            <div class="swatch-name">Desert Tan</div>
+            <div class="swatch-sku">SS-088</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#294943;"></div>
+            <div class="swatch-name">Forest Green</div>
+            <div class="swatch-sku">SS-102</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#1A1A1A;"></div>
+            <div class="swatch-name">Charcoal Black</div>
+            <div class="swatch-sku">SS-006</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#C0392B;"></div>
+            <div class="swatch-name">Safety Red</div>
+            <div class="swatch-sku">SS-118</div>
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); align-items:center;">
+        <p style="font-size:var(--text-sm); color:var(--color-muted);">Flake blends and metallic pigment colours available separately. <a href="contact.html" style="color:var(--color-teal); text-decoration:underline; text-underline-offset:3px;">Ask us for swatches →</a></p>
+
+      </div>
+    </section>
+
+    <!-- ── Custom Work ── -->
+    <section class="section-custom">
+      <div class="container">
+        <div class="custom-inner">
           <div>
-            <img src="img/hero_epoxy.jpg" alt="Custom design options" style="width:100%; border-radius:var(--radius-md);">
-          </div>
-          <div>
-            <span class="eyebrow">Custom work</span>
-            <h2 class="section-title">Custom designs</h2>
-            <p class="section-desc">
-              We can incorporate logos, safety lines, colour zones, and multi-system layouts into a single floor. Common for factories, car yards, and commercial fitouts.
-            </p>
-            <ul class="service-checklist" style="margin-top:var(--space-6);">
-              <li>Multi-System Zoning</li>
+            <span class="eyebrow" style="color:var(--color-gold);">Custom work</span>
+            <h2>Need something beyond a standard floor?</h2>
+            <p>We do logos, safety line marking, multi-zone layouts, and bespoke colour matching. Common for car dealerships, factories, and commercial fitouts.</p>
+            <ul class="custom-list">
+              <li>Logo stencilling &amp; branding</li>
+              <li>Safety &amp; traffic demarcation lines</li>
+              <li>Multi-system zone layouts</li>
+              <li>RAL / Pantone colour matching</li>
             </ul>
-            <a href="about.html#contact" class="btn btn-outline-teal" style="margin-top: var(--space-6);">Consult on a Custom Design →</a>
+            <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-8);">Talk to us about your job</a>
           </div>
+          <div class="custom-img">
+            <img src="img/commercial_epoxy.jpg" alt="Commercial epoxy floor with custom markings" onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex'">
+          </div>
+          <div class="custom-img-placeholder" style="display:none;">🏢</div>
         </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         POPULAR GARAGE PACKAGES
-    ═══════════════════════════════════════ -->
-    <section class="section-packages" id="packages">
-      <div class="container">
-        
-        <div class="packages-header">
-          <div>
-            <h2 class="section-title">Popular Garage Packages</h2>
-            <p class="section-desc">
-              Transparent, comprehensive pricing for our most requested high-performance floor systems. All packages include diamond grinding, base coat, flake broadcast, and UV-stable polyaspartic topcoat.
-            </p>
-          </div>
-
-          <!-- Package Category Selector Tabs -->
-          <div class="packages-tabs" role="tablist">
-            <button class="tab-btn active" id="tab-flakes" role="tab" aria-selected="true">Vinyl Flakes</button>
-            <button class="tab-btn" id="tab-stone" role="tab" aria-selected="false">Hybrid Stone</button>
-          </div>
-        </div>
-
-        <!-- Packages Grid -->
-        <div class="packages-grid">
-          
-          <!-- Package 1: Base System -->
-          <div class="package-card">
-            <span class="package-system-type">Base System</span>
-            <h3 class="package-title">Full Broadcast Vinyl Flakes</h3>
-            <p class="package-desc">
-              Heavy-duty anti-slip vinyl flake matrix over 100% solid epoxy primer. Hot-tire pick up proof with an R11 slip rating.
-            </p>
-            
-            <div class="package-price-wrap">
-              <span class="package-price-label">Starting from</span>
-              <span class="package-price" id="price-vinyl">$1,650</span>
-            </div>
-
-            <!-- Single / Double / Triple Car Selector -->
-            <div class="garage-options-list" id="opts-vinyl">
-              <div class="option-item selected" data-price="$1,650">
-                <span>Single Car Garage (up to 24m²)</span>
-                <span class="option-check">✓</span>
-              </div>
-              <div class="option-item" data-price="$2,450">
-                <span>Double Car Garage (up to 42m²)</span>
-                <span class="option-check">✓</span>
-              </div>
-              <div class="option-item" data-price="$3,250">
-                <span>Triple Car Garage (up to 65m²)</span>
-                <span class="option-check">✓</span>
-              </div>
-            </div>
-
-            <a href="about.html#contact" class="btn btn-outline-teal package-cta" style="text-align:center;">Select Vinyl Flakes</a>
-          </div>
-
-          <!-- Package 2: Luxury System -->
-          <div class="package-card">
-            <span class="package-badge">Premium Finish</span>
-            <span class="package-system-type">Luxury System</span>
-            <h3 class="package-title">Hybrid Granite Stone Flakes</h3>
-            <p class="package-desc">
-              Natural micro-granite flake matrix designed to replicate polished terrazzo stone. Scratch-resistant clear shield coat.
-            </p>
-            
-            <div class="package-price-wrap">
-              <span class="package-price-label">Starting from</span>
-              <span class="package-price" id="price-stone">$1,950</span>
-            </div>
-
-            <!-- Single / Double / Triple Car Selector -->
-            <div class="garage-options-list" id="opts-stone">
-              <div class="option-item selected" data-price="$1,950">
-                <span>Single Car Garage (up to 24m²)</span>
-                <span class="option-check" style="color:var(--color-gold);">★</span>
-              </div>
-              <div class="option-item" data-price="$2,850">
-                <span>Double Car Garage (up to 42m²)</span>
-                <span class="option-check" style="color:var(--color-gold);">★</span>
-              </div>
-              <div class="option-item" data-price="$3,750">
-                <span>Triple Car Garage (up to 65m²)</span>
-                <span class="option-check" style="color:var(--color-gold);">★</span>
-              </div>
-            </div>
-
-            <a href="about.html#contact" class="btn btn-teal package-cta" style="text-align:center;">Select Hybrid Stone</a>
-          </div>
-
-        </div>
-
       </div>
     </section>
 
   </main>
-  
-  <!-- ═══════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════ -->
+
   <footer class="site-footer">
     <div class="container">
-      
       <div class="footer-grid">
-        
-        <!-- Brand Info -->
         <div>
           <a href="index.html" class="logo-brand">
             <div class="logo-monogram">RE</div>
             <span>Rapid Epoxy</span>
           </a>
-          <p class="footer-brand-desc">
-            Victorian licensed epoxy flooring contractors delivering industrial-grade resin finishes for residential and commercial spaces.
-          </p>
+          <p class="footer-brand-desc">Owner-operated epoxy flooring out of Melbourne. Residential garages, commercial spaces, industrial warehouses.</p>
         </div>
-
-        <!-- Solutions Column -->
         <div>
           <h4 class="footer-col-title">Systems</h4>
           <ul class="footer-links">
-            <li><a href="products.html">Vinyl Flakes</a></li>
-            <li><a href="products.html">Hybrid Stone</a></li>
-            <li><a href="products.html">3D Metallic Resin</a></li>
-            <li><a href="products.html">Industrial Solid</a></li>
+            <li><a href="products.html">Vinyl Flake</a></li>
+            <li><a href="products.html">Metallic Resin</a></li>
+            <li><a href="products.html">Solid Colour</a></li>
+            <li><a href="products.html#pricing">Pricing</a></li>
           </ul>
         </div>
-
-        <!-- Company Column -->
         <div>
-          <h4 class="footer-col-title">Company</h4>
+          <h4 class="footer-col-title">Site</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About Our Team</a></li>
-            <li><a href="products.html#packages">Fixed Pricing</a></li>
-            <li><a href="services.html#prep">Diamond Prep Process</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-
-        <!-- Support Column -->
         <div>
-          <h4 class="footer-col-title">Assurance</h4>
-          <ul class="footer-links">
-            <li><a href="about.html#contact">10-Year Warranty</a></li>
-            <li><a href="about.html#contact">Moisture Barrier Test</a></li>
-            <li><a href="about.html#contact">VIC License Details</a></li>
-          </ul>
+          <h4 class="footer-col-title">Get in touch</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-muted); line-height:1.7; margin-bottom:var(--space-4);">
+            Melbourne &amp; Victoria Wide<br>
+            +1 (555) 123-4567<br>
+            service@rapidepoxy.pro<br>
+            Mon–Sat, 7am–6pm
+          </p>
+          <a href="contact.html" class="btn btn-teal" style="font-size:var(--text-xs);">Get a Quote</a>
         </div>
-
       </div>
-
-      <!-- Bottom Bar -->
       <div class="footer-bottom">
-        <span>© 2026 Rapid Epoxy Solutions Pty Ltd. All rights reserved. VIC Lic #48291.</span>
-        <div style="display:flex; gap:var(--space-4);">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
+        <p>&copy; 2026 Rapid Epoxy. All rights reserved.</p>
       </div>
-
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════
-       FLOATING WHATSAPP BUTTON
-  ═══════════════════════════════════════ -->
-  <a href="https://wa.me/61390004821?text=Hi%20Rapid%20Epoxy%2C%20I'm%20interested%20in%20a%20quote%20for%20my%20floor." 
-     target="_blank" 
-     rel="noopener" 
-     class="floating-whatsapp-btn" 
-     aria-label="Chat on WhatsApp">
-    💬
-  </a>
-
-  <!-- JS Script -->
-  <script>
-    // Header shadow on scroll
-    const header = document.getElementById('header');
-    if (header) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      });
-    }
-
-    // Mobile Menu Toggle Drawer
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileMenu   = document.getElementById('mobileMenu');
-    if (mobileToggle && mobileMenu) {
-      mobileToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('is-active');
-        mobileToggle.textContent = mobileMenu.classList.contains('is-active') ? '✕' : '☰';
-      });
-
-      // Close menu on link click
-      document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('is-active');
-          mobileToggle.textContent = '☰';
-        });
-      });
-    }
-
-    // Scroll Reveal Observer
-    const revealEls = document.querySelectorAll('.reveal');
-    if (revealEls.length) {
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      revealEls.forEach(el => revealObserver.observe(el));
-    }
-
-    // Category Tabs Switching (Vinyl Flakes vs Hybrid Stone)
-    const tabFlakes = document.getElementById('tab-flakes');
-    const tabStone  = document.getElementById('tab-stone');
-    if (tabFlakes && tabStone) {
-      tabFlakes.addEventListener('click', () => {
-        tabFlakes.classList.add('active');
-        tabStone.classList.remove('active');
-      });
-      tabStone.addEventListener('click', () => {
-        tabStone.classList.add('active');
-        tabFlakes.classList.remove('active');
-      });
-    }
-
-    // Option items selection logic for Garage Packages
-    document.querySelectorAll('.garage-options-list').forEach(list => {
-      const priceDisplay = list.parentElement.querySelector('.package-price');
-      const items = list.querySelectorAll('.option-item');
-      
-      items.forEach(item => {
-        item.addEventListener('click', () => {
-          items.forEach(i => i.classList.remove('selected'));
-          item.classList.add('selected');
-          if (priceDisplay && item.dataset.price) {
-            priceDisplay.textContent = item.dataset.price;
-          }
-        });
-      });
-    });
-
-    // Form Submit Handler
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      alert('Thank you for reaching out to Rapid Epoxy! We have received your inquiry and will contact you within 2 hours.');
-    }
-
-    // Send Form Details via WhatsApp Redirect
-    function sendViaWhatsApp() {
-      const name = document.getElementById('fullName') ? document.getElementById('fullName').value : '';
-      const phone = document.getElementById('phoneNumber') ? document.getElementById('phoneNumber').value : '';
-      const service = document.getElementById('serviceType') ? document.getElementById('serviceType').value : '';
-      const details = document.getElementById('projectDetails') ? document.getElementById('projectDetails').value : '';
-
-      const msg = `Hi Rapid Epoxy! My name is ${name || 'Customer'} (${phone || 'N/A'}). I am interested in ${service || 'a quote'}. Details: ${details || 'General inquiry'}`;
-      const encodedMsg = encodeURIComponent(msg);
-      window.open(`https://wa.me/61390004821?text=${encodedMsg}`, '_blank');
-    }
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
