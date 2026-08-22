@@ -139,6 +139,32 @@
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
+  // ─── FAQ Accordion Toggles ───────────────────────────────────────────
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('.faq-trigger');
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+        faqItems.forEach(i => i.classList.remove('is-open'));
+        if (!isOpen) item.classList.add('is-open');
+      });
+    }
+  });
+
+  // ─── System Pill Selector Buttons ────────────────────────────────────
+  const systemPillBtns = document.querySelectorAll('.system-pill-btn');
+  const serviceTypeSelect = document.getElementById('serviceType');
+  systemPillBtns.forEach(pill => {
+    pill.addEventListener('click', () => {
+      systemPillBtns.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const value = pill.getAttribute('data-value');
+      if (serviceTypeSelect && value) {
+        serviceTypeSelect.value = value;
+      }
+    });
   });
 
 })();
+
