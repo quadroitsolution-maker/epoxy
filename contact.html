@@ -3,246 +3,435 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rapid Epoxy — Contact Us & Technical Quote</title>
-  <meta name="description" content="Request a free technical quote, concrete moisture evaluation, or on-site consultation from Melbourne's top epoxy flooring specialists.">
-
-  <!-- Google Fonts: DM Sans -->
+  <title>Contact — Rapid Epoxy</title>
+  <meta name="description" content="Get a quote or book a site visit with Rapid Epoxy. We're based in Melbourne and work across Victoria.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* ── Contact page styles ── */
+    .contact-page-hero {
+      padding-top: 120px;
+      padding-bottom: var(--space-12);
+      background: var(--color-base);
+    }
+
+    .contact-page-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: var(--space-4);
+    }
+
+    .contact-page-hero p {
+      font-size: var(--text-md);
+      color: var(--color-muted);
+      line-height: 1.7;
+      max-width: 48ch;
+    }
+
+    /* ── Contact layout ── */
+    .contact-body {
+      padding: var(--space-12) 0 var(--space-20);
+      background: var(--color-base);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+
+    /* Left column */
+    .contact-info h2 {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-ink);
+      margin-bottom: var(--space-6);
+    }
+
+    .contact-detail {
+      margin-bottom: var(--space-6);
+    }
+
+    .contact-detail-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: var(--space-1);
+    }
+
+    .contact-detail-value {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-ink);
+      line-height: 1.5;
+    }
+
+    .contact-detail-value a {
+      color: var(--color-teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .whatsapp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: #25D366;
+      color: #fff;
+      font-size: var(--text-xs);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      margin-top: var(--space-4);
+      text-decoration: none;
+      transition: background var(--dur-fast);
+    }
+
+    .whatsapp-link:hover { background: #1DA851; }
+
+    .whatsapp-link svg {
+      width: 16px; height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .contact-note {
+      margin-top: var(--space-10);
+      padding: var(--space-5);
+      background: var(--color-teal-light);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--color-teal);
+    }
+
+    .contact-note p {
+      font-size: var(--text-sm);
+      color: var(--color-teal-dark);
+      line-height: 1.6;
+    }
+
+    /* Right column — form */
+    .contact-form-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-card);
+    }
+
+    .contact-form-card h2 {
+      font-size: var(--text-xl);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-2);
+    }
+
+    .contact-form-card > p {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      margin-bottom: var(--space-7);
+    }
+
+    /* Form fields */
+    .field-group {
+      margin-bottom: var(--space-5);
+    }
+
+    .field-group label {
+      display: block;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      margin-bottom: var(--space-2);
+    }
+
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--color-base);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-sm);
+      color: var(--color-ink);
+      font-family: var(--font-sans);
+      transition: border-color var(--dur-fast);
+      outline: none;
+    }
+
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus {
+      border-color: var(--color-teal);
+    }
+
+    .field-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .field-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: var(--space-6);
+      gap: var(--space-4);
+    }
+
+    .form-submit-row p {
+      font-size: var(--text-xs);
+      color: var(--color-muted);
+      line-height: 1.5;
+      max-width: 28ch;
+    }
+
+    /* FAQ section */
+    .section-faq {
+      padding: var(--space-16) 0;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .section-faq h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-10);
+    }
+
+    .faq-accordion-list {
+      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      padding: var(--space-5) 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      font-size: var(--text-md);
+      font-weight: 700;
+      color: var(--color-ink);
+      cursor: pointer;
+      background: none;
+      border: none;
+      gap: var(--space-4);
+    }
+
+    .faq-trigger:hover { color: var(--color-teal); }
+
+    .faq-trigger-icon {
+      font-size: 1.4rem;
+      color: var(--color-muted);
+      line-height: 1;
+      flex-shrink: 0;
+      transition: transform var(--dur-base) var(--ease-out);
+    }
+
+    .faq-item.is-open .faq-trigger-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--dur-slow) var(--ease-out);
+    }
+
+    .faq-item.is-open .faq-content {
+      max-height: 300px;
+    }
+
+    .faq-content p {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.7;
+      padding-bottom: var(--space-6);
+    }
+
+    @media (max-width: 1024px) {
+      .contact-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+    }
+
+    @media (max-width: 768px) {
+      .field-row-2 { grid-template-columns: 1fr; }
+      .form-submit-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════
-       HEADER & NAVIGATION
-  ═══════════════════════════════════════ -->
   <header class="site-header" id="header">
     <div class="container header-inner">
-      <!-- Logo -->
       <a href="index.html" class="logo-brand" aria-label="Rapid Epoxy Home">
         <div class="logo-monogram">RE</div>
         <span>Rapid Epoxy</span>
       </a>
-
-      <!-- Desktop Nav -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="products.html" class="nav-link">Products ▾</a></li>
-          <li><a href="services.html" class="nav-link">Services ▾</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
       </nav>
-
-      <!-- Header Actions -->
       <div style="display:flex; align-items:center; gap:var(--space-3);">
-        <a href="contact.html" class="btn btn-gold">Request Quote</a>
-        <a href="account.html" style="width:36px;height:36px;border-radius:50%;background:var(--color-teal-light);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;" aria-label="Account">
+        <a href="contact.html" class="btn btn-gold">Get a Quote</a>
+        <a href="account.html" style="width:36px;height:36px;border-radius:50%;background:var(--color-teal-light);display:flex;align-items:center;justify-content:center;text-decoration:none;" aria-label="Account">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
           </svg>
         </a>
       </div>
-
-      <!-- Mobile Toggle -->
-      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu">☰</button>
+      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
     </div>
   </header>
 
-  <!-- Mobile Menu Drawer Overlay -->
   <div class="mobile-menu-overlay mobile-nav" id="mobileMenu">
     <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="products.html" class="mobile-nav-link">Products &amp; Finishes</a>
-    <a href="services.html" class="mobile-nav-link">Our Services</a>
-    <a href="about.html" class="mobile-nav-link">About Us</a>
-    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
-    <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-4);">Request Quote</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-4);">Get a Quote</a>
   </div>
 
   <main id="main-content">
 
-    <!-- ═══════════════════════════════════════
-         HERO SECTION
-    ═══════════════════════════════════════ -->
-    <section class="about-hero-modern">
+    <!-- Page header -->
+    <section class="contact-page-hero">
       <div class="container">
-        <div class="about-hero-inner">
-          <div class="hero-pill-badge">
-            <span class="pulse-dot"></span>
-            <span>Fast 2-Hour Response Guaranteed</span>
-          </div>
-          <h1 class="hero-title">
-            Get In Touch with <em>Rapid Epoxy</em>
-          </h1>
-          <p class="hero-sub">
-            Schedule an on-site concrete moisture inspection, request a custom price estimate, or speak directly with our technical team today.
-          </p>
-          <div class="hero-quick-nav">
-            <a href="#contact-form" class="hero-quick-link" style="background:var(--color-gold); color:#000;">📝 Quote Form</a>
-            <a href="#faq" class="hero-quick-link">❓ Common Questions</a>
-            <a href="tel:+15551234567" class="hero-quick-link">📞 Call Direct</a>
-          </div>
-        </div>
+        <span class="eyebrow">Contact</span>
+        <h1>Get in touch</h1>
+        <p>Fill in the form and we'll get back to you within a couple of hours, usually faster. Or just send us a WhatsApp if that's easier.</p>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         SPLIT CONTACT SECTION
-    ═══════════════════════════════════════ -->
-    <section class="section-contact-modern" id="contact-form">
+    <!-- Main contact section -->
+    <section class="contact-body">
       <div class="container">
-        <div class="contact-split-grid">
+        <div class="contact-grid">
 
-          <!-- Left Info Column -->
-          <div class="contact-left-card">
-            <div class="contact-eyebrow-tag">Direct Technical Channel</div>
-            <h2 class="contact-main-title">We're Here to Power Your Project</h2>
-            <p class="contact-sub-text">
-              Whether you need a residential garage floor overhaul or a 2,000 sqm industrial warehouse coating, our resin specialists are ready to advise on the optimal system.
-            </p>
+          <!-- Left: info -->
+          <div class="contact-info">
+            <h2>Contact details</h2>
 
-            <!-- WhatsApp Direct CTA -->
-            <a href="https://wa.me/61390004821?text=Hi%20Rapid%20Epoxy%2C%20I'd%20like%20a%20technical%20quote." target="_blank" rel="noopener" class="btn-whatsapp-large">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-              </svg>
-              <span>Instant Chat on WhatsApp</span>
+            <div class="contact-detail">
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-value"><a href="tel:+15551234567">+1 (555) 123-4567</a></div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-value"><a href="mailto:service@rapidepoxy.pro">service@rapidepoxy.pro</a></div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-label">Hours</div>
+              <div class="contact-detail-value">Mon – Sat, 7am – 6pm</div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-label">Location</div>
+              <div class="contact-detail-value">Melbourne &amp; Victoria wide<br>We come to you for site visits.</div>
+            </div>
+
+            <a href="https://wa.me/61390004821?text=Hi%2C%20I'd%20like%20a%20quote%20for%20an%20epoxy%20floor." target="_blank" rel="noopener" class="whatsapp-link">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Message us on WhatsApp
             </a>
 
-            <!-- Info Rows -->
-            <div class="contact-info-list">
-              <div class="contact-info-item">
-                <div class="info-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="info-label">Headquarters</div>
-                  <div class="info-value">1360 Epoxy Road, Suite 400<br>Industrial District, NY 10001</div>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="info-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="info-label">Phone</div>
-                  <div class="info-value">+1 (555) 123-4567</div>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="info-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="info-label">Email</div>
-                  <div class="info-value">service@rapidepoxy.pro</div>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="info-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="info-label">Operating Hours</div>
-                  <div class="info-value">Mon - Sat: 7:00 AM - 6:00 PM</div>
-                </div>
-              </div>
+            <div class="contact-note">
+              <p>
+                For quicker turnaround on large commercial or industrial jobs, calling or WhatsApp is usually faster. We can often schedule a site visit within a few days.
+              </p>
             </div>
-
-            <!-- Map Card Placeholder -->
-            <div class="interactive-map-placeholder">
-              <div style="font-size:1.4rem;">📍</div>
-              <div>On-Site Inspections Daily Across Melbourne &amp; Victoria</div>
-            </div>
-
           </div>
 
-          <!-- Right Interactive Form Card -->
-          <div class="quote-form-container">
-            <h3 class="form-header-title">Request a Free Technical Evaluation</h3>
-            <p class="form-header-sub">Fill out the details below and our team will get back to you within 2 hours with an estimate.</p>
+          <!-- Right: form -->
+          <div class="contact-form-card">
+            <h2>Request a quote</h2>
+            <p>Tell us a bit about the job and we'll put together a fixed-price estimate.</p>
 
-            <form id="technicalEvalForm">
-              
-              <!-- System Selection Pills -->
-              <div style="margin-bottom:var(--space-4);">
-                <label class="info-label" style="margin-bottom:var(--space-2); display:block;">Select System Type</label>
-                <div class="system-pill-group">
-                  <button type="button" class="system-pill-btn active" data-value="Full Broadcast Vinyl Flakes">Garage Flakes</button>
-                  <button type="button" class="system-pill-btn" data-value="3D Metallic Resin">Metallic Resin</button>
-                  <button type="button" class="system-pill-btn" data-value="Commercial Factory Flooring">Industrial Commercial</button>
-                  <button type="button" class="system-pill-btn" data-value="Concrete Sealing & Resurfacing">Concrete Sealing</button>
+            <form id="quoteForm">
+
+              <div class="field-row-2">
+                <div class="field-group">
+                  <label for="firstName">First name</label>
+                  <input type="text" id="firstName" autocomplete="given-name" required>
+                </div>
+                <div class="field-group">
+                  <label for="lastName">Last name</label>
+                  <input type="text" id="lastName" autocomplete="family-name" required>
                 </div>
               </div>
 
-              <!-- Name Row -->
-              <div class="form-grid-row">
-                <div class="form-group">
-                  <label class="form-label" for="firstName">First Name</label>
-                  <input type="text" id="firstName" class="form-input" placeholder="e.g. John" required>
+              <div class="field-row-2">
+                <div class="field-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" autocomplete="email" required>
                 </div>
-                <div class="form-group">
-                  <label class="form-label" for="lastName">Last Name</label>
-                  <input type="text" id="lastName" class="form-input" placeholder="e.g. Smith" required>
-                </div>
-              </div>
-
-              <!-- Contact Row -->
-              <div class="form-grid-row">
-                <div class="form-group">
-                  <label class="form-label" for="emailAddress">Email Address</label>
-                  <input type="email" id="emailAddress" class="form-input" placeholder="john@example.com" required>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="phoneNumber">Phone Number</label>
-                  <input type="tel" id="phoneNumber" class="form-input" placeholder="0400 000 000" required>
+                <div class="field-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" autocomplete="tel">
                 </div>
               </div>
 
-              <!-- Select Service Dropdown -->
-              <div class="form-group">
-                <label class="form-label" for="serviceType">Flooring Package</label>
-                <select id="serviceType" class="form-select" required>
-                  <option value="Full Broadcast Vinyl Flakes">Full Broadcast Vinyl Flakes (from $1,650)</option>
-                  <option value="Hybrid Stone Flakes">Hybrid Stone Flakes (from $1,950)</option>
-                  <option value="3D Metallic Resin">3D Metallic Resin Coating (from $90/m²)</option>
-                  <option value="Solid Plain Industrial Epoxy">Solid Plain Industrial Epoxy</option>
-                  <option value="Commercial Factory Flooring">Commercial Factory Heavy Duty</option>
-                  <option value="Concrete Sealing & Resurfacing">Concrete Grinding &amp; Sealing</option>
+              <div class="field-group">
+                <label for="jobType">Type of job</label>
+                <select id="jobType" required>
+                  <option value="" disabled selected>Select one...</option>
+                  <option>Residential garage</option>
+                  <option>Commercial showroom or retail</option>
+                  <option>Industrial warehouse or factory</option>
+                  <option>Concrete grinding only</option>
+                  <option>Something else</option>
                 </select>
               </div>
 
-              <!-- Area (Sqm) + Specs -->
-              <div class="form-group">
-                <label class="form-label" for="projectSpecs">Project Specs &amp; Approx. Area (m²)</label>
-                <textarea id="projectSpecs" class="form-textarea" rows="4" placeholder="e.g. Double car garage, approx 40m². Current slab is raw concrete with minor hairline cracks..." required></textarea>
+              <div class="field-group">
+                <label for="details">Job details</label>
+                <textarea id="details" placeholder="Rough size of the area, what's on the floor now, any specific finish you have in mind..." required></textarea>
               </div>
 
-              <!-- Form Buttons -->
-              <div class="form-actions-row">
-                <button type="button" class="btn btn-whatsapp" onclick="window.open('https://wa.me/61390004821?text=Hi%20Rapid%20Epoxy%2C%20I\'d%20like%20a%20quote.', '_blank')" style="flex:1;">
-                  <span>Inquire via WhatsApp</span>
-                </button>
-
-                <button type="submit" class="btn btn-teal" style="flex:1;">
-                  <span>Submit Request →</span>
-                </button>
+              <div class="form-submit-row">
+                <p>We'll respond within a couple of hours on business days.</p>
+                <button type="submit" class="btn btn-teal">Send enquiry →</button>
               </div>
 
             </form>
@@ -252,78 +441,60 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         FAQ ACCORDION SECTION
-    ═══════════════════════════════════════ -->
+    <!-- FAQ -->
     <section class="section-faq" id="faq">
-      <div class="container faq-container">
-        <div class="faq-title-center">
-          <span class="eyebrow">Got Questions?</span>
-          <h2 class="section-title">Frequently Asked Questions</h2>
-          <p class="section-desc">
-            Everything you need to know about preparing your concrete, curing timelines, and system warranties.
-          </p>
-        </div>
+      <div class="container">
+        <h2>Common questions</h2>
 
         <div class="faq-accordion-list">
 
-          <div class="faq-item is-open">
+          <div class="faq-item">
             <button class="faq-trigger">
-              <span>How long does an epoxy floor installation take?</span>
-              <div class="faq-icon-toggle">+</div>
+              How long does a typical install take?
+              <span class="faq-trigger-icon">+</span>
             </button>
             <div class="faq-content">
-              <p>
-                Most standard residential garage installations (up to 60m²) are completed in just 1 to 2 days. Thanks to our rapid-curing polyaspartic topcoats, you can walk on the surface in 6 hours and park your vehicles in 24 hours.
-              </p>
+              <p>Most residential garage installs (up to 60m²) are done in a day. Larger jobs or anything with a lot of crack repair can run into a second day. We'll give you a realistic timeframe when we quote.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-trigger">
-              <span>Can epoxy be installed over damaged or cracked concrete?</span>
-              <div class="faq-icon-toggle">+</div>
+              Do I need to do anything before you arrive?
+              <span class="faq-trigger-icon">+</span>
             </button>
             <div class="faq-content">
-              <p>
-                Yes! During Phase 01 of our preparation process, we gouge out all cracks, pitting, and spalling, filling them with high-strength structural epoxy mortar before diamond grinding the surface flush.
-              </p>
+              <p>Just clear everything off the concrete — cars, shelving, stored gear. We handle all the prep, grinding, and cleanup. We bring our own dust extraction so it's less messy than you'd expect.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-trigger">
-              <span>What warranty is included with my floor?</span>
-              <div class="faq-icon-toggle">+</div>
+              When can I use the floor again?
+              <span class="faq-trigger-icon">+</span>
             </button>
             <div class="faq-content">
-              <p>
-                All residential full-broadcast vinyl flake floors come with a 10-Year Warranty covering hot-tire pickup, peeling, and delamination. Commercial &amp; industrial systems include customized heavy-use warranties up to 5 years.
-              </p>
+              <p>Light foot traffic within 6 hours. Cars and heavier loads after 24 hours. Full cure is 7 days, but you won't need to wait that long for normal use.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-trigger">
-              <span>Is the floor slip-resistant when wet?</span>
-              <div class="faq-icon-toggle">+</div>
+              Can you coat a floor that's already been painted or coated?
+              <span class="faq-trigger-icon">+</span>
             </button>
             <div class="faq-content">
-              <p>
-                Yes. Vinyl flake broadcasts inherently provide a textured anti-slip surface. For high-moisture commercial spaces or smooth metallic coatings, we incorporate non-yellowing aluminium oxide or glass bead anti-slip additives.
-              </p>
+              <p>Sometimes. We'll check what's already down during the site visit. Old coatings that are flaking or peeling need to come off first — trying to coat over them is how you end up with a floor that peels again in a year. If removal is needed, we'll factor it into the quote.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-trigger">
-              <span>How do I prepare my garage or space before the crew arrives?</span>
-              <div class="faq-icon-toggle">+</div>
+              What's included in the warranty?
+              <span class="faq-trigger-icon">+</span>
             </button>
             <div class="faq-content">
-              <p>
-                Simply clear all vehicles, belongings, and items off the concrete surface. Our team handles all heavy diamond grinding, dust containment, crack repair, and surface prep.
-              </p>
+              <p>10 years on residential installs, covering peeling, delamination, and hot-tyre pickup. Commercial and industrial jobs come with a tailored warranty depending on the system and use conditions — we'll go through it with you before the job starts.</p>
             </div>
           </div>
 
@@ -333,12 +504,8 @@
 
   </main>
 
-  <!-- ═══════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════ -->
   <footer class="site-footer">
     <div class="container">
-      
       <div class="footer-grid">
         <div>
           <a href="index.html" class="logo-brand">
@@ -346,51 +513,45 @@
             <span>Rapid Epoxy</span>
           </a>
           <p class="footer-brand-desc">
-            Victorian licensed epoxy flooring contractors delivering industrial-grade resin finishes for residential, commercial, and industrial spaces.
+            Owner-operated epoxy flooring out of Melbourne. Residential garages, commercial spaces, industrial warehouses.
           </p>
         </div>
-
         <div>
-          <h4 class="footer-col-title">Flooring Systems</h4>
+          <h4 class="footer-col-title">Work</h4>
           <ul class="footer-links">
-            <li><a href="products.html">Garage Flake Coatings</a></li>
-            <li><a href="products.html">3D Metallic Resin</a></li>
-            <li><a href="services.html">Commercial Showrooms</a></li>
-            <li><a href="services.html">Industrial Heavy Duty</a></li>
+            <li><a href="products.html">Garage Coatings</a></li>
+            <li><a href="products.html">Metallic Floors</a></li>
+            <li><a href="services.html">Commercial</a></li>
+            <li><a href="services.html">Industrial</a></li>
           </ul>
         </div>
-
         <div>
-          <h4 class="footer-col-title">Navigation</h4>
+          <h4 class="footer-col-title">Site</h4>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products &amp; Finishes</a></li>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-
         <div>
-          <h4 class="footer-col-title">Contact</h4>
-          <p style="font-size:var(--text-sm); color:var(--color-muted); line-height:1.6; margin-bottom:var(--space-3);">
-            📍 Melbourne &amp; Victoria Wide<br>
-            📞 +1 (555) 123-4567<br>
-            ✉️ service@rapidepoxy.pro
+          <h4 class="footer-col-title">Get in touch</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-muted); line-height:1.7; margin-bottom:var(--space-4);">
+            Melbourne &amp; Victoria Wide<br>
+            +1 (555) 123-4567<br>
+            service@rapidepoxy.pro<br>
+            Mon–Sat, 7am–6pm
           </p>
-          <a href="contact.html" class="btn btn-gold" style="font-size:0.75rem; padding:0.5rem 1rem;">Book Inspection</a>
+          <a href="contact.html" class="btn btn-teal" style="font-size:var(--text-xs);">Get a Quote</a>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <p>&copy; 2026 Rapid Epoxy Pro. All rights reserved.</p>
-        <p>Licensed &amp; Insured Flooring Applicators</p>
+        <p>&copy; 2026 Rapid Epoxy. All rights reserved.</p>
       </div>
-
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js"></script>
 </body>
 </html>
