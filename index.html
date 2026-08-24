@@ -463,16 +463,80 @@
     }
 
     @media (max-width: 768px) {
-      .stats-bar { flex-direction: column; gap: var(--space-4); padding: var(--space-4); }
-      .stats-item { width: 100%; border-left: none !important; border-top: 1px solid var(--color-border); padding: var(--space-4) 0; justify-content: flex-start; }
-      .stats-item:first-child { border-top: none; padding-top: 0; }
+      /* stats-bar: centered column with proper spacing */
+      .stats-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 8px 16px;
+        margin-top: 20px;
+        margin-bottom: 24px;
+        border-radius: var(--radius-md);
+      }
+
+      .stats-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 0;
+        padding: 40px 16px 28px;   /* big top gap (divider→icon), smaller bottom */
+        flex: none;
+        width: 100%;
+        border-left: none;
+        position: relative;
+      }
+
+      .stats-item + .stats-item {
+        border-left: none;
+      }
+
+      /* Centered divider line between each stat */
+      .stats-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        width: 60%;
+        height: 1px;
+        background: var(--color-border);
+      }
+
+      .stats-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 6px;   /* tight icon-to-label gap */
+      }
+
+      .stats-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .stats-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 4px;
+        text-align: center;
+      }
+
+      .stats-value {
+        font-size: var(--text-sm);
+        font-weight: 800;
+        text-align: center;
+        line-height: 1.3;
+      }
+
+      /* other sections */
       .categories-grid { grid-template-columns: 1fr; }
       .palette-orb { width: 200px; height: 200px; }
       .palette-chip-card { position: static; margin-top: var(--space-6); }
       .palette-visual { padding-bottom: 0; flex-direction: column; }
-      .cta-container { padding: var(--space-10) var(--space-6); border-radius: var(--radius-lg); }
-      .cta-actions { flex-direction: column; width: 100%; }
-      .cta-actions .btn { width: 100%; justify-content: center; }
+      .section-categories { padding: var(--space-10) 0 var(--space-14); }
+      .section-palette { padding: var(--space-10) 0; }
+      .section-cta { padding: var(--space-4) 0 var(--space-10); }
     }
   </style>
 </head>
@@ -512,7 +576,14 @@
       </div>
 
       <!-- Mobile Toggle -->
-      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu">☰</button>
+      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+        <svg id="iconHamburger" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="iconClose" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -771,17 +842,21 @@
     // Mobile Menu Toggle Drawer
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu   = document.getElementById('mobileMenu');
+    const iconHamburger = document.getElementById('iconHamburger');
+    const iconClose     = document.getElementById('iconClose');
     if (mobileToggle && mobileMenu) {
       mobileToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('is-active');
-        mobileToggle.textContent = mobileMenu.classList.contains('is-active') ? 'x' : 'o';
+        const isOpen = mobileMenu.classList.toggle('is-active');
+        if (iconHamburger) iconHamburger.style.display = isOpen ? 'none' : '';
+        if (iconClose)     iconClose.style.display     = isOpen ? '' : 'none';
       });
 
       // Close menu on link click
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.remove('is-active');
-          mobileToggle.textContent = 'o';
+          if (iconHamburger) iconHamburger.style.display = '';
+          if (iconClose)     iconClose.style.display     = 'none';
         });
       });
     }

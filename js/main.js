@@ -108,20 +108,28 @@
   }
 
   // ─── Mobile nav ──────────────────────────────────────────────────────
-  const navToggle = document.querySelector('.nav-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
+  const navToggle     = document.querySelector('.nav-toggle');
+  const mobileNav     = document.querySelector('.mobile-nav');
+  const iconHamburger = document.getElementById('iconHamburger');
+  const iconClose     = document.getElementById('iconClose');
+
   if (navToggle && mobileNav) {
     navToggle.addEventListener('click', () => {
-      const isOpen = navToggle.classList.toggle('open');
-      mobileNav.classList.toggle('is-open', isOpen);
+      const isOpen = mobileNav.classList.toggle('is-active');
+      navToggle.classList.toggle('open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
+      // Swap SVG icons
+      if (iconHamburger) iconHamburger.style.display = isOpen ? 'none' : '';
+      if (iconClose)     iconClose.style.display     = isOpen ? ''     : 'none';
     });
 
     mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
       link.addEventListener('click', () => {
+        mobileNav.classList.remove('is-active');
         navToggle.classList.remove('open');
-        mobileNav.classList.remove('is-open');
         document.body.style.overflow = '';
+        if (iconHamburger) iconHamburger.style.display = '';
+        if (iconClose)     iconClose.style.display     = 'none';
       });
     });
   }

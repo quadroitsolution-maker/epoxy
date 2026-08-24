@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -559,9 +559,15 @@
           </svg>
         </a>
       </div>
-
       <!-- Mobile Toggle -->
-      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu">☰</button>
+      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+        <svg id="iconHamburger" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="iconClose" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -813,40 +819,27 @@
     }
 
     /* ─── Mobile menu ─── */
+    // Mobile Menu Toggle Drawer
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu   = document.getElementById('mobileMenu');
+    const iconHamburger = document.getElementById('iconHamburger');
+    const iconClose     = document.getElementById('iconClose');
     if (mobileToggle && mobileMenu) {
       mobileToggle.addEventListener('click', () => {
-        const open = mobileMenu.classList.toggle('is-active');
-        mobileToggle.textContent = open ? '✕' : '☰';
+        const isOpen = mobileMenu.classList.toggle('is-active');
+        if (iconHamburger) iconHamburger.style.display = isOpen ? 'none' : '';
+        if (iconClose)     iconClose.style.display     = isOpen ? '' : 'none';
       });
+
+      // Close menu on link click
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.remove('is-active');
-          mobileToggle.textContent = '☰';
+          if (iconHamburger) iconHamburger.style.display = '';
+          if (iconClose)     iconClose.style.display     = 'none';
         });
       });
-    }
-
-    /* ─── Tab switching ─── */
-    function switchTab(tab) {
-      const tabs   = document.querySelectorAll('.acc-tab');
-      const panels = document.querySelectorAll('.acc-panel');
-
-      tabs.forEach(t => {
-        t.classList.toggle('is-active', t.id === 'tab-' + tab);
-        t.setAttribute('aria-selected', t.id === 'tab-' + tab ? 'true' : 'false');
-      });
-      panels.forEach(p => {
-        const active = p.id === 'panel-' + tab;
-        p.classList.toggle('is-active', active);
-        if (active) {
-          // Re-trigger animation
-          p.style.animation = 'none';
-          p.offsetHeight; // reflow
-          p.style.animation = '';
-        }
-      });
+    });
     }
 
     /* ─── Password visibility toggle ─── */
