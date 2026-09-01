@@ -281,7 +281,7 @@ img {
   position: relative;
   z-index: 2;
   min-height: 580px;
-  background: linear-gradient(90deg, rgba(248, 248, 246, 0.95) 0%, rgba(248, 248, 246, 0.88) 45%, rgba(248, 248, 246, 0.15) 100%);
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
