@@ -537,6 +537,124 @@
       .section-categories { padding: var(--space-10) 0 var(--space-14); }
       .section-palette { padding: var(--space-10) 0; }
       .section-cta { padding: var(--space-4) 0 var(--space-10); }
+      /* showcase */
+      .showcase-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .showcase-item-large { grid-column: 1; grid-row: auto; }
+    }
+  </style>
+
+  <!-- Showcase Section CSS -->
+  <style>
+    /* ── Our Work Showcase ── */
+    .section-showcase {
+      padding: var(--space-20) 0 var(--space-16);
+      background: #f8f8f6;
+    }
+
+    .showcase-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-6);
+      margin-bottom: var(--space-10);
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      grid-template-rows: 420px 340px;
+      gap: 12px;
+    }
+
+    .showcase-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      cursor: pointer;
+      background: #111;
+    }
+
+    .showcase-item-large {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+
+    .showcase-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .showcase-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .showcase-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 50%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--space-6);
+    }
+
+    .showcase-item:hover .showcase-overlay {
+      opacity: 1;
+    }
+
+    .showcase-overlay-title {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      transform: translateY(8px);
+      transition: transform 0.35s ease;
+    }
+
+    .showcase-item:hover .showcase-overlay-title {
+      transform: translateY(0);
+    }
+
+    .showcase-overlay-desc {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.75);
+      transform: translateY(8px);
+      transition: transform 0.35s ease 0.05s;
+    }
+
+    .showcase-item:hover .showcase-overlay-desc {
+      transform: translateY(0);
+    }
+
+    .showcase-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 240px 240px;
+      }
+      .showcase-item-large { grid-column: 1; grid-row: 1; }
+      .showcase-header { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -654,6 +772,58 @@
               <div class="stats-value">24–48h Rapid Cure</div>
             </div>
           </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         OUR WORK SHOWCASE
+    ═══════════════════════════════════════ -->
+    <section class="section-showcase" id="our-work">
+      <div class="container">
+
+        <div class="showcase-header">
+          <div>
+            <span class="eyebrow">— Recent Projects</span>
+            <h2 class="section-title" style="margin-top:var(--space-2);">Our Work Speaks<br>for Itself.</h2>
+          </div>
+          <a href="contact.html" class="btn btn-teal" style="flex-shrink:0;">Get a Free Quote &rarr;</a>
+        </div>
+
+        <div class="showcase-grid">
+
+          <!-- Large: Black & Blue Metallic Commercial -->
+          <div class="showcase-item showcase-item-large reveal">
+            <img src="img/work_metallic_black.jpg" alt="Black and blue metallic resin commercial floor">
+            <span class="showcase-tag">Metallic Resin</span>
+            <div class="showcase-overlay">
+              <div class="showcase-overlay-title">Commercial Showroom — Metallic Marble</div>
+              <div class="showcase-overlay-desc">Black, white &amp; blue metallic resin pour across a full commercial floor slab.</div>
+            </div>
+          </div>
+
+          <!-- Top-right: Ocean Blue Metallic -->
+          <div class="showcase-item reveal" data-delay="1">
+            <img src="img/work_metallic_blue.jpg" alt="Deep ocean blue metallic resin floor">
+            <span class="showcase-tag">3D Metallic</span>
+            <div class="showcase-overlay">
+              <div class="showcase-overlay-title">Retail Interior — Ocean Blue</div>
+              <div class="showcase-overlay-desc">Deep ocean-effect metallic resin with mirror-like reflective finish.</div>
+            </div>
+          </div>
+
+          <!-- Bottom-right: Vinyl Flake Gold -->
+          <div class="showcase-item reveal" data-delay="2">
+            <img src="img/work_flake_gold.jpg" alt="Premium vinyl flake floor with gold accents in garage">
+            <span class="showcase-tag">Vinyl Flake</span>
+            <div class="showcase-overlay">
+              <div class="showcase-overlay-title">Prestige Garage — Gold Flake System</div>
+              <div class="showcase-overlay-desc">Full-broadcast vinyl flake with gold metallic accent chips sealed under UV-stable polyaspartic.</div>
+            </div>
+          </div>
+
         </div>
 
       </div>
