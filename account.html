@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rapid Epoxy — My Account</title>
+  <title>Rapid Epoxy � My Account</title>
   <meta name="description" content="Sign in or create your Rapid Epoxy account to manage quotes, track projects, and access warranty documents.">
 
   <!-- Google Fonts: DM Sans -->
@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="css/main.css">
 
   <style>
-    /* ═══════════════════════════════════════════
-       ACCOUNT PAGE — STYLES
-    ═══════════════════════════════════════════ */
+    /* -------------------------------------------
+       ACCOUNT PAGE � STYLES
+    ------------------------------------------- */
 
     /* Active nav indicator */
     .nav-link.active {
@@ -33,7 +33,7 @@
       stroke: #fff !important;
     }
 
-    /* ── Full-screen split layout ── */
+    /* -- Full-screen split layout -- */
     .account-page {
       min-height: 100vh;
       display: grid;
@@ -41,7 +41,7 @@
       padding-top: 72px; /* header height */
     }
 
-    /* ── Left hero panel ── */
+    /* -- Left hero panel -- */
     .account-hero {
       background: var(--color-teal);
       display: flex;
@@ -165,7 +165,7 @@
       background: linear-gradient(90deg, var(--color-gold), transparent);
     }
 
-    /* ── Right form panel ── */
+    /* -- Right form panel -- */
     .account-form-panel {
       background: #F8F8F6;
       display: flex;
@@ -217,7 +217,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    /* Form panels — hidden/shown */
+    /* Form panels � hidden/shown */
     .acc-panel {
       display: none;
       animation: fadeIn 0.3s var(--ease-out) both;
@@ -506,7 +506,7 @@
       margin-top: 4px;
     }
 
-    /* ── Responsive ── */
+    /* -- Responsive -- */
     @media (max-width: 900px) {
       .account-page {
         grid-template-columns: 1fr;
@@ -527,9 +527,9 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════
+  <!-- ---------------------------------------
        HEADER & NAVIGATION
-  ═══════════════════════════════════════ -->
+  --------------------------------------- -->
   <header class="site-header" id="header">
     <div class="container header-inner">
       <!-- Logo -->
@@ -542,8 +542,8 @@
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="products.html" class="nav-link">Products ▾</a></li>
-          <li><a href="services.html" class="nav-link">Services ▾</a></li>
+          <li><a href="products.html" class="nav-link">Products ?</a></li>
+          <li><a href="services.html" class="nav-link">Services ?</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -552,7 +552,7 @@
       <!-- Header Actions -->
       <div style="display:flex; align-items:center; gap:var(--space-3);">
         <a href="contact.html" class="btn btn-gold">Request Quote</a>
-        <!-- Avatar icon — active on this page -->
+        <!-- Avatar icon � active on this page -->
         <a href="account.html" class="avatar-btn active-page" style="width:36px;height:36px;border-radius:50%;background:var(--color-teal-light);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:all 0.2s;" aria-label="Account" aria-current="page">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
@@ -581,12 +581,12 @@
     <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-4);">Request Quote</a>
   </div>
 
-  <!-- ═══════════════════════════════════════
-       ACCOUNT PAGE — SPLIT LAYOUT
-  ═══════════════════════════════════════ -->
+  <!-- ---------------------------------------
+       ACCOUNT PAGE � SPLIT LAYOUT
+  --------------------------------------- -->
   <main id="main-content" class="account-page">
 
-    <!-- ── Left: Hero Panel ── -->
+    <!-- -- Left: Hero Panel -- -->
     <div class="account-hero">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
@@ -630,7 +630,7 @@
       <div class="hero-bar"></div>
     </div>
 
-    <!-- ── Right: Form Panel ── -->
+    <!-- -- Right: Form Panel -- -->
     <div class="account-form-panel">
       <div class="account-card">
 
@@ -640,12 +640,12 @@
           <button class="acc-tab" id="tab-register" role="tab" aria-selected="false" aria-controls="panel-register" onclick="switchTab('register')">Register</button>
         </div>
 
-        <!-- ── Sign In Panel ── -->
+        <!-- -- Sign In Panel -- -->
         <div class="acc-panel is-active" id="panel-signin" role="tabpanel" aria-labelledby="tab-signin">
 
           <!-- Success toast -->
           <div class="acc-toast" id="toast-signin">
-            ✓&nbsp; Welcome back! Signing you in…
+            ?&nbsp; Welcome back! Signing you in�
           </div>
 
           <h2 class="acc-panel-title">Welcome back</h2>
@@ -671,7 +671,7 @@
                 <span class="acc-input-icon">
                   <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 </span>
-                <input type="password" id="si-password" class="acc-input" placeholder="••••••••" required autocomplete="current-password">
+                <input type="password" id="si-password" class="acc-input" placeholder="��������" required autocomplete="current-password">
                 <button type="button" class="acc-pwd-toggle" onclick="togglePwd('si-password', this)" aria-label="Show password">
                   <svg id="si-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 </button>
@@ -681,7 +681,7 @@
             </div>
 
             <button type="submit" class="acc-submit" id="btn-signin">
-              <span class="acc-btn-text">Sign In →</span>
+              <span class="acc-btn-text">Sign In ?</span>
               <span class="acc-spinner"></span>
             </button>
           </form>
@@ -699,15 +699,15 @@
             </button>
           </div>
 
-          <p class="acc-switch">Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Create one →</a></p>
+          <p class="acc-switch">Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Create one ?</a></p>
         </div>
 
-        <!-- ── Register Panel ── -->
+        <!-- -- Register Panel -- -->
         <div class="acc-panel" id="panel-register" role="tabpanel" aria-labelledby="tab-register">
 
           <!-- Success toast -->
           <div class="acc-toast" id="toast-register">
-            ✓&nbsp; Account created! Redirecting…
+            ?&nbsp; Account created! Redirecting�
           </div>
 
           <h2 class="acc-panel-title">Create account</h2>
@@ -784,12 +784,12 @@
             </div>
 
             <button type="submit" class="acc-submit" id="btn-register">
-              <span class="acc-btn-text">Create Account →</span>
+              <span class="acc-btn-text">Create Account ?</span>
               <span class="acc-spinner"></span>
             </button>
           </form>
 
-          <p class="acc-switch">Already have an account? <a href="#" onclick="switchTab('signin'); return false;">Sign in →</a></p>
+          <p class="acc-switch">Already have an account? <a href="#" onclick="switchTab('signin'); return false;">Sign in ?</a></p>
 
           <p style="font-size:0.68rem; color:var(--color-secondary); text-align:center; margin-top:var(--space-4); line-height:1.5;">
             By registering, you agree to our <a href="#" style="color:var(--color-teal);">Privacy Policy</a> and <a href="#" style="color:var(--color-teal);">Terms of Service</a>.
@@ -806,11 +806,11 @@
      target="_blank" rel="noopener"
      class="floating-whatsapp-btn"
      aria-label="Chat on WhatsApp">
-    💬
+    ??
   </a>
 
   <script>
-    /* ─── Header scroll shadow ─── */
+    /* --- Header scroll shadow --- */
     const header = document.getElementById('header');
     if (header) {
       window.addEventListener('scroll', () => {
@@ -818,7 +818,7 @@
       });
     }
 
-    /* ─── Mobile menu ─── */
+    /* --- Mobile menu --- */
     // Mobile Menu Toggle Drawer
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu   = document.getElementById('mobileMenu');
@@ -842,7 +842,7 @@
     });
     }
 
-    /* ─── Password visibility toggle ─── */
+    /* --- Password visibility toggle --- */
     function togglePwd(inputId, btn) {
       const input = document.getElementById(inputId);
       const isText = input.type === 'text';
@@ -852,7 +852,7 @@
         : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
     }
 
-    /* ─── Password strength ─── */
+    /* --- Password strength --- */
     function checkPasswordStrength(val) {
       const segs  = [document.getElementById('seg1'), document.getElementById('seg2'), document.getElementById('seg3'), document.getElementById('seg4')];
       const label = document.getElementById('pwd-label');
@@ -867,12 +867,12 @@
       if (/[^A-Za-z0-9]/.test(val)) score++;
 
       const levels = ['weak', 'fair', 'good', 'strong'];
-      const labels = ['Weak', 'Fair', 'Good', 'Strong 💪'];
+      const labels = ['Weak', 'Fair', 'Good', 'Strong ??'];
       for (let i = 0; i < score; i++) segs[i].classList.add(levels[score - 1]);
       label.textContent = 'Strength: ' + labels[score - 1];
     }
 
-    /* ─── Show/hide field error ─── */
+    /* --- Show/hide field error --- */
     function showErr(id, show) {
       const el = document.getElementById(id);
       if (el) el.classList.toggle('show', show);
@@ -882,7 +882,7 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
     }
 
-    /* ─── Sign In form ─── */
+    /* --- Sign In form --- */
     document.getElementById('form-signin').addEventListener('submit', function(e) {
       e.preventDefault();
       const email = document.getElementById('si-email').value.trim();
@@ -920,7 +920,7 @@
       }, 1400);
     });
 
-    /* ─── Register form ─── */
+    /* --- Register form --- */
     document.getElementById('form-register').addEventListener('submit', function(e) {
       e.preventDefault();
       const first = document.getElementById('reg-first').value.trim();
@@ -957,7 +957,7 @@
       }, 1400);
     });
 
-    /* ─── Live validation feedback ─── */
+    /* --- Live validation feedback --- */
     ['si-email', 'si-password', 'reg-first', 'reg-last', 'reg-email', 'reg-password'].forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
@@ -970,7 +970,7 @@
       });
     });
 
-    /* ─── Social login placeholder ─── */
+    /* --- Social login placeholder --- */
     function socialLogin(provider) {
       alert('Social login with ' + provider.charAt(0).toUpperCase() + provider.slice(1) + ' coming soon!');
     }

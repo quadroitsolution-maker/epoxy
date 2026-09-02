@@ -18,7 +18,16 @@
   <style>
     /* ─── Homepage-specific styles ─── */
 
-    /* ── Stats Bar ── */
+    /* Hero eyebrow — white on dark image */
+    .hero-overlay-content .eyebrow {
+      color: rgba(255,255,255,0.85);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+    .hero-overlay-content .eyebrow::before {
+      background: rgba(255,255,255,0.85);
+    }
+
+
     .stats-bar {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
@@ -296,12 +305,30 @@
       box-shadow: 0 24px 60px rgba(4, 78, 84, 0.25), 0 8px 20px rgba(0,0,0,0.12);
       flex-shrink: 0;
       animation: floatOrb 5s ease-in-out infinite;
+      position: relative;
+    }
+
+    /* Gradient color overlay that cycles on top of the image */
+    .palette-orb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      mix-blend-mode: color;
+      pointer-events: none;
+    }
+
+    .palette-orb.color-active::after {
+      opacity: 1;
     }
 
     .palette-orb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: filter 1.4s ease;
     }
 
     @keyframes floatOrb {
@@ -729,7 +756,7 @@
 
           <div class="hero-overlay-content">
             <span class="eyebrow">— High-Performance Surfaces</span>
-            <h1 class="hero-headline">Engineered for<br><span class="hero-headline-script">durability, precision,</span><br>& lasting impact.</h1>
+            <h1 class="hero-headline">Engineered for<br><span class="hero-headline-script" id="heroRotatingText">durability, precision,</span><br>& lasting impact.</h1>
             <p class="hero-sub">
               Discover our comprehensive range of epoxy solutions. From high-traffic industrial facilities to bespoke residential interiors, our flooring systems offer unparalleled resistance, seamless hygiene, and exceptional aesthetic versatility.
             </p>
@@ -867,29 +894,29 @@
 
           <!-- Visual -->
           <div class="palette-visual reveal" data-delay="2">
-            <div class="palette-orb">
-              <img src="img/metallic_epoxy.jpg" alt="Metallic Oceanic Epoxy Resin Mix">
+            <div class="palette-orb" id="paletteOrb">
+              <img src="img/metallic_epoxy.jpg" alt="Metallic Epoxy Resin Mix" id="paletteOrbImg">
             </div>
 
             <!-- Floating colour chip card -->
             <div class="palette-chip-card">
               <div class="chip-card-label">
-                <span class="chip-card-name">Metallic Mix: 'Oceanic'</span>
+                <span class="chip-card-name" id="chipMixName">Metallic Mix: 'Oceanic'</span>
                 <span class="chip-badge-premium">Premium</span>
               </div>
               <div class="chip-swatches">
                 <div class="chip-swatch-group">
                   <span class="chip-swatch-label">Base</span>
                   <div class="chip-swatch">
-                    <div class="chip-dot" style="background:#00605A;"></div>
-                    <span class="chip-dot-label">Deep Teal</span>
+                    <div class="chip-dot" id="chipBaseColor" style="background:#00605A;"></div>
+                    <span class="chip-dot-label" id="chipBaseLabel">Deep Teal</span>
                   </div>
                 </div>
                 <div class="chip-swatch-group">
                   <span class="chip-swatch-label">Accent</span>
                   <div class="chip-swatch">
-                    <div class="chip-dot" style="background:#C9A227;"></div>
-                    <span class="chip-dot-label">Metallic Gold</span>
+                    <div class="chip-dot" id="chipAccentColor" style="background:#C9A227;"></div>
+                    <span class="chip-dot-label" id="chipAccentLabel">Metallic Gold</span>
                   </div>
                 </div>
               </div>
@@ -1064,5 +1091,134 @@
       window.open('https://wa.me/61390004821?text=' + encodedMsg, '_blank');
     }
   </script>
+  <!-- Palette orb colour rotator -->
+  <script>
+    (function() {
+      var img       = document.getElementById('paletteOrbImg');
+      var mixName   = document.getElementById('chipMixName');
+      var baseClr   = document.getElementById('chipBaseColor');
+      var baseLbl   = document.getElementById('chipBaseLabel');
+      var accentClr = document.getElementById('chipAccentColor');
+      var accentLbl = document.getElementById('chipAccentLabel');
+      if (!img) return;
+
+      var palettes = [
+        {
+          src:    'img/metallic_epoxy.jpg',
+          name:   "Metallic Mix: 'Oceanic'",
+          base:   { color: '#00605A', label: 'Deep Teal' },
+          accent: { color: '#C9A227', label: 'Metallic Gold' }
+        },
+        {
+          src:    'img/metallic_midnight.jpg',
+          name:   "Metallic Mix: 'Midnight'",
+          base:   { color: '#3b0080', label: 'Midnight Violet' },
+          accent: { color: '#a78bfa', label: 'Soft Lavender' }
+        },
+        {
+          src:    'img/metallic_ember.jpg',
+          name:   "Metallic Mix: 'Ember'",
+          base:   { color: '#7a1200', label: 'Deep Crimson' },
+          accent: { color: '#f39c12', label: 'Burnt Amber' }
+        },
+        {
+          src:    'img/metallic_arctic.jpg',
+          name:   "Metallic Mix: 'Arctic'",
+          base:   { color: '#2c5f7a', label: 'Steel Blue' },
+          accent: { color: '#e8f4f8', label: 'Pearl White' }
+        },
+        {
+          src:    'img/metallic_sahara.jpg',
+          name:   "Metallic Mix: 'Sahara'",
+          base:   { color: '#5a3800', label: 'Rich Bronze' },
+          accent: { color: '#c9a227', label: 'Warm Gold' }
+        }
+      ];
+
+      var current = 0;
+
+      // Set image transition
+      img.style.transition = 'opacity 0.8s ease';
+
+      function applyPalette(p) {
+        // Cross-fade image
+        img.style.opacity = '0';
+        setTimeout(function() {
+          img.src = p.src;
+          img.style.opacity = '1';
+        }, 820);
+
+        // Fade chip name
+        mixName.style.transition = 'opacity 0.4s';
+        mixName.style.opacity = '0';
+        setTimeout(function() {
+          mixName.textContent   = p.name;
+          mixName.style.opacity = '1';
+        }, 420);
+
+        // Animate swatch colours
+        baseClr.style.transition   = 'background 0.8s ease';
+        accentClr.style.transition = 'background 0.8s ease';
+        setTimeout(function() {
+          baseClr.style.background   = p.base.color;
+          baseLbl.textContent        = p.base.label;
+          accentClr.style.background = p.accent.color;
+          accentLbl.textContent      = p.accent.label;
+        }, 400);
+      }
+
+      setInterval(function() {
+        current = (current + 1) % palettes.length;
+        applyPalette(palettes[current]);
+      }, 3500);
+    })();
+  </script>
+
+  <!-- Hero rotating text script -->
+
+  <script>
+    (function() {
+      var el = document.getElementById('heroRotatingText');
+      if (!el) return;
+
+      var phrases = [
+        'durability, precision,',
+        'elegance, strength,',
+        'beauty, resilience,',
+        'style, performance,',
+        'craft, excellence,',
+        'luxury, protection,'
+      ];
+
+      var current = 0;
+
+      // CSS fade transition on the element
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+      setInterval(function() {
+        // Fade out + slide up slightly
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(-8px)';
+
+        setTimeout(function() {
+          current = (current + 1) % phrases.length;
+          el.textContent = phrases[current];
+          // Reset position below, then fade in
+          el.style.transition = 'none';
+          el.style.transform = 'translateY(8px)';
+
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            });
+          });
+        }, 520);
+
+      }, 2800);
+    })();
+  </script>
+
 </body>
 </html>
