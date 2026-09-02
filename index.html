@@ -1137,40 +1137,40 @@
 
       var current = 0;
 
-      // Set image transition
-      img.style.transition = 'opacity 0.8s ease';
+      // Set image transition — slow luxurious fade
+      img.style.transition = 'opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
 
       function applyPalette(p) {
-        // Cross-fade image
+        // Cross-fade image — fade out, swap src, fade back in
         img.style.opacity = '0';
         setTimeout(function() {
           img.src = p.src;
           img.style.opacity = '1';
-        }, 820);
+        }, 1450);
 
         // Fade chip name
-        mixName.style.transition = 'opacity 0.4s';
+        mixName.style.transition = 'opacity 0.8s ease';
         mixName.style.opacity = '0';
         setTimeout(function() {
           mixName.textContent   = p.name;
           mixName.style.opacity = '1';
-        }, 420);
+        }, 800);
 
         // Animate swatch colours
-        baseClr.style.transition   = 'background 0.8s ease';
-        accentClr.style.transition = 'background 0.8s ease';
+        baseClr.style.transition   = 'background 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+        accentClr.style.transition = 'background 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
         setTimeout(function() {
           baseClr.style.background   = p.base.color;
           baseLbl.textContent        = p.base.label;
           accentClr.style.background = p.accent.color;
           accentLbl.textContent      = p.accent.label;
-        }, 400);
+        }, 700);
       }
 
       setInterval(function() {
         current = (current + 1) % palettes.length;
         applyPalette(palettes[current]);
-      }, 3500);
+      }, 6000);
     })();
   </script>
 
@@ -1192,31 +1192,31 @@
 
       var current = 0;
 
-      // CSS fade transition on the element
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      // CSS fade transition on the element — slow & smooth
+      el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
 
       setInterval(function() {
         // Fade out + slide up slightly
         el.style.opacity = '0';
-        el.style.transform = 'translateY(-8px)';
+        el.style.transform = 'translateY(-10px)';
 
         setTimeout(function() {
           current = (current + 1) % phrases.length;
           el.textContent = phrases[current];
           // Reset position below, then fade in
           el.style.transition = 'none';
-          el.style.transform = 'translateY(8px)';
+          el.style.transform = 'translateY(10px)';
 
           requestAnimationFrame(function() {
             requestAnimationFrame(function() {
-              el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+              el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
               el.style.opacity = '1';
               el.style.transform = 'translateY(0)';
             });
           });
-        }, 520);
+        }, 850);
 
-      }, 2800);
+      }, 4500);
     })();
   </script>
 
