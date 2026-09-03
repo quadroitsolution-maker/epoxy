@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rapid Epoxy — Home</title>
@@ -434,6 +437,34 @@
       background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
                   radial-gradient(ellipse at 70% 50%, rgba(212,163,37,0.08) 0%, transparent 50%);
       pointer-events: none;
+      z-index: 1;
+    }
+
+    .cta-container::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(126, 232, 216, 0.28) 0%,
+        rgba(212, 163, 37, 0.16) 35%,
+        transparent 68%
+      );
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      z-index: 2;
+      mix-blend-mode: screen;
+    }
+
+    .cta-container:hover::after {
+      opacity: 1;
+    }
+
+    .cta-container > * {
+      position: relative;
+      z-index: 3;
     }
 
     .cta-eyebrow {
@@ -690,20 +721,23 @@
   <!-- ═══════════════════════════════════════
        HEADER & NAVIGATION
   ═══════════════════════════════════════ -->
+    <!-- ===========================================
+       HEADER & NAVIGATION
+  =========================================== -->
   <header class="site-header" id="header">
     <div class="container header-inner">
       <!-- Logo -->
       <a href="index.html" class="logo-brand" aria-label="Rapid Epoxy Home">
-        <div class="logo-monogram">RE</div>
-        <span>Rapid Epoxy</span>
+        <img src="img/logo-horizontal.png" alt="Rapid Epoxy" class="logo-img">
       </a>
 
       <!-- Desktop Nav -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="products.html" class="nav-link">Products ▾</a></li>
-          <li><a href="services.html" class="nav-link">Services ▾</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="colours.html" class="nav-link">Colour Charts</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -712,20 +746,19 @@
       <!-- Header Actions -->
       <div style="display:flex; align-items:center; gap:var(--space-3);">
         <a href="contact.html" class="btn btn-gold">Request Quote</a>
-        <!-- Avatar icon -->
-        <a href="account.html" style="width:36px;height:36px;border-radius:50%;background:var(--color-teal-light);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;" aria-label="Account">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="account.html" class="nav-account-btn" aria-label="Account">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
           </svg>
         </a>
       </div>
 
       <!-- Mobile Toggle -->
-      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
-        <svg id="iconHamburger" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <svg id="iconHamburger" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
-        <svg id="iconClose" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <svg id="iconClose" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </button>
@@ -734,11 +767,12 @@
 
   <!-- Mobile Menu Drawer Overlay -->
   <div class="mobile-menu-overlay mobile-nav" id="mobileMenu">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="products.html" class="mobile-nav-link">Products &amp; Finishes</a>
-    <a href="services.html" class="mobile-nav-link">Our Services</a>
+    <a href="index.html" class="mobile-nav-link active">Home</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="colours.html" class="mobile-nav-link">Colour Charts</a>
     <a href="about.html" class="mobile-nav-link">About Us</a>
-    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
     <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-4);">Request Quote</a>
   </div>
 
@@ -959,8 +993,7 @@
         <!-- Brand Info -->
         <div>
           <a href="index.html" class="logo-brand">
-            <div class="logo-monogram">RE</div>
-            <span>Rapid Epoxy</span>
+            <img src="img/logo-horizontal.png" alt="Rapid Epoxy" class="logo-img">
           </a>
           <p class="footer-brand-desc">
             High-performance flooring solutions for architectural and industrial excellence.
@@ -974,6 +1007,7 @@
             <li><a href="products.html">Residential</a></li>
             <li><a href="services.html">Industrial</a></li>
             <li><a href="services.html">Commercial</a></li>
+            <li><a href="colours.html">Colour Charts</a></li>
           </ul>
         </div>
 
@@ -1073,6 +1107,22 @@
       revealEls.forEach(el => revealObserver.observe(el));
     }
 
+    // Cursor spotlight for CTA
+    var ctaEl = document.querySelector('.cta-container');
+    if (ctaEl) {
+      ctaEl.addEventListener('mousemove', function(e) {
+        var rect = ctaEl.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        ctaEl.style.setProperty('--mouse-x', x + 'px');
+        ctaEl.style.setProperty('--mouse-y', y + 'px');
+      });
+      ctaEl.addEventListener('mouseleave', function() {
+        ctaEl.style.setProperty('--mouse-x', '50%');
+        ctaEl.style.setProperty('--mouse-y', '50%');
+      });
+    }
+
     // Form Submit Handler
     function handleFormSubmit(e) {
       e.preventDefault();
@@ -1094,13 +1144,14 @@
   <!-- Palette orb colour rotator -->
   <script>
     (function() {
-      var img       = document.getElementById('paletteOrbImg');
+      var orbEl     = document.getElementById('paletteOrb');
+      var imgEl     = document.getElementById('paletteOrbImg');
       var mixName   = document.getElementById('chipMixName');
       var baseClr   = document.getElementById('chipBaseColor');
       var baseLbl   = document.getElementById('chipBaseLabel');
       var accentClr = document.getElementById('chipAccentColor');
       var accentLbl = document.getElementById('chipAccentLabel');
-      if (!img) return;
+      if (!orbEl || !imgEl) return;
 
       var palettes = [
         {
@@ -1135,30 +1186,61 @@
         }
       ];
 
-      var current = 0;
+      // ── Step 1: Preload ALL images into browser cache immediately ──
+      palettes.forEach(function(p) {
+        var pre = new Image();
+        pre.src = p.src;
+      });
 
-      // Set image transition — slow luxurious fade
-      img.style.transition = 'opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
+      // ── Step 2: Build a two-layer crossfade setup ──
+      // imgEl = back layer (always visible)
+      // imgFront = front layer (fades in on top, then becomes the new back)
+      imgEl.style.cssText += 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';
+
+      var imgFront = new Image();
+      imgFront.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s cubic-bezier(0.4,0,0.2,1);';
+      orbEl.appendChild(imgFront);
+
+      var current = 0;
+      var isBusy  = false;
 
       function applyPalette(p) {
-        // Cross-fade image — fade out, swap src, fade back in
-        img.style.opacity = '0';
-        setTimeout(function() {
-          img.src = p.src;
-          img.style.opacity = '1';
-        }, 1450);
+        if (isBusy) return;
+        isBusy = true;
+
+        // Load new image into the front layer (already in cache — no flash)
+        imgFront.src = p.src;
+        imgFront.style.opacity = '0';
+
+        // Give browser one frame to register the src, then fade front in
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            imgFront.style.opacity = '1';
+
+            setTimeout(function() {
+              // Front is now fully visible — promote it to back silently
+              imgEl.src = p.src;
+              imgFront.style.transition = 'none';
+              imgFront.style.opacity    = '0';
+              requestAnimationFrame(function() {
+                imgFront.style.transition = 'opacity 1.4s cubic-bezier(0.4,0,0.2,1)';
+              });
+              isBusy = false;
+            }, 1500); // matches 1.4s transition + buffer
+          });
+        });
 
         // Fade chip name
         mixName.style.transition = 'opacity 0.8s ease';
-        mixName.style.opacity = '0';
+        mixName.style.opacity    = '0';
         setTimeout(function() {
           mixName.textContent   = p.name;
           mixName.style.opacity = '1';
         }, 800);
 
         // Animate swatch colours
-        baseClr.style.transition   = 'background 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
-        accentClr.style.transition = 'background 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+        baseClr.style.transition   = 'background 1.2s cubic-bezier(0.4,0,0.2,1)';
+        accentClr.style.transition = 'background 1.2s cubic-bezier(0.4,0,0.2,1)';
         setTimeout(function() {
           baseClr.style.background   = p.base.color;
           baseLbl.textContent        = p.base.label;
@@ -1220,5 +1302,6 @@
     })();
   </script>
 
+  <script src="js/main.js"></script>
 </body>
 </html>

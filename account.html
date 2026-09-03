@@ -1,549 +1,1087 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rapid Epoxy — My Account</title>
+
+  <title>Rapid Epoxy &mdash; My Account</title>
+
   <meta name="description" content="Sign in or create your Rapid Epoxy account to manage quotes, track projects, and access warranty documents.">
 
+
+
   <!-- Google Fonts: DM Sans -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
+
+
   <!-- CSS -->
+
   <link rel="stylesheet" href="css/tokens.css">
+
   <link rel="stylesheet" href="css/main.css">
 
+
+
   <style>
+
     /* -------------------------------------------
-       ACCOUNT PAGE — STYLES
+
+       ACCOUNT PAGE &mdash; STYLES
+
     ------------------------------------------- */
 
+
+
     /* Active nav indicator */
+
     .nav-link.active {
+
       color: var(--color-teal);
+
     }
+
+
 
     /* Avatar active state */
+
     .avatar-btn.active-page {
+
       background: var(--color-teal) !important;
+
     }
+
     .avatar-btn.active-page svg {
+
       stroke: #fff !important;
+
     }
+
+
 
     /* -- Full-screen split layout -- */
+
     .account-page {
+
       min-height: 100vh;
+
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       padding-top: 72px; /* header height */
+
     }
+
+
 
     /* -- Left hero panel -- */
+
     .account-hero {
+
       background: var(--color-teal);
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
+
       padding: var(--space-16) var(--space-12);
+
       position: relative;
+
       overflow: hidden;
+
     }
+
+
 
     /* Decorative geometric overlay */
+
     .account-hero::before {
+
       content: '';
+
       position: absolute;
+
       top: -120px; right: -120px;
+
       width: 420px; height: 420px;
+
       border-radius: 50%;
+
       background: rgba(255,255,255,0.04);
+
     }
+
     .account-hero::after {
+
       content: '';
+
       position: absolute;
+
       bottom: -80px; left: -80px;
+
       width: 280px; height: 280px;
+
       border-radius: 50%;
+
       background: rgba(212,163,37,0.12);
+
     }
+
+
 
     .hero-badge {
+
       display: inline-flex;
+
       align-items: center;
+
       gap: var(--space-2);
+
       background: rgba(255,255,255,0.1);
+
       border: 1px solid rgba(255,255,255,0.15);
+
       border-radius: var(--radius-pill);
+
       padding: 0.4rem 1rem;
+
       font-size: var(--text-xs);
+
       font-weight: 700;
+
       letter-spacing: 0.1em;
+
       text-transform: uppercase;
+
       color: rgba(255,255,255,0.75);
+
       margin-bottom: var(--space-8);
+
       width: fit-content;
+
       position: relative;
+
       z-index: 1;
+
     }
+
     .hero-badge-dot {
+
       width: 6px; height: 6px;
+
       border-radius: 50%;
+
       background: var(--color-gold);
+
       animation: pulse 2s ease infinite;
+
     }
+
     @keyframes pulse {
+
       0%, 100% { opacity: 1; transform: scale(1); }
+
       50% { opacity: 0.6; transform: scale(1.3); }
+
     }
+
+
 
     .account-hero-title {
+
       font-size: clamp(2rem, 3.5vw, 2.8rem);
+
       font-weight: 800;
+
       color: #FFFFFF;
+
       line-height: 1.15;
+
       letter-spacing: -0.025em;
+
       margin-bottom: var(--space-5);
+
       position: relative;
+
       z-index: 1;
+
     }
+
     .account-hero-title em {
+
       font-style: normal;
+
       color: var(--color-gold);
+
     }
+
+
 
     .account-hero-sub {
+
       font-size: var(--text-md);
+
       color: rgba(255,255,255,0.65);
+
       line-height: 1.65;
+
       max-width: 38ch;
+
       margin-bottom: var(--space-10);
+
       position: relative;
+
       z-index: 1;
+
     }
+
+
 
     /* Feature list */
+
     .hero-features {
+
       display: flex;
+
       flex-direction: column;
+
       gap: var(--space-4);
+
       position: relative;
+
       z-index: 1;
+
     }
+
     .hero-feature {
+
       display: flex;
+
       align-items: center;
+
       gap: var(--space-3);
+
       font-size: var(--text-sm);
+
       color: rgba(255,255,255,0.80);
+
     }
+
     .hero-feature-icon {
+
       width: 32px; height: 32px;
+
       border-radius: var(--radius-sm);
+
       background: rgba(255,255,255,0.1);
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       flex-shrink: 0;
+
     }
+
     .hero-feature-icon svg {
+
       width: 15px; height: 15px;
+
       stroke: var(--color-gold);
+
       fill: none;
+
       stroke-width: 2;
+
       stroke-linecap: round;
+
       stroke-linejoin: round;
+
     }
+
+
 
     /* Gold bar at bottom */
+
     .hero-bar {
+
       position: absolute;
+
       bottom: 0; left: 0; right: 0;
+
       height: 4px;
+
       background: linear-gradient(90deg, var(--color-gold), transparent);
+
     }
+
+
 
     /* -- Right form panel -- */
+
     .account-form-panel {
+
       background: #F8F8F6;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       padding: var(--space-12) var(--space-10);
+
     }
+
+
 
     .account-card {
+
       background: #FFFFFF;
+
       border-radius: var(--radius-lg);
+
       padding: var(--space-10);
+
       width: 100%;
+
       max-width: 440px;
+
       box-shadow: 0 8px 40px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+
       animation: slideUp 0.5s var(--ease-out) both;
+
     }
+
     @keyframes slideUp {
+
       from { opacity: 0; transform: translateY(24px); }
+
       to   { opacity: 1; transform: translateY(0); }
+
     }
+
+
 
     /* Tab switcher */
+
     .acc-tabs {
+
       display: flex;
+
       background: #F2F0EB;
+
       border-radius: var(--radius-sm);
+
       padding: 4px;
+
       margin-bottom: var(--space-8);
+
       gap: 4px;
-    }
-    .acc-tab {
-      flex: 1;
-      padding: 0.6rem 1rem;
-      font-size: var(--text-sm);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      border-radius: calc(var(--radius-sm) - 2px);
-      background: transparent;
-      color: var(--color-secondary);
-      cursor: pointer;
-      border: none;
-      transition: all var(--dur-base) var(--ease-out);
-    }
-    .acc-tab.is-active {
-      background: #FFFFFF;
-      color: var(--color-teal);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
     }
 
-    /* Form panels — hidden/shown */
+    .acc-tab {
+
+      flex: 1;
+
+      padding: 0.6rem 1rem;
+
+      font-size: var(--text-sm);
+
+      font-weight: 700;
+
+      letter-spacing: 0.04em;
+
+      text-transform: uppercase;
+
+      border-radius: calc(var(--radius-sm) - 2px);
+
+      background: transparent;
+
+      color: var(--color-secondary);
+
+      cursor: pointer;
+
+      border: none;
+
+      transition: all var(--dur-base) var(--ease-out);
+
+    }
+
+    .acc-tab.is-active {
+
+      background: #FFFFFF;
+
+      color: var(--color-teal);
+
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    }
+
+
+
+    /* Form panels &mdash; hidden/shown */
+
     .acc-panel {
+
       display: none;
+
       animation: fadeIn 0.3s var(--ease-out) both;
+
     }
+
     .acc-panel.is-active {
+
       display: block;
+
     }
+
     @keyframes fadeIn {
+
       from { opacity: 0; transform: translateY(10px); }
+
       to   { opacity: 1; transform: translateY(0); }
+
     }
+
+
 
     .acc-panel-title {
+
       font-size: var(--text-xl);
+
       font-weight: 800;
+
       color: var(--color-ink);
+
       letter-spacing: -0.02em;
+
       margin-bottom: var(--space-2);
+
     }
+
     .acc-panel-sub {
+
       font-size: var(--text-sm);
+
       color: var(--color-muted);
+
       margin-bottom: var(--space-6);
+
       line-height: 1.55;
+
     }
+
+
 
     /* Form field groups */
+
     .acc-group {
+
       margin-bottom: var(--space-4);
+
     }
+
     .acc-label {
+
       display: block;
+
       font-size: var(--text-xs);
+
       font-weight: 700;
+
       letter-spacing: 0.06em;
+
       text-transform: uppercase;
+
       color: var(--color-ink);
+
       margin-bottom: var(--space-2);
+
     }
+
     .acc-input {
+
       width: 100%;
+
       padding: 0.75rem 1rem;
+
       background: #F7F5F0;
+
       border: 1.5px solid transparent;
+
       border-radius: var(--radius-sm);
+
       font-family: var(--font-sans);
+
       font-size: var(--text-base);
+
       color: var(--color-ink);
+
       outline: none;
+
       transition: all var(--dur-base) var(--ease-out);
+
     }
+
     .acc-input:focus {
+
       background: #FFFFFF;
+
       border-color: var(--color-teal);
+
       box-shadow: 0 0 0 3px rgba(4,78,84,0.1);
+
     }
+
     .acc-input.error {
+
       border-color: #D64545;
+
       background: #FFF8F8;
+
     }
+
     .acc-input::placeholder {
+
       color: rgba(0,0,0,0.25);
+
     }
+
+
 
     /* Input with icon wrapper */
+
     .acc-input-wrap {
+
       position: relative;
+
     }
+
     .acc-input-wrap .acc-input {
+
       padding-left: 2.75rem;
+
     }
+
     .acc-input-icon {
+
       position: absolute;
+
       top: 50%; left: 1rem;
+
       transform: translateY(-50%);
+
       pointer-events: none;
+
       color: var(--color-secondary);
+
       display: flex;
+
     }
+
     .acc-input-icon svg {
+
       width: 16px; height: 16px;
+
       stroke: currentColor;
+
       fill: none;
+
       stroke-width: 2;
+
       stroke-linecap: round;
+
       stroke-linejoin: round;
+
     }
+
+
 
     /* Password toggle */
+
     .acc-pwd-toggle {
+
       position: absolute;
+
       top: 50%; right: 1rem;
+
       transform: translateY(-50%);
+
       background: none;
+
       border: none;
+
       cursor: pointer;
+
       padding: 0;
+
       color: var(--color-secondary);
+
       display: flex;
+
     }
+
     .acc-pwd-toggle svg {
+
       width: 16px; height: 16px;
+
       stroke: currentColor;
+
       fill: none;
+
       stroke-width: 2;
+
       stroke-linecap: round;
+
       stroke-linejoin: round;
+
     }
+
+
 
     /* Row of two fields */
+
     .acc-row {
+
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: var(--space-3);
+
     }
+
+
 
     /* Error message */
+
     .acc-error {
+
       font-size: var(--text-xs);
+
       color: #D64545;
+
       margin-top: var(--space-1);
+
       display: none;
+
     }
+
     .acc-error.show { display: block; }
 
+
+
     /* Forgot password link */
+
     .acc-forgot {
+
       font-size: var(--text-xs);
+
       color: var(--color-teal);
+
       font-weight: 600;
+
       float: right;
+
       margin-top: var(--space-2);
+
     }
+
     .acc-forgot:hover { text-decoration: underline; }
 
+
+
     /* Submit button */
+
     .acc-submit {
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: var(--space-2);
+
       width: 100%;
+
       padding: 0.875rem 1.5rem;
+
       background: var(--color-gold);
+
       color: #000;
+
       font-family: var(--font-sans);
+
       font-size: var(--text-sm);
+
       font-weight: 800;
+
       letter-spacing: 0.06em;
+
       text-transform: uppercase;
+
       border: none;
+
       border-radius: var(--radius-pill);
+
       cursor: pointer;
+
       transition: all var(--dur-base) var(--ease-out);
+
       margin-top: var(--space-6);
+
       position: relative;
+
       overflow: hidden;
+
     }
+
     .acc-submit:hover {
+
       background: var(--color-gold-hover);
+
       transform: translateY(-2px);
+
       box-shadow: var(--shadow-gold);
+
     }
+
     .acc-submit:active { transform: translateY(0); }
+
     .acc-submit:disabled {
+
       opacity: 0.7;
+
       cursor: not-allowed;
+
       transform: none;
+
     }
+
+
 
     /* Spinner inside button */
+
     .acc-spinner {
+
       display: none;
+
       width: 16px; height: 16px;
+
       border: 2px solid rgba(0,0,0,0.2);
+
       border-top-color: #000;
+
       border-radius: 50%;
+
       animation: spin 0.7s linear infinite;
+
     }
+
     @keyframes spin {
+
       to { transform: rotate(360deg); }
+
     }
+
     .acc-submit.loading .acc-btn-text { display: none; }
+
     .acc-submit.loading .acc-spinner  { display: block; }
 
+
+
     /* Divider */
+
     .acc-divider {
+
       display: flex;
+
       align-items: center;
+
       gap: var(--space-3);
+
       margin: var(--space-6) 0;
+
       font-size: var(--text-xs);
+
       font-weight: 600;
+
       color: var(--color-secondary);
+
       text-transform: uppercase;
+
       letter-spacing: 0.08em;
+
     }
+
     .acc-divider::before,
+
     .acc-divider::after {
+
       content: '';
+
       flex: 1;
+
       height: 1px;
+
       background: var(--color-border);
+
     }
+
+
 
     /* Social login buttons */
+
     .acc-socials {
+
       display: flex;
+
       gap: var(--space-3);
+
     }
+
     .acc-social-btn {
+
       flex: 1;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: var(--space-2);
+
       padding: 0.625rem;
+
       background: #F7F5F0;
+
       border: 1.5px solid var(--color-border);
+
       border-radius: var(--radius-sm);
+
       font-size: var(--text-xs);
+
       font-weight: 700;
+
       color: var(--color-ink);
+
       cursor: pointer;
+
       transition: all var(--dur-fast) var(--ease-out);
+
     }
+
     .acc-social-btn:hover {
+
       background: #FFFFFF;
+
       border-color: var(--color-teal);
+
       color: var(--color-teal);
+
       transform: translateY(-1px);
+
     }
+
     .acc-social-btn img {
+
       width: 16px; height: 16px;
+
     }
+
+
 
     /* Switch prompt */
+
     .acc-switch {
+
       text-align: center;
+
       font-size: var(--text-xs);
+
       color: var(--color-secondary);
+
       margin-top: var(--space-5);
+
     }
+
     .acc-switch a {
+
       color: var(--color-teal);
+
       font-weight: 700;
+
     }
+
     .acc-switch a:hover { text-decoration: underline; }
 
+
+
     /* Success toast */
+
     .acc-toast {
+
       display: none;
+
       align-items: center;
+
       gap: var(--space-3);
+
       background: #E8F8F0;
+
       border: 1px solid #6ECFA0;
+
       border-radius: var(--radius-sm);
+
       padding: var(--space-3) var(--space-4);
+
       font-size: var(--text-sm);
+
       font-weight: 600;
+
       color: #1A7A4A;
+
       margin-bottom: var(--space-5);
+
     }
+
     .acc-toast.show { display: flex; }
 
+
+
     /* Password strength meter */
+
     .pwd-strength-bar {
+
       display: flex;
+
       gap: 4px;
+
       margin-top: var(--space-2);
+
     }
+
     .pwd-seg {
+
       flex: 1;
+
       height: 3px;
+
       border-radius: 9999px;
+
       background: #E5E3DE;
+
       transition: background var(--dur-base) var(--ease-out);
+
     }
+
     .pwd-seg.weak   { background: #D64545; }
+
     .pwd-seg.fair   { background: #E8A020; }
+
     .pwd-seg.good   { background: #D4A325; }
+
     .pwd-seg.strong { background: #2EAA6E; }
+
     .pwd-strength-label {
+
       font-size: 0.68rem;
+
       color: var(--color-secondary);
+
       margin-top: 4px;
+
     }
+
+
 
     /* -- Responsive -- */
+
     @media (max-width: 900px) {
+
       .account-page {
+
         grid-template-columns: 1fr;
+
       }
+
       .account-hero {
+
         padding: var(--space-10) var(--space-8);
+
         min-height: auto;
+
       }
+
       .account-hero-title { font-size: 1.75rem; }
+
       .hero-features { display: none; }
+
     }
+
     @media (max-width: 600px) {
+
       .account-form-panel { padding: var(--space-6) var(--space-4); }
+
       .account-card { padding: var(--space-6); border-radius: var(--radius-md); }
+
       .acc-row { grid-template-columns: 1fr; }
+
     }
+
   </style>
+
 </head>
+
 <body>
 
+
+
   <!-- ---------------------------------------
+
        HEADER & NAVIGATION
+
   --------------------------------------- -->
+
+    <!-- ===========================================
+       HEADER & NAVIGATION
+  =========================================== -->
   <header class="site-header" id="header">
     <div class="container header-inner">
       <!-- Logo -->
       <a href="index.html" class="logo-brand" aria-label="Rapid Epoxy Home">
-        <div class="logo-monogram">RE</div>
-        <span>Rapid Epoxy</span>
+        <img src="img/logo-horizontal.png" alt="Rapid Epoxy" class="logo-img">
       </a>
 
       <!-- Desktop Nav -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="products.html" class="nav-link">Products ?</a></li>
-          <li><a href="services.html" class="nav-link">Services ?</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="colours.html" class="nav-link">Colour Charts</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -552,273 +1090,514 @@
       <!-- Header Actions -->
       <div style="display:flex; align-items:center; gap:var(--space-3);">
         <a href="contact.html" class="btn btn-gold">Request Quote</a>
-        <!-- Avatar icon — active on this page -->
-        <a href="account.html" class="avatar-btn active-page" style="width:36px;height:36px;border-radius:50%;background:var(--color-teal-light);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:all 0.2s;" aria-label="Account" aria-current="page">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="account.html" class="nav-account-btn active" aria-label="Account">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
           </svg>
         </a>
       </div>
+
       <!-- Mobile Toggle -->
-      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
-        <svg id="iconHamburger" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <svg id="iconHamburger" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
-        <svg id="iconClose" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <svg id="iconClose" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </button>
     </div>
   </header>
 
-  <!-- Mobile Menu Drawer -->
+  <!-- Mobile Menu Drawer Overlay -->
   <div class="mobile-menu-overlay mobile-nav" id="mobileMenu">
     <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="products.html" class="mobile-nav-link">Products &amp; Finishes</a>
-    <a href="services.html" class="mobile-nav-link">Our Services</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="colours.html" class="mobile-nav-link">Colour Charts</a>
     <a href="about.html" class="mobile-nav-link">About Us</a>
-    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
     <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-4);">Request Quote</a>
   </div>
 
+
+
   <!-- ---------------------------------------
-       ACCOUNT PAGE — SPLIT LAYOUT
+
+       ACCOUNT PAGE &mdash; SPLIT LAYOUT
+
   --------------------------------------- -->
+
   <main id="main-content" class="account-page">
 
+
+
     <!-- -- Left: Hero Panel -- -->
+
     <div class="account-hero">
+
       <div class="hero-badge">
+
         <span class="hero-badge-dot"></span>
+
         Member Portal
+
       </div>
+
+
 
       <h1 class="account-hero-title">
+
         Your projects,<br><em>all in one place.</em>
+
       </h1>
+
       <p class="account-hero-sub">
+
         Sign in to track live quote status, review your warranty documents, and manage your ongoing epoxy projects.
+
       </p>
 
+
+
       <div class="hero-features">
+
         <div class="hero-feature">
+
           <div class="hero-feature-icon">
+
             <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+
           </div>
+
           Track live quote &amp; project status
+
         </div>
+
         <div class="hero-feature">
+
           <div class="hero-feature-icon">
+
             <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+
           </div>
+
           Download warranty &amp; spec sheets
+
         </div>
+
         <div class="hero-feature">
+
           <div class="hero-feature-icon">
+
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.8-1.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+
           </div>
+
           Priority phone &amp; WhatsApp support
+
         </div>
+
         <div class="hero-feature">
+
           <div class="hero-feature-icon">
+
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+
           </div>
+
           10-year warranty management
+
         </div>
+
       </div>
 
+
+
       <div class="hero-bar"></div>
+
     </div>
 
+
+
     <!-- -- Right: Form Panel -- -->
+
     <div class="account-form-panel">
+
       <div class="account-card">
 
+
+
         <!-- Tab switcher -->
+
         <div class="acc-tabs" role="tablist">
+
           <button class="acc-tab is-active" id="tab-signin" role="tab" aria-selected="true" aria-controls="panel-signin" onclick="switchTab('signin')">Sign In</button>
+
           <button class="acc-tab" id="tab-register" role="tab" aria-selected="false" aria-controls="panel-register" onclick="switchTab('register')">Register</button>
+
         </div>
 
+
+
         <!-- -- Sign In Panel -- -->
+
         <div class="acc-panel is-active" id="panel-signin" role="tabpanel" aria-labelledby="tab-signin">
 
+
+
           <!-- Success toast -->
+
           <div class="acc-toast" id="toast-signin">
-            ?&nbsp; Welcome back! Signing you in…
+
+            ?&nbsp; Welcome back! Signing you inÂ…
+
           </div>
 
+
+
           <h2 class="acc-panel-title">Welcome back</h2>
+
           <p class="acc-panel-sub">Sign in to access your Rapid Epoxy dashboard.</p>
 
+
+
           <form id="form-signin" novalidate>
+
             <!-- Email -->
+
             <div class="acc-group">
+
               <label class="acc-label" for="si-email">Email Address</label>
+
               <div class="acc-input-wrap">
+
                 <span class="acc-input-icon">
+
                   <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+
                 </span>
+
                 <input type="email" id="si-email" class="acc-input" placeholder="you@example.com" required autocomplete="email">
+
               </div>
+
               <p class="acc-error" id="si-email-err">Please enter a valid email.</p>
+
             </div>
+
+
 
             <!-- Password -->
+
             <div class="acc-group">
+
               <label class="acc-label" for="si-password">Password</label>
+
               <div class="acc-input-wrap">
+
                 <span class="acc-input-icon">
+
                   <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+
                 </span>
-                <input type="password" id="si-password" class="acc-input" placeholder="••••••••" required autocomplete="current-password">
+
+                <input type="password" id="si-password" class="acc-input" placeholder="Â•Â•Â•Â•Â•Â•Â•Â•" required autocomplete="current-password">
+
                 <button type="button" class="acc-pwd-toggle" onclick="togglePwd('si-password', this)" aria-label="Show password">
+
                   <svg id="si-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+
                 </button>
+
               </div>
+
               <p class="acc-error" id="si-pwd-err">Password is required.</p>
+
               <a href="#" class="acc-forgot">Forgot password?</a>
+
             </div>
 
+
+
             <button type="submit" class="acc-submit" id="btn-signin">
-              <span class="acc-btn-text">Sign In ?</span>
+
+              <span class="acc-btn-text">Sign In &rarr;</span>
+
               <span class="acc-spinner"></span>
+
             </button>
+
           </form>
+
+
 
           <div class="acc-divider">or continue with</div>
 
+
+
           <div class="acc-socials">
+
             <button class="acc-social-btn" onclick="socialLogin('google')">
+
               <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
               Google
+
             </button>
+
             <button class="acc-social-btn" onclick="socialLogin('apple')">
+
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+
               Apple
+
             </button>
+
           </div>
 
-          <p class="acc-switch">Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Create one ?</a></p>
+
+
+          <p class="acc-switch">Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Create one &rarr;</a></p>
+
         </div>
+
+
 
         <!-- -- Register Panel -- -->
+
         <div class="acc-panel" id="panel-register" role="tabpanel" aria-labelledby="tab-register">
 
+
+
           <!-- Success toast -->
+
           <div class="acc-toast" id="toast-register">
-            ?&nbsp; Account created! Redirecting…
+
+            ?&nbsp; Account created! RedirectingÂ…
+
           </div>
 
+
+
           <h2 class="acc-panel-title">Create account</h2>
+
           <p class="acc-panel-sub">Join Rapid Epoxy to manage your quotes and warranty documents.</p>
 
+
+
           <form id="form-register" novalidate>
+
             <!-- Name row -->
+
             <div class="acc-row">
+
               <div class="acc-group">
+
                 <label class="acc-label" for="reg-first">First Name</label>
+
                 <div class="acc-input-wrap">
+
                   <span class="acc-input-icon">
+
                     <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+
                   </span>
+
                   <input type="text" id="reg-first" class="acc-input" placeholder="John" required autocomplete="given-name">
+
                 </div>
+
                 <p class="acc-error" id="reg-first-err">Required.</p>
+
               </div>
+
               <div class="acc-group">
+
                 <label class="acc-label" for="reg-last">Last Name</label>
+
                 <div class="acc-input-wrap">
+
                   <span class="acc-input-icon">
+
                     <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+
                   </span>
+
                   <input type="text" id="reg-last" class="acc-input" placeholder="Doe" required autocomplete="family-name">
+
                 </div>
+
                 <p class="acc-error" id="reg-last-err">Required.</p>
+
               </div>
+
             </div>
+
+
 
             <!-- Email -->
+
             <div class="acc-group">
+
               <label class="acc-label" for="reg-email">Email Address</label>
+
               <div class="acc-input-wrap">
+
                 <span class="acc-input-icon">
+
                   <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+
                 </span>
+
                 <input type="email" id="reg-email" class="acc-input" placeholder="you@example.com" required autocomplete="email">
+
               </div>
+
               <p class="acc-error" id="reg-email-err">Please enter a valid email.</p>
+
             </div>
+
+
 
             <!-- Phone -->
+
             <div class="acc-group">
+
               <label class="acc-label" for="reg-phone">Phone Number</label>
+
               <div class="acc-input-wrap">
+
                 <span class="acc-input-icon">
+
                   <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.8-1.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+
                 </span>
+
                 <input type="tel" id="reg-phone" class="acc-input" placeholder="+61 4XX XXX XXX" autocomplete="tel">
+
               </div>
+
             </div>
+
+
 
             <!-- Password -->
+
             <div class="acc-group">
+
               <label class="acc-label" for="reg-password">Password</label>
+
               <div class="acc-input-wrap">
+
                 <span class="acc-input-icon">
+
                   <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+
                 </span>
+
                 <input type="password" id="reg-password" class="acc-input" placeholder="Min. 8 characters" required autocomplete="new-password" oninput="checkPasswordStrength(this.value)">
+
                 <button type="button" class="acc-pwd-toggle" onclick="togglePwd('reg-password', this)" aria-label="Show password">
+
                   <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+
                 </button>
+
               </div>
+
               <div class="pwd-strength-bar" id="pwd-bar">
+
                 <div class="pwd-seg" id="seg1"></div>
+
                 <div class="pwd-seg" id="seg2"></div>
+
                 <div class="pwd-seg" id="seg3"></div>
+
                 <div class="pwd-seg" id="seg4"></div>
+
               </div>
+
               <p class="pwd-strength-label" id="pwd-label"></p>
+
               <p class="acc-error" id="reg-pwd-err">Password must be at least 8 characters.</p>
+
             </div>
 
+
+
             <button type="submit" class="acc-submit" id="btn-register">
-              <span class="acc-btn-text">Create Account ?</span>
+
+              <span class="acc-btn-text">Create Account &rarr;</span>
+
               <span class="acc-spinner"></span>
+
             </button>
+
           </form>
 
-          <p class="acc-switch">Already have an account? <a href="#" onclick="switchTab('signin'); return false;">Sign in ?</a></p>
+
+
+          <p class="acc-switch">Already have an account? <a href="#" onclick="switchTab('signin'); return false;">Sign in &rarr;</a></p>
+
+
 
           <p style="font-size:0.68rem; color:var(--color-secondary); text-align:center; margin-top:var(--space-4); line-height:1.5;">
+
             By registering, you agree to our <a href="#" style="color:var(--color-teal);">Privacy Policy</a> and <a href="#" style="color:var(--color-teal);">Terms of Service</a>.
+
           </p>
+
         </div>
 
+
+
       </div><!-- /account-card -->
+
     </div><!-- /form-panel -->
+
+
 
   </main>
 
+
+
   <!-- Floating WhatsApp -->
+
   <a href="https://wa.me/61390004821?text=Hi%20Rapid%20Epoxy%2C%20I'm%20interested%20in%20a%20quote%20for%20my%20floor."
+
      target="_blank" rel="noopener"
+
      class="floating-whatsapp-btn"
+
      aria-label="Chat on WhatsApp">
+
     ??
+
   </a>
 
+
+
   <script>
+
     /* --- Header scroll shadow --- */
+
     const header = document.getElementById('header');
+
     if (header) {
+
       window.addEventListener('scroll', () => {
+
         header.classList.toggle('scrolled', window.scrollY > 20);
+
       });
+
     }
 
+
+
     /* --- Mobile menu --- */
+
     // Mobile Menu Toggle Drawer
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu   = document.getElementById('mobileMenu');
@@ -840,140 +1619,278 @@
         });
       });
     });
+
     }
+
+
 
     /* --- Password visibility toggle --- */
+
     function togglePwd(inputId, btn) {
+
       const input = document.getElementById(inputId);
+
       const isText = input.type === 'text';
+
       input.type = isText ? 'password' : 'text';
+
       btn.innerHTML = isText
+
         ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>'
+
         : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+
     }
 
+
+
     /* --- Password strength --- */
+
     function checkPasswordStrength(val) {
+
       const segs  = [document.getElementById('seg1'), document.getElementById('seg2'), document.getElementById('seg3'), document.getElementById('seg4')];
+
       const label = document.getElementById('pwd-label');
+
       segs.forEach(s => { s.className = 'pwd-seg'; });
+
+
 
       if (!val) { label.textContent = ''; return; }
 
+
+
       let score = 0;
+
       if (val.length >= 8)  score++;
+
       if (/[A-Z]/.test(val)) score++;
+
       if (/[0-9]/.test(val)) score++;
+
       if (/[^A-Za-z0-9]/.test(val)) score++;
 
+
+
       const levels = ['weak', 'fair', 'good', 'strong'];
+
       const labels = ['Weak', 'Fair', 'Good', 'Strong ??'];
+
       for (let i = 0; i < score; i++) segs[i].classList.add(levels[score - 1]);
+
       label.textContent = 'Strength: ' + labels[score - 1];
+
     }
+
+
 
     /* --- Show/hide field error --- */
+
     function showErr(id, show) {
+
       const el = document.getElementById(id);
+
       if (el) el.classList.toggle('show', show);
+
     }
+
+
 
     function validateEmail(e) {
+
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+
     }
+
+
 
     /* --- Sign In form --- */
+
     document.getElementById('form-signin').addEventListener('submit', function(e) {
+
       e.preventDefault();
+
       const email = document.getElementById('si-email').value.trim();
+
       const pwd   = document.getElementById('si-password').value;
+
       let valid = true;
+
+
 
       if (!validateEmail(email)) {
+
         document.getElementById('si-email').classList.add('error');
+
         showErr('si-email-err', true);
+
         valid = false;
+
       } else {
+
         document.getElementById('si-email').classList.remove('error');
+
         showErr('si-email-err', false);
+
       }
+
       if (!pwd) {
+
         document.getElementById('si-password').classList.add('error');
+
         showErr('si-pwd-err', true);
+
         valid = false;
+
       } else {
+
         document.getElementById('si-password').classList.remove('error');
+
         showErr('si-pwd-err', false);
+
       }
+
       if (!valid) return;
+
+
 
       const btn = document.getElementById('btn-signin');
+
       btn.classList.add('loading');
+
       btn.disabled = true;
 
+
+
       setTimeout(() => {
+
         btn.classList.remove('loading');
+
         btn.disabled = false;
+
         document.getElementById('toast-signin').classList.add('show');
+
         setTimeout(() => document.getElementById('toast-signin').classList.remove('show'), 4000);
+
         document.getElementById('form-signin').reset();
+
       }, 1400);
+
     });
 
+
+
     /* --- Register form --- */
+
     document.getElementById('form-register').addEventListener('submit', function(e) {
+
       e.preventDefault();
+
       const first = document.getElementById('reg-first').value.trim();
+
       const last  = document.getElementById('reg-last').value.trim();
+
       const email = document.getElementById('reg-email').value.trim();
+
       const pwd   = document.getElementById('reg-password').value;
+
       let valid = true;
 
+
+
       if (!first) { document.getElementById('reg-first').classList.add('error'); showErr('reg-first-err', true); valid = false; }
+
       else         { document.getElementById('reg-first').classList.remove('error'); showErr('reg-first-err', false); }
 
+
+
       if (!last) { document.getElementById('reg-last').classList.add('error'); showErr('reg-last-err', true); valid = false; }
+
       else        { document.getElementById('reg-last').classList.remove('error'); showErr('reg-last-err', false); }
 
+
+
       if (!validateEmail(email)) { document.getElementById('reg-email').classList.add('error'); showErr('reg-email-err', true); valid = false; }
+
       else                        { document.getElementById('reg-email').classList.remove('error'); showErr('reg-email-err', false); }
 
+
+
       if (pwd.length < 8) { document.getElementById('reg-password').classList.add('error'); showErr('reg-pwd-err', true); valid = false; }
+
       else                  { document.getElementById('reg-password').classList.remove('error'); showErr('reg-pwd-err', false); }
+
+
 
       if (!valid) return;
 
+
+
       const btn = document.getElementById('btn-register');
+
       btn.classList.add('loading');
+
       btn.disabled = true;
 
+
+
       setTimeout(() => {
+
         btn.classList.remove('loading');
+
         btn.disabled = false;
+
         document.getElementById('toast-register').classList.add('show');
+
         setTimeout(() => document.getElementById('toast-register').classList.remove('show'), 4000);
+
         document.getElementById('form-register').reset();
+
         checkPasswordStrength('');
+
       }, 1400);
+
     });
+
+
 
     /* --- Live validation feedback --- */
+
     ['si-email', 'si-password', 'reg-first', 'reg-last', 'reg-email', 'reg-password'].forEach(id => {
+
       const el = document.getElementById(id);
+
       if (!el) return;
+
       el.addEventListener('input', function() {
+
         if (this.value.trim()) {
+
           this.classList.remove('error');
+
           const errId = id.replace('si-', 'si-').replace('reg-', 'reg-') + '-err';
+
           showErr(errId, false);
+
         }
+
       });
+
     });
 
+
+
     /* --- Social login placeholder --- */
+
     function socialLogin(provider) {
+
       alert('Social login with ' + provider.charAt(0).toUpperCase() + provider.slice(1) + ' coming soon!');
+
     }
+
   </script>
+
+  <script src="js/main.js"></script>
 </body>
+
 </html>

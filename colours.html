@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colour Charts &amp; Finishes — Rapid Epoxy Melbourne</title>
+  <meta name="description" content="Browse our complete epoxy flooring colour charts: Ultra Flake®, Hyper Flake®, Metallic Marble™, Plain Coat AS2700, Quartz Shield® and more. Real photos of cured finishes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* ─── Colour Charts Page Specific Styling ─── */
+
+    /* Hero Section */
+    .colours-hero {
+      padding-top: 130px;
+      padding-bottom: var(--space-16);
+      background: #0d1317;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .colours-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 85% 40%, rgba(4, 78, 84, 0.45) 0%, transparent 60%),
+        radial-gradient(ellipse at 15% 85%, rgba(212, 163, 37, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .colours-hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    .colours-hero h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: var(--space-4);
+    }
+
+    .colours-hero h1 em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #7ee8d8;
+    }
+
+    .colours-hero-desc {
+      font-size: var(--text-base);
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+      max-width: 52ch;
+    }
+
+    .colours-hero-media {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .colours-hero-media img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease-out);
+    }
+
+    .colours-hero-media:hover img {
+      transform: scale(1.02);
+    }
+
+    /* ─── Disclaimer Banner ─── */
+    .disclaimer-banner {
+      background: var(--color-gold-light);
+      border: 1px solid rgba(212, 163, 37, 0.35);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-12);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+
+    .disclaimer-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--color-gold-hover);
+      margin-top: 2px;
+    }
+
+    .disclaimer-text {
+      font-size: var(--text-sm);
+      color: #5c450c;
+      line-height: 1.6;
+    }
+
+    .disclaimer-text strong {
+      color: #3b2c05;
+    }
+
+    /* ─── Section: Cloned Galleries Grid ─── */
+    .section-galleries {
+      padding: var(--space-16) 0 var(--space-20);
+      background: var(--color-base);
+    }
+
+    .section-header-wrap {
+      margin-bottom: var(--space-10);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-6);
+    }
+
+    .section-header-left h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 900;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-2);
+    }
+
+    .section-header-left p {
+      font-size: var(--text-base);
+      color: var(--color-muted);
+      max-width: 52ch;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      margin-bottom: var(--space-16);
+    }
+
+    .gallery-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base);
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(4, 78, 84, 0.3);
+    }
+
+    .gallery-card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: var(--color-surface-sub);
+    }
+
+    .gallery-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    .gallery-card:hover .gallery-card-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .gallery-card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(10, 14, 18, 0.75);
+      color: #fff;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .gallery-card-body {
+      padding: var(--space-6);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card-title {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-2);
+    }
+
+    .gallery-card-desc {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-5);
+      flex: 1;
+    }
+
+    .gallery-card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: var(--color-teal-light);
+      color: var(--color-teal);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-decoration: none;
+      transition: all var(--dur-fast);
+      border: 1px solid rgba(4, 78, 84, 0.15);
+      cursor: pointer;
+    }
+
+    .gallery-card-btn:hover {
+      background: var(--color-teal);
+      color: #fff;
+    }
+
+    /* ─── Section: Interactive Palette Explorer ─── */
+    .section-swatches-explorer {
+      padding: var(--space-16) 0 var(--space-24);
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .colour-tabs-sticky-bar {
+      position: sticky;
+      top: 72px;
+      z-index: 40;
+      background: rgba(13, 19, 23, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-lg);
+      padding: 6px;
+      margin-bottom: var(--space-10);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .colour-tabs {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .colour-tabs::-webkit-scrollbar { display: none; }
+
+    .colour-tab {
+      flex: 1;
+      min-width: max-content;
+      padding: 12px 20px;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.65);
+      cursor: pointer;
+      border: none;
+      border-radius: var(--radius-md);
+      background: transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .colour-tab:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .colour-tab.active {
+      color: #0d1317;
+      background: #7ee8d8;
+      box-shadow: 0 4px 12px rgba(126, 232, 216, 0.35);
+    }
+
+    .colour-panel {
+      display: none;
+      animation: fadeIn 0.35s ease forwards;
+    }
+
+    .colour-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel-meta-header {
+      background: var(--color-base);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-8);
+    }
+
+    .panel-meta-title {
+      font-size: var(--text-2xl);
+      font-weight: 900;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-2);
+    }
+
+    .panel-meta-desc {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.6;
+      max-width: 64ch;
+    }
+
+    .swatch-group-label {
+      font-size: var(--text-xs);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin: var(--space-8) 0 var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .swatch-group-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .swatch-group-label:first-of-type {
+      margin-top: 0;
+    }
+
+    /* ─── REAL PHOTO SWATCH CARD STYLES ─── */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .swatch-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(4, 78, 84, 0.4);
+    }
+
+    .swatch-img-wrap {
+      width: 100%;
+      height: 110px;
+      overflow: hidden;
+      background: #eef2f5;
+      position: relative;
+    }
+
+    .swatch-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .swatch-card:hover .swatch-img-wrap img {
+      transform: scale(1.1);
+    }
+
+    .swatch-info {
+      padding: var(--space-3) var(--space-4);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--color-surface);
+    }
+
+    .swatch-name {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--color-ink);
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+
+    .swatch-code {
+      font-size: 0.68rem;
+      color: var(--color-muted);
+      font-weight: 500;
+    }
+
+    /* Solid color chip swatch (for Plain Coat AS2700) */
+    .swatch-solid-color {
+      width: 100%;
+      height: 110px;
+      position: relative;
+    }
+
+    /* ─── Sample Request CTA Banner ─── */
+    .section-cta {
+      padding: var(--space-16) 0 var(--space-20);
+      background: var(--color-base);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .cta-container {
+      background: linear-gradient(135deg, #044E54 0%, #023539 100%);
+      border-radius: var(--radius-xl);
+      padding: var(--space-16) var(--space-12);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(4, 78, 84, 0.2);
+    }
+
+    .cta-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(212, 163, 37, 0.12) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── Cursor-following Interactive Spotlight ── */
+    .cta-container::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(126, 232, 216, 0.28) 0%,
+        rgba(212, 163, 37, 0.16) 35%,
+        transparent 68%
+      );
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      z-index: 2;
+      mix-blend-mode: screen;
+    }
+
+    .cta-container:hover::after {
+      opacity: 1;
+    }
+
+    .cta-container > * {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Gallery card subtle spotlight */
+    .gallery-card {
+      position: relative;
+    }
+
+    .gallery-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        320px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(126, 232, 216, 0.12) 0%,
+        rgba(212, 163, 37, 0.08) 40%,
+        transparent 70%
+      );
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 5;
+    }
+
+    .gallery-card:hover::after {
+      opacity: 1;
+    }
+
+    .cta-eyebrow {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: var(--space-3);
+    }
+
+    .cta-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+      line-height: 1.15;
+    }
+
+    .cta-desc {
+      font-size: var(--text-base);
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 54ch;
+      margin: 0 auto var(--space-8);
+      line-height: 1.7;
+    }
+
+    .cta-features-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+
+    .cta-feat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-pill);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .btn-outline-white {
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-pill);
+      padding: 0.75rem 1.5rem;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--dur-base) var(--ease-out);
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* ─── Responsive Media Queries ─── */
+    @media (max-width: 1024px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .colours-hero-grid { grid-template-columns: 1fr; }
+      .colours-hero-media img { height: 280px; }
+      .cta-container { padding: var(--space-10) var(--space-6); }
+    }
+
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .section-header-wrap { flex-direction: column; align-items: flex-start; }
+      .swatch-grid { grid-template-columns: repeat(auto-fill, minmax(115px, 1fr)); }
+      .swatch-img-wrap { height: 90px; }
+      .sample-features { grid-template-columns: 1fr; }
+      .panel-meta-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER & NAVIGATION
+  ═══════════════════════════════════════ -->
+    <!-- ===========================================
+       HEADER & NAVIGATION
+  =========================================== -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <!-- Logo -->
+      <a href="index.html" class="logo-brand" aria-label="Rapid Epoxy Home">
+        <img src="img/logo-horizontal.png" alt="Rapid Epoxy" class="logo-img">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="colours.html" class="nav-link active">Colour Charts</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div style="display:flex; align-items:center; gap:var(--space-3);">
+        <a href="contact.html" class="btn btn-gold">Request Quote</a>
+        <a href="account.html" class="nav-account-btn" aria-label="Account">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button class="mobile-toggle nav-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <svg id="iconHamburger" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="iconClose" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Drawer Overlay -->
+  <div class="mobile-menu-overlay mobile-nav" id="mobileMenu">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="products.html" class="mobile-nav-link">Products</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="colours.html" class="mobile-nav-link active">Colour Charts</a>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-gold" style="margin-top:var(--space-4);">Request Quote</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════ -->
+    <section class="colours-hero">
+      <div class="container">
+        <div class="colours-hero-grid">
+          <div>
+            <span class="eyebrow" style="color:var(--color-gold); margin-bottom:var(--space-3); display:inline-block;">— Architectural Palette</span>
+            <h1>Epoxy Flooring<br>Colour Charts &amp; Finishes</h1>
+            <p class="colours-hero-desc">
+              Explore our complete range of architectural resin systems — from decorative vinyl flake and natural stone blends to hand-swirled metallic marble pigments and industrial AS2700 solid colour coatings.
+            </p>
+            <div style="display:flex; gap:var(--space-4); align-items:center; flex-wrap:wrap; margin-top:var(--space-8);">
+              <a href="contact.html" class="btn btn-gold">Request Physical Samples &rarr;</a>
+              <a href="#swatches" class="btn btn-outline-white">Browse Swatches ↓</a>
+            </div>
+          </div>
+
+          <div class="colours-hero-media">
+            <img src="img/charts/APC_3446.jpg" alt="Rapid Epoxy Colour Studio Sample Book &amp; Cured Discs" loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         GALLERY CARDS SECTION (CLONED APC PHOTOS)
+    ═══════════════════════════════════════ -->
+    <section class="section-galleries" id="galleries">
+      <div class="container">
+
+        <!-- Disclaimer Banner -->
+        <div class="disclaimer-banner">
+          <svg class="disclaimer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <div class="disclaimer-text">
+            <strong>Colour Accuracy Notice:</strong> We strive to represent colours as accurately as possible, but camera exposure, screen calibration, and ambient lighting can alter perceived tones. We provide physical cured sample discs during your free quote for 100% colour certainty.
+          </div>
+        </div>
+
+        <div class="section-header-wrap">
+          <div class="section-header-left">
+            <span class="eyebrow">— Product System Galleries</span>
+            <h2>Complete Architectural Collections</h2>
+            <p>Select any collection below to see real-world project photos and jump directly to its individual colour formulations.</p>
+          </div>
+          <div>
+            <a href="contact.html" class="btn btn-teal btn-sm">Request Physical Samples &rarr;</a>
+          </div>
+        </div>
+
+        <!-- 9 Gallery Cards with Cloned Photos -->
+        <div class="gallery-grid">
+
+          <!-- Card 1: Ultra Flake -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-ultra-flake.webp" alt="Ultra Flake Flooring Gallery" loading="lazy">
+              <span class="gallery-card-badge">Most Popular</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">Ultra Flake® Gallery</h3>
+              <p class="gallery-card-desc">Over 25 signature vinyl flake blends available in Nano, Small, Large, and Jumbo profiles. Our #1 system for residential garages and commercial showrooms.</p>
+              <button class="gallery-card-btn" onclick="openTab('ultraflake')">View 25+ Swatches &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Card 2: Hyper Flake -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-hyper-flake.webp" alt="Hyper Flake Signature Series Flooring" loading="lazy">
+              <span class="gallery-card-badge">Natural Stone</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">Hyper Flake® Gallery</h3>
+              <p class="gallery-card-desc">Premium large-format natural stone appearance. Replicates the elegance of granite, sandstone, and basalt slabs with zero grout lines.</p>
+              <button class="gallery-card-btn" onclick="openTab('hyperflake')">View 6 Stone Blends &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Card 3: Litho Flake -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-litho-flake.webp" alt="Litho Flake Industrial Stone System" loading="lazy">
+              <span class="gallery-card-badge">Architectural</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">Litho Flake® Gallery</h3>
+              <p class="gallery-card-desc">Heavy-duty natural stone look formulated with industrial metal tones: Cobalt, Nickle, Ferro, Alloy, and Zinc with optional mica flake enhancements.</p>
+              <button class="gallery-card-btn" onclick="openTab('lithoflake')">View Litho Range &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Card 4: Grip Finish -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-grip-finish.webp" alt="Grip Finish Anti-Slip Epoxy" loading="lazy">
+              <span class="gallery-card-badge">Safety Rated</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">Grip Finish Gallery</h3>
+              <p class="gallery-card-desc">Certified slip-resistant textured profile (R10 to R12 rating). Engineered for ramps, commercial kitchens, wash bays, and wet industrial environments.</p>
+              <a href="services.html" class="gallery-card-btn">Explore Safety Specs &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 5: Quartz Shield -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-quartz-shield.webp" alt="Quartz Shield Aggregate Flooring" loading="lazy">
+              <span class="gallery-card-badge">Heavy Duty</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">Quartz Shield® Gallery</h3>
+              <p class="gallery-card-desc">Coloured ceramic quartz aggregate encapsulated in pure epoxy resin. Exceptional compressive strength and superior impact resistance.</p>
+              <button class="gallery-card-btn" onclick="openTab('quartz')">View 5 Quartz Tones &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Card 6: Plain Coat -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-plain-epoxy.webp" alt="EPO100T Plain Coat Solid Colour Epoxy" loading="lazy">
+              <span class="gallery-card-badge">AS2700 Standard</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">EPO100T® Plain Coat Gallery</h3>
+              <p class="gallery-card-desc">Ultra-high gloss seamless solid colour flooring. 25 standard stocked greys and neutrals plus 206 custom AS2700 architectural tints.</p>
+              <button class="gallery-card-btn" onclick="openTab('plaincoat')">View Solid Colours &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Card 7: Metallic Marble -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-metallic.webp" alt="Metallic Marble Decorative Resin Flooring" loading="lazy">
+              <span class="gallery-card-badge">Luxury 3D Effect</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">Metallic Gallery</h3>
+              <p class="gallery-card-desc">Hand-swirled pearlescent metallic pigments that create a shimmering, molten 3D marble aesthetic. No two metallic floors are ever identical.</p>
+              <button class="gallery-card-btn" onclick="openTab('metallic')">View 11 Metallic Mixes &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Card 8: Glitter Accents -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-glitter.webp" alt="Holographic Glitter Epoxy Additive" loading="lazy">
+              <span class="gallery-card-badge">Custom Highlight</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">Glitter Gallery</h3>
+              <p class="gallery-card-desc">Vanta-X holographic silver diamond glitter and metallic micro-flakes. Broadcast over metallic or flake floors for dynamic light-catching sparkle.</p>
+              <button class="gallery-card-btn" onclick="openTab('lithoflake')">View Sparkle Additives &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Card 9: Colour Studio Book -->
+          <div class="gallery-card">
+            <div class="gallery-card-img-wrap">
+              <img src="img/charts/colour-studio-book.webp" alt="APC Colour Studio Physical Book" loading="lazy">
+              <span class="gallery-card-badge">Specifier Kit</span>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="gallery-card-title">Colour Studio Book</h3>
+              <p class="gallery-card-desc">The official large-format architectural specification binder. Contains real cured resin sample swatches, system cross-sections, and technical specs.</p>
+              <a href="contact.html" class="gallery-card-btn">Request Book Review &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         INTERACTIVE COLOUR SWATCHES EXPLORER
+         (REAL PHOTOS FROM MICROSITES)
+    ═══════════════════════════════════════ -->
+    <section class="section-swatches-explorer" id="swatches">
+      <div class="container">
+
+        <div class="section-header-wrap" style="margin-bottom:var(--space-8);">
+          <div class="section-header-left">
+            <span class="eyebrow">— Real Cured Swatches</span>
+            <h2>Authentic System Swatch Photos</h2>
+            <p>Every swatch below is photographed directly from real cured resin samples. Click tabs to switch collections.</p>
+          </div>
+          <div>
+            <a href="contact.html" class="btn btn-gold btn-sm">Order Free Chip Samples &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Sticky Tab Navigation -->
+        <div class="colour-tabs-sticky-bar">
+          <div class="colour-tabs" role="tablist">
+            <button class="colour-tab active" id="tab-ultraflake" onclick="switchTab('ultraflake')" role="tab">Ultra Flake® (25)</button>
+            <button class="colour-tab" id="tab-hyperflake" onclick="switchTab('hyperflake')" role="tab">Hyper Flake® (6)</button>
+            <button class="colour-tab" id="tab-lithoflake" onclick="switchTab('lithoflake')" role="tab">Litho Flake® (10)</button>
+            <button class="colour-tab" id="tab-metallic" onclick="switchTab('metallic')" role="tab">Metallic Marble™ (11)</button>
+            <button class="colour-tab" id="tab-plaincoat" onclick="switchTab('plaincoat')" role="tab">Plain Coat (AS2700)</button>
+            <button class="colour-tab" id="tab-quartz" onclick="switchTab('quartz')" role="tab">Quartz Shield® (6)</button>
+          </div>
+        </div>
+
+        <!-- ── TAB 1: ULTRA FLAKE (REAL PHOTOS) ── -->
+        <div class="colour-panel active" id="panel-ultraflake">
+          <div class="panel-meta-header">
+            <div>
+              <div class="panel-meta-title">Ultra Flake® Signature Colour Range</div>
+              <p class="panel-meta-desc">Decorative vinyl flake broadcasts applied to full refusal over pigmented epoxy base coats. Photographed from real cured resin panels across standard and highlights ranges.</p>
+            </div>
+            <div style="flex-shrink:0;">
+              <span class="hero-pill-badge" style="background:var(--color-teal-light); color:var(--color-teal); border:none;">25 Real Swatch Photos</span>
+            </div>
+          </div>
+
+          <div class="swatch-group-label">Signature Flake Blends</div>
+          <div class="swatch-grid">
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_almond.png" alt="Almond Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Almond</div><div class="swatch-code">Base: Y56 Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_ash.png" alt="Ash Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Ash</div><div class="swatch-code">Base: N23 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_biscuit.png" alt="Biscuit Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Biscuit</div><div class="swatch-code">Base: Y56 Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_blue-storm.png" alt="Blue Storm Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Blue Storm</div><div class="swatch-code">Base: N23 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_bullseye.png" alt="Bullseye Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Bullseye</div><div class="swatch-code">Base: N14 White / N61 Black</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_camo.png" alt="Camo Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Camo</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_capri.png" alt="Capri Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Capri</div><div class="swatch-code">Base: Y56 Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_carbon-black.png" alt="Carbon Black Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Carbon Black</div><div class="swatch-code">Base: N61 Black</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_cookies-cream.png" alt="Cookies &amp; Cream Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Cookies &amp; Cream</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_desert.png" alt="Desert Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Desert</div><div class="swatch-code">Base: Y56 Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_eggshell.png" alt="Eggshell Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Eggshell</div><div class="swatch-code">Base: Y56 Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_flint.png" alt="Flint Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Flint</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_foil.png" alt="Foil Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Foil</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_frozen.png" alt="Frozen Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Frozen</div><div class="swatch-code">Base: N23 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_granite.png" alt="Granite Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Granite</div><div class="swatch-code">Base: N23 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_heritage.png" alt="Heritage Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Heritage</div><div class="swatch-code">Base: N61 Black</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_ice.png" alt="Ice Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Ice</div><div class="swatch-code">Base: N14 White</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_mist.png" alt="Mist Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Mist</div><div class="swatch-code">Base: N23 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_night-sky.png" alt="Night Sky Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Night Sky</div><div class="swatch-code">Base: N61 Black</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_outback.png" alt="Outback Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Outback</div><div class="swatch-code">Base: Y56 Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_pebble.png" alt="Pebble Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Pebble</div><div class="swatch-code">Base: N23 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_red-earth.png" alt="Red Earth Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Red Earth</div><div class="swatch-code">Base: Y56 Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_slate.png" alt="Slate Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Slate</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_standard-graphite.png" alt="Standard Graphite Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Graphite</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/uf_suede.png" alt="Suede Ultra Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Suede</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+          </div>
+        </div>
+
+        <!-- ── TAB 2: HYPER FLAKE (REAL PHOTOS) ── -->
+        <div class="colour-panel" id="panel-hyperflake">
+          <div class="panel-meta-header">
+            <div>
+              <div class="panel-meta-title">Hyper Flake® Signature Series</div>
+              <p class="panel-meta-desc">Engineered to mimic authentic natural stone, quartz and aggregate flooring without the weight or porous maintenance. Large random-cut chips create an organic, monolithic floor.</p>
+            </div>
+            <div style="flex-shrink:0;">
+              <span class="hero-pill-badge" style="background:var(--color-teal-light); color:var(--color-teal); border:none;">6 Real Stone Photos</span>
+            </div>
+          </div>
+
+          <div class="swatch-group-label">6 Curated Signature Formulations</div>
+          <div class="swatch-grid">
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/hf_basalt.jpg" alt="Basalt Hyper Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Basalt</div><div class="swatch-code">Base: N43 / N64 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/hf_coral.jpg" alt="Coral Hyper Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Coral</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/hf_quarry.png" alt="Quarry Hyper Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Quarry</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/hf_river-stone.jpg" alt="River Stone Hyper Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">River Stone</div><div class="swatch-code">Base: N23 / N43 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/hf_sandstone.jpg" alt="Sandstone Hyper Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Sandstone</div><div class="swatch-code">Base: N23 Grey / Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/hf_silver-stone.png" alt="Silver Stone Hyper Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Silver Stone</div><div class="swatch-code">Base: N23 Grey</div></div></div>
+          </div>
+        </div>
+
+        <!-- ── TAB 3: LITHO FLAKE (REAL PHOTOS) ── -->
+        <div class="colour-panel" id="panel-lithoflake">
+          <div class="panel-meta-header">
+            <div>
+              <div class="panel-meta-title">Litho Flake® Industrial &amp; Mica Flake Systems</div>
+              <p class="panel-meta-desc">Metal-inspired stone blends paired with decorative additives including natural metallic mica chips and holographic silver diamond glitter for subtle ambient sparkle.</p>
+            </div>
+            <div style="flex-shrink:0;">
+              <span class="hero-pill-badge" style="background:var(--color-teal-light); color:var(--color-teal); border:none;">Real Cured Samples</span>
+            </div>
+          </div>
+
+          <div class="swatch-group-label">Base Litho Flake Blends</div>
+          <div class="swatch-grid">
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_alloy.jpg" alt="Alloy Litho Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Alloy</div><div class="swatch-code">Base: N23 Neutral Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_cobalt.jpg" alt="Cobalt Litho Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Cobalt</div><div class="swatch-code">Base: N64 Dark Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_ferro.jpg" alt="Ferro Litho Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Ferro</div><div class="swatch-code">Base: N43 Pipeline Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_nickle.jpg" alt="Nickle Litho Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Nickle</div><div class="swatch-code">Base: N14 White</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_zinc.jpg" alt="Zinc Litho Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Zinc</div><div class="swatch-code">Base: N43 Pipeline Grey</div></div></div>
+          </div>
+
+          <div class="swatch-group-label">Decorative Additives &amp; Highlights</div>
+          <div class="swatch-grid">
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_bronze-mica.png" alt="Bronze Mica Flake" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Bronze Mica</div><div class="swatch-code">Natural Mica Flake</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_bubblegum-blue.png" alt="Bubblegum Blue Highlights" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Bubblegum Blue</div><div class="swatch-code">Highlight Blend</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_lemon-twist.png" alt="Lemon Twist Highlights" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Lemon Twist</div><div class="swatch-code">Highlight Blend</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_lollipop-purple.png" alt="Lollipop Purple Highlights" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Lollipop Purple</div><div class="swatch-code">Highlight Blend</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/lf_sour-apple.png" alt="Sour Apple Highlights" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Sour Apple</div><div class="swatch-code">Highlight Blend</div></div></div>
+          </div>
+        </div>
+
+        <!-- ── TAB 4: METALLIC MARBLE (REAL PHOTOS) ── -->
+        <div class="colour-panel" id="panel-metallic">
+          <div class="panel-meta-header">
+            <div>
+              <div class="panel-meta-title">Metallic Marble™ Liquid Pigment Range</div>
+              <p class="panel-meta-desc">Pure synthetic pearlescent pigments hand-manipulated during pour. Real cured samples photographed under studio light showing authentic depth and pearlescent shimmer.</p>
+            </div>
+            <div style="flex-shrink:0;">
+              <span class="hero-pill-badge" style="background:var(--color-teal-light); color:var(--color-teal); border:none;">11 Real Photos</span>
+            </div>
+          </div>
+
+          <div class="swatch-group-label">11 Pure Metallic Pigment Formulations</div>
+          <div class="swatch-grid">
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_brass.png" alt="Brass Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Brass Metallic</div><div class="swatch-code">Liquid Gold Hue</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_bronze.png" alt="Bronze Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Bronze Metallic</div><div class="swatch-code">Warm Earth Bronze</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_copper.png" alt="Copper Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Copper Metallic</div><div class="swatch-code">Rich Burnished Copper</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_crimson-red.png" alt="Crimson Red Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Crimson Red</div><div class="swatch-code">Deep Wine Red</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_deep-ocean.png" alt="Deep Ocean Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Deep Ocean</div><div class="swatch-code">Abyss Navy Blue</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_emerald.png" alt="Emerald Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Emerald Metallic</div><div class="swatch-code">Vibrant Forest Jewel</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_gun-metal.png" alt="Gun Metal Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Gun Metal</div><div class="swatch-code">Smokey Pewter Steel</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_sea-breeze.png" alt="Sea Breeze Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Sea Breeze</div><div class="swatch-code">Aqua Turquoise Ripple</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_silver.png" alt="Silver Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Silver Metallic</div><div class="swatch-code">High Reflective Chrome</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_teal.png" alt="Teal Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Teal Metallic</div><div class="swatch-code">Rapid Signature Teal</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/mm_violet.png" alt="Violet Metallic Marble" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Violet Metallic</div><div class="swatch-code">Royal Purple Shimmer</div></div></div>
+          </div>
+        </div>
+
+        <!-- ── TAB 5: PLAIN COAT ── -->
+        <div class="colour-panel" id="panel-plaincoat">
+          <div class="panel-meta-header">
+            <div>
+              <div class="panel-meta-title">EPO100T® AS2700 Solid Colour Range</div>
+              <p class="panel-meta-desc">High-build 100% solids epoxy coating in standard AS2700 Australian Standard colours. Highly chemical resistant, seamless, and easy to sanitize for workshops, hangars, and food preparation areas.</p>
+            </div>
+            <div style="flex-shrink:0;">
+              <span class="hero-pill-badge" style="background:var(--color-teal-light); color:var(--color-teal); border:none;">25 Stocked + 206 Custom</span>
+            </div>
+          </div>
+
+          <div class="swatch-group-label">Standard Stocked Greys &amp; Neutrals</div>
+          <div class="swatch-grid">
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#F5F5F5; border-bottom:1px solid #e0e0e0;"></div><div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-code">AS2700 N14</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#E0E0E0;"></div><div class="swatch-info"><div class="swatch-name">Pearl Grey</div><div class="swatch-code">AS2700 N11</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#D4D4D4;"></div><div class="swatch-info"><div class="swatch-name">Pastel Grey</div><div class="swatch-code">AS2700 N12</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#C8C8C8;"></div><div class="swatch-info"><div class="swatch-name">Light Grey</div><div class="swatch-code">AS2700 N35</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#B8C0C4;"></div><div class="swatch-info"><div class="swatch-name">Cloud Grey</div><div class="swatch-code">AS2700 N22</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#B4B4B4;"></div><div class="swatch-info"><div class="swatch-name">Silver Grey</div><div class="swatch-code">AS2700 N24</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#A8A8A0;"></div><div class="swatch-info"><div class="swatch-name">Birch Grey</div><div class="swatch-code">AS2700 N25</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#A0A0A0;"></div><div class="swatch-info"><div class="swatch-name">Neutral Grey</div><div class="swatch-code">AS2700 N23</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#D4C8B8;"></div><div class="swatch-info"><div class="swatch-name">Oyster</div><div class="swatch-code">AS2700 N41</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#D4C4A8;"></div><div class="swatch-info"><div class="swatch-name">Merino</div><div class="swatch-code">AS2700 Y56</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#909890;"></div><div class="swatch-info"><div class="swatch-name">Green Grey</div><div class="swatch-code">AS2700 N32</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#969690;"></div><div class="swatch-info"><div class="swatch-name">Lightbox Grey</div><div class="swatch-code">AS2700 N33</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#808080;"></div><div class="swatch-info"><div class="swatch-name">Mid Grey</div><div class="swatch-code">AS2700 N52</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#7A8898;"></div><div class="swatch-info"><div class="swatch-name">Blue Grey</div><div class="swatch-code">AS2700 N53</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#789090;"></div><div class="swatch-info"><div class="swatch-name">Koala Grey</div><div class="swatch-code">AS2700 N45</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#6A7070;"></div><div class="swatch-info"><div class="swatch-name">Storm Grey</div><div class="swatch-code">AS2700 N42</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#6A6A6A;"></div><div class="swatch-info"><div class="swatch-name">Pipeline Grey</div><div class="swatch-code">AS2700 N43</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#606868;"></div><div class="swatch-info"><div class="swatch-name">Bridge Grey</div><div class="swatch-code">AS2700 N44</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#505858;"></div><div class="swatch-info"><div class="swatch-name">Basalt</div><div class="swatch-code">AS2700 N54</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#909090;"></div><div class="swatch-info"><div class="swatch-name">Pewter</div><div class="swatch-code">AS2700 N63</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#5A5A5A;"></div><div class="swatch-info"><div class="swatch-name">Lead Grey</div><div class="swatch-code">AS2700 N55</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#484848;"></div><div class="swatch-info"><div class="swatch-name">Graphite Grey</div><div class="swatch-code">AS2700 N65</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#3A3A3A;"></div><div class="swatch-info"><div class="swatch-name">Dark Grey</div><div class="swatch-code">AS2700 N64</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#1A1A1A;"></div><div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-code">AS2700 N61</div></div></div>
+            <div class="swatch-card"><div class="swatch-solid-color" style="background:#8090C0;"></div><div class="swatch-info"><div class="swatch-name">Bluebell</div><div class="swatch-code">AS2700 B41</div></div></div>
+          </div>
+        </div>
+
+        <!-- ── TAB 6: QUARTZ SHIELD (REAL PHOTOS) ── -->
+        <div class="colour-panel" id="panel-quartz">
+          <div class="panel-meta-header">
+            <div>
+              <div class="panel-meta-title">Quartz Shield® Slip-Resistant Aggregate Range</div>
+              <p class="panel-meta-desc">Pure rounded silica quartz granules coated in high-performance ceramic colour pigmentation. Photographed from real cured non-slip aggregate panels.</p>
+            </div>
+            <div style="flex-shrink:0;">
+              <span class="hero-pill-badge" style="background:var(--color-teal-light); color:var(--color-teal); border:none;">6 Real Photos</span>
+            </div>
+          </div>
+
+          <div class="swatch-group-label">6 Signature Quartz Aggregates</div>
+          <div class="swatch-grid">
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/qs_arctic.png" alt="Arctic Quartz Shield" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Arctic</div><div class="swatch-code">Base: B51 Periwinkle</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/qs_coal.png" alt="Coal Quartz Shield" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Coal</div><div class="swatch-code">Base: N61 Black</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/qs_grain.png" alt="Grain Quartz Shield" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Grain</div><div class="swatch-code">Base: Y56 Merino</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/qs_iron.png" alt="Iron Quartz Shield" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Iron</div><div class="swatch-code">Base: N43 / N64 Grey</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/qs_silver.png" alt="Silver Quartz Shield" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Silver</div><div class="swatch-code">Base: N43 Pipeline</div></div></div>
+            <div class="swatch-card"><div class="swatch-img-wrap"><img src="img/swatches/qs_wine.png" alt="Wine Quartz Shield" loading="lazy"></div><div class="swatch-info"><div class="swatch-name">Wine</div><div class="swatch-code">Base: R63 Red Oxide</div></div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA BANNER
+    ═══════════════════════════════════════ -->
+    <section class="section-cta" id="cta">
+      <div class="container">
+        <div class="cta-container">
+          <span class="cta-eyebrow">— Physical Sample Service</span>
+          <h2 class="cta-title">Can't Decide on Screen?</h2>
+          <p class="cta-desc">
+            Screen calibrations and ambient lighting can alter how colours appear. We provide physical cured resin sample discs and on-site colour consultations across Melbourne &amp; Victoria so you can choose with complete confidence.
+          </p>
+
+          <div class="cta-features-row">
+            <div class="cta-feat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7ee8d8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Real Cured Epoxy Samples
+            </div>
+            <div class="cta-feat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7ee8d8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Melbourne &amp; Victoria Wide
+            </div>
+            <div class="cta-feat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7ee8d8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Complimentary On-Site Measure
+            </div>
+            <div class="cta-feat-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7ee8d8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              100% Fixed Upfront Quotes
+            </div>
+          </div>
+
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-gold">Request Sample Kit &rarr;</a>
+            <a href="tel:+61390004821" class="btn btn-outline-white">Call Us: 03 9000 4821</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-brand" style="margin-bottom:var(--space-4);">
+          <img src="img/logo-horizontal.png" alt="Rapid Epoxy" class="logo-img">
+        </a>
+        <p class="footer-tagline">Premium residential, commercial and industrial epoxy flooring installations across Melbourne and greater Victoria.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Navigation</div>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="services.html">Services</a>
+          <a href="colours.html">Colour Charts</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Get a Quote</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Collections</div>
+          <a href="colours.html#swatches" onclick="openTab('ultraflake')">Ultra Flake® Range</a>
+          <a href="colours.html#swatches" onclick="openTab('hyperflake')">Hyper Flake® Stone</a>
+          <a href="colours.html#swatches" onclick="openTab('metallic')">Metallic Marble™</a>
+          <a href="colours.html#swatches" onclick="openTab('plaincoat')">Plain Coat AS2700</a>
+          <a href="colours.html#swatches" onclick="openTab('quartz')">Quartz Shield® Safety</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact &amp; Support</div>
+          <a href="tel:+61390004821">03 9000 4821</a>
+          <a href="mailto:info@rapidepoxy.com.au">info@rapidepoxy.com.au</a>
+          <a href="contact.html">On-Site Measurement</a>
+          <a href="contact.html">Sample Request</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>&copy; 2025 Rapid Epoxy Melbourne. All rights reserved.</span>
+        <span>Colours shown are indicative approximations. Request physical samples for guaranteed colour match.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Header shadow on scroll
+    var hdr = document.getElementById('header');
+    window.addEventListener('scroll', function() {
+      hdr.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // Mobile navigation toggle
+    var mobileToggle = document.getElementById('mobileToggle');
+    var mobileMenu   = document.getElementById('mobileMenu');
+    var iconHam      = document.getElementById('iconHamburger');
+    var iconCls      = document.getElementById('iconClose');
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', function() {
+        var open = mobileMenu.classList.toggle('is-active');
+        mobileToggle.setAttribute('aria-expanded', open);
+        if (iconHam) iconHam.style.display = open ? 'none' : '';
+        if (iconCls) iconCls.style.display = open ? '' : 'none';
+      });
+    }
+
+    // Tab switching function
+    function switchTab(panelId) {
+      var tabs = document.querySelectorAll('.colour-tab');
+      var panels = document.querySelectorAll('.colour-panel');
+
+      tabs.forEach(function(tab) { tab.classList.remove('active'); });
+      panels.forEach(function(panel) { panel.classList.remove('active'); });
+
+      var targetTab = document.getElementById('tab-' + panelId);
+      var targetPanel = document.getElementById('panel-' + panelId);
+
+      if (targetTab) targetTab.classList.add('active');
+      if (targetPanel) targetPanel.classList.add('active');
+    }
+
+    // Helper for gallery cards to switch tab and smooth scroll to swatches
+    function openTab(panelId) {
+      switchTab(panelId);
+      var section = document.getElementById('swatches');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Cursor-following interactive spotlight inside sections & cards
+    var spotlightEls = document.querySelectorAll('.cta-container, .gallery-card, .colours-hero-media');
+    spotlightEls.forEach(function(el) {
+      el.addEventListener('mousemove', function(e) {
+        var rect = el.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        el.style.setProperty('--mouse-x', x + 'px');
+        el.style.setProperty('--mouse-y', y + 'px');
+      });
+      el.addEventListener('mouseleave', function() {
+        // Softly center on leave
+        el.style.setProperty('--mouse-x', '50%');
+        el.style.setProperty('--mouse-y', '50%');
+      });
+    });
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
