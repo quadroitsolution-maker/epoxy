@@ -244,175 +244,168 @@
       margin-bottom: var(--space-8);
     }
 
-    .palette-options {
+    /* ─── Minimal Colour Palette Showcase on Homepage ─── */
+    .section-home-palette {
+      padding: var(--space-16) 0 var(--space-20);
+      background: var(--color-base);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .home-palette-header {
       display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-      margin-bottom: var(--space-8);
-    }
-
-    .palette-option {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-    }
-
-    .palette-option-num {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: var(--color-teal-light);
-      color: var(--color-teal);
-      font-size: var(--text-xs);
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .palette-option-text {
-      font-size: var(--text-sm);
-      font-weight: 600;
-      color: var(--color-ink);
-    }
-
-    .palette-view-link {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--text-xs);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-teal);
-      transition: gap var(--dur-fast);
-    }
-
-    .palette-view-link:hover {
-      gap: var(--space-3);
-    }
-
-    .palette-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: 60px;
-    }
-
-    .palette-orb {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(4, 78, 84, 0.25), 0 8px 20px rgba(0,0,0,0.12);
-      flex-shrink: 0;
-      animation: floatOrb 5s ease-in-out infinite;
-      position: relative;
-    }
-
-    /* Gradient color overlay that cycles on top of the image */
-    .palette-orb::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 1.2s ease;
-      mix-blend-mode: color;
-      pointer-events: none;
-    }
-
-    .palette-orb.color-active::after {
-      opacity: 1;
-    }
-
-    .palette-orb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: filter 1.4s ease;
-    }
-
-    @keyframes floatOrb {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    .palette-chip-card {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: var(--space-4) var(--space-5);
-      box-shadow: var(--shadow-hover);
-      min-width: 200px;
-    }
-
-    .chip-card-label {
-      display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
+      gap: var(--space-8);
+      margin-bottom: var(--space-10);
+      flex-wrap: wrap;
+    }
+
+    .home-palette-header-left {
+      max-width: 620px;
+    }
+
+    .home-palette-header-left h2 {
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-top: var(--space-2);
       margin-bottom: var(--space-3);
     }
 
-    .chip-card-name {
+    .home-palette-header-left p {
+      font-size: var(--text-base);
+      color: var(--color-muted);
+      line-height: 1.65;
+    }
+
+    .home-palette-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-10);
+    }
+
+    .home-swatch-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: all var(--dur-base) var(--ease-out);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-swatch-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(4, 78, 84, 0.12);
+      border-color: var(--color-teal);
+    }
+
+    .home-swatch-img-box {
+      width: 100%;
+      height: 130px;
+      overflow: hidden;
+      position: relative;
+      background: #111;
+    }
+
+    .home-swatch-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    .home-swatch-card:hover .home-swatch-img-box img {
+      transform: scale(1.08);
+    }
+
+    .home-swatch-meta {
+      padding: var(--space-3) var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--color-surface);
+    }
+
+    .home-swatch-name {
       font-size: var(--text-sm);
       font-weight: 800;
       color: var(--color-ink);
+      line-height: 1.3;
     }
 
-    .chip-badge-premium {
-      font-size: 0.6rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: var(--color-gold-light);
-      color: var(--color-gold-hover);
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(212,163,37,0.3);
+    .home-swatch-system {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-teal);
+      letter-spacing: 0.02em;
     }
 
-    .chip-swatches {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-3);
-    }
-
-    .chip-swatch-group {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-1);
-    }
-
-    .chip-swatch-label {
-      font-size: 0.6rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-    }
-
-    .chip-swatch {
+    /* Bottom Sample Book Callout Strip */
+    .home-palette-callout {
+      background: linear-gradient(135deg, #044E54 0%, #022b2e 100%);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-8);
+      color: #FFFFFF;
       display: flex;
       align-items: center;
-      gap: var(--space-2);
+      justify-content: space-between;
+      gap: var(--space-6);
+      box-shadow: 0 12px 32px rgba(4, 78, 84, 0.18);
     }
 
-    .chip-dot {
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      border: 1px solid var(--color-border);
+    .home-palette-callout-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+    }
+
+    .home-palette-callout-thumb {
+      width: 68px;
+      height: 68px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
       flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .chip-dot-label {
+    .home-palette-callout-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .home-palette-callout-title {
+      font-size: var(--text-base);
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+    }
+
+    .home-palette-callout-sub {
       font-size: var(--text-xs);
-      font-weight: 600;
-      color: var(--color-ink);
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+      max-width: 48ch;
+    }
+
+    @media (max-width: 1024px) {
+      .home-palette-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .home-palette-header { flex-direction: column; align-items: flex-start; }
+      .home-palette-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+      .home-swatch-img-box { height: 110px; }
+      .home-palette-callout { flex-direction: column; align-items: flex-start; padding: var(--space-6); }
+      .home-palette-callout .btn { width: 100%; justify-content: center; }
     }
 
     /* ── CTA Banner ── */
@@ -892,72 +885,132 @@
 
 
     <!-- ═══════════════════════════════════════
-         COLOUR PALETTE & BESPOKE DESIGNS
+         MINIMAL COLOUR PALETTE SHOWCASE
     ═══════════════════════════════════════ -->
-    <section class="section-palette" id="palette">
+    <section class="section-home-palette" id="palette">
       <div class="container">
-        <div class="palette-grid">
 
-          <!-- Content -->
-          <div class="palette-content reveal">
-            <span class="eyebrow">Custom Aesthetics</span>
-            <h2 class="palette-title">Color Palette &amp;<br>Bespoke Designs</h2>
-            <p class="palette-desc">
-              Performance doesn't necessitate compromise on design. Our vast library of pigments, flakes, and metallic additives allows for complete architectural freedom.
+        <!-- Section Header -->
+        <div class="home-palette-header">
+          <div class="home-palette-header-left">
+            <span class="eyebrow">— Architectural Palette</span>
+            <h2>Curated Colour Collections</h2>
+            <p>
+              Over 200+ signature formulations — from decorative vinyl flake blends and natural stone terrazzo profiles to hand-swirled liquid metallic marble pigments.
             </p>
-
-            <div class="palette-options">
-              <div class="palette-option">
-                <div class="palette-option-num">01</div>
-                <span class="palette-option-text">Solid Colors (RAL Standard matched)</span>
-              </div>
-              <div class="palette-option">
-                <div class="palette-option-num">02</div>
-                <span class="palette-option-text">Decorative Flake Blends (1/4&quot; to 1/16&quot;)</span>
-              </div>
-              <div class="palette-option">
-                <div class="palette-option-num">03</div>
-                <span class="palette-option-text">Metallic Pigment Infusions</span>
-              </div>
-            </div>
-
-            <a href="products.html#colours" class="palette-view-link">
-              View Full Palette →
-            </a>
           </div>
-
-          <!-- Visual -->
-          <div class="palette-visual reveal" data-delay="2">
-            <div class="palette-orb" id="paletteOrb">
-              <img src="img/metallic_epoxy.jpg" alt="Metallic Epoxy Resin Mix" id="paletteOrbImg">
-            </div>
-
-            <!-- Floating colour chip card -->
-            <div class="palette-chip-card">
-              <div class="chip-card-label">
-                <span class="chip-card-name" id="chipMixName">Metallic Mix: 'Oceanic'</span>
-                <span class="chip-badge-premium">Premium</span>
-              </div>
-              <div class="chip-swatches">
-                <div class="chip-swatch-group">
-                  <span class="chip-swatch-label">Base</span>
-                  <div class="chip-swatch">
-                    <div class="chip-dot" id="chipBaseColor" style="background:#00605A;"></div>
-                    <span class="chip-dot-label" id="chipBaseLabel">Deep Teal</span>
-                  </div>
-                </div>
-                <div class="chip-swatch-group">
-                  <span class="chip-swatch-label">Accent</span>
-                  <div class="chip-swatch">
-                    <div class="chip-dot" id="chipAccentColor" style="background:#C9A227;"></div>
-                    <span class="chip-dot-label" id="chipAccentLabel">Metallic Gold</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div>
+            <a href="colours.html" class="btn btn-teal">Explore Full Colour Charts &rarr;</a>
           </div>
+        </div>
+
+        <!-- Curated Real Swatches Grid -->
+        <div class="home-palette-grid">
+
+          <!-- 1. Cookies & Cream -->
+          <a href="colours.html#swatches" class="home-swatch-card" aria-label="Cookies & Cream Swatch">
+            <div class="home-swatch-img-box">
+              <img src="img/swatches/uf_cookies-cream.png" alt="Cookies & Cream Ultra Flake" loading="lazy">
+            </div>
+            <div class="home-swatch-meta">
+              <span class="home-swatch-name">Cookies &amp; Cream</span>
+              <span class="home-swatch-system">Ultra Flake&reg; Signature</span>
+            </div>
+          </a>
+
+          <!-- 2. Basalt Stone -->
+          <a href="colours.html#swatches" class="home-swatch-card" aria-label="Basalt Stone Swatch">
+            <div class="home-swatch-img-box">
+              <img src="img/swatches/hf_basalt.jpg" alt="Basalt Hyper Flake" loading="lazy">
+            </div>
+            <div class="home-swatch-meta">
+              <span class="home-swatch-name">Basalt</span>
+              <span class="home-swatch-system">Hyper Flake&reg; Stone</span>
+            </div>
+          </a>
+
+          <!-- 3. Deep Ocean Metallic -->
+          <a href="colours.html#swatches" class="home-swatch-card" aria-label="Deep Ocean Metallic Swatch">
+            <div class="home-swatch-img-box">
+              <img src="img/swatches/mm_deep-ocean.png" alt="Deep Ocean Metallic Marble" loading="lazy">
+            </div>
+            <div class="home-swatch-meta">
+              <span class="home-swatch-name">Deep Ocean</span>
+              <span class="home-swatch-system">Metallic Marble&trade;</span>
+            </div>
+          </a>
+
+          <!-- 4. Silver Stone -->
+          <a href="colours.html#swatches" class="home-swatch-card" aria-label="Silver Stone Swatch">
+            <div class="home-swatch-img-box">
+              <img src="img/swatches/hf_silver-stone.png" alt="Silver Stone Hyper Flake" loading="lazy">
+            </div>
+            <div class="home-swatch-meta">
+              <span class="home-swatch-name">Silver Stone</span>
+              <span class="home-swatch-system">Hyper Flake&reg; Stone</span>
+            </div>
+          </a>
+
+          <!-- 5. Brass Metallic -->
+          <a href="colours.html#swatches" class="home-swatch-card" aria-label="Brass Metallic Swatch">
+            <div class="home-swatch-img-box">
+              <img src="img/swatches/mm_brass.png" alt="Brass Metallic Marble" loading="lazy">
+            </div>
+            <div class="home-swatch-meta">
+              <span class="home-swatch-name">Brass Metallic</span>
+              <span class="home-swatch-system">Metallic Marble&trade;</span>
+            </div>
+          </a>
+
+          <!-- 6. Blue Storm -->
+          <a href="colours.html#swatches" class="home-swatch-card" aria-label="Blue Storm Swatch">
+            <div class="home-swatch-img-box">
+              <img src="img/swatches/uf_blue-storm.png" alt="Blue Storm Ultra Flake" loading="lazy">
+            </div>
+            <div class="home-swatch-meta">
+              <span class="home-swatch-name">Blue Storm</span>
+              <span class="home-swatch-system">Ultra Flake&reg; Highlight</span>
+            </div>
+          </a>
+
+          <!-- 7. Granite -->
+          <a href="colours.html#swatches" class="home-swatch-card" aria-label="Granite Flake Swatch">
+            <div class="home-swatch-img-box">
+              <img src="img/swatches/uf_granite.png" alt="Granite Ultra Flake" loading="lazy">
+            </div>
+            <div class="home-swatch-meta">
+              <span class="home-swatch-name">Granite</span>
+              <span class="home-swatch-system">Ultra Flake&reg; Standard</span>
+            </div>
+          </a>
+
+          <!-- 8. Arctic Quartz -->
+          <a href="colours.html#swatches" class="home-swatch-card" aria-label="Arctic Quartz Swatch">
+            <div class="home-swatch-img-box">
+              <img src="img/swatches/qs_arctic.png" alt="Arctic Quartz Shield" loading="lazy">
+            </div>
+            <div class="home-swatch-meta">
+              <span class="home-swatch-name">Arctic</span>
+              <span class="home-swatch-system">Quartz Shield&reg;</span>
+            </div>
+          </a>
 
         </div>
+
+        <!-- Consultation Sample Book Callout Strip -->
+        <div class="home-palette-callout">
+          <div class="home-palette-callout-left">
+            <div class="home-palette-callout-thumb">
+              <img src="img/charts/rapidepoxy-sample-book.webp" alt="Rapid Epoxy Sample Book &amp; Cured Discs" loading="lazy">
+            </div>
+            <div>
+              <div class="home-palette-callout-title">Can't decide on screen? Inspect physical cured samples.</div>
+              <div class="home-palette-callout-sub">We bring real cured resin discs, fan decks, and binder books directly to your on-site consultation across Melbourne &amp; Victoria.</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-gold btn-sm" style="flex-shrink:0;">Request Sample Consultation &rarr;</a>
+        </div>
+
       </div>
     </section>
 
