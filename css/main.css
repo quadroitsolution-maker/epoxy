@@ -1900,16 +1900,19 @@ img {
   color: var(--color-teal);
 }
 
-.faq-icon-toggle {
+.faq-icon-toggle,
+.faq-trigger-icon {
   font-size: 1.4rem;
   line-height: 1;
   color: var(--color-muted);
   flex-shrink: 0;
-  transition: transform var(--dur-base) var(--ease-out);
+  transition: transform var(--dur-base) var(--ease-out), color var(--dur-fast);
   font-weight: 300;
+  display: inline-block;
 }
 
-.faq-item.is-open .faq-icon-toggle {
+.faq-item.is-open .faq-icon-toggle,
+.faq-item.is-open .faq-trigger-icon {
   transform: rotate(45deg);
   color: var(--color-teal);
 }

@@ -147,18 +147,41 @@
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
-  // ─── FAQ Accordion Toggles ───────────────────────────────────────────
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const trigger = item.querySelector('.faq-trigger');
-    if (trigger) {
-      trigger.addEventListener('click', () => {
-        const isOpen = item.classList.contains('is-open');
-        faqItems.forEach(i => i.classList.remove('is-open'));
-        if (!isOpen) item.classList.add('is-open');
-      });
-    }
   });
+
+  // ─── FAQ Accordion Toggles ───────────────────────────────────────────
+  function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const trigger = item.querySelector('.faq-trigger');
+      if (trigger && !trigger._hasFaqListener) {
+        trigger._hasFaqListener = true;
+        const currentlyOpen = item.classList.contains('is-open');
+        trigger.setAttribute('aria-expanded', currentlyOpen ? 'true' : 'false');
+        
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = item.classList.contains('is-open');
+          // Close all other items
+          faqItems.forEach(i => {
+            i.classList.remove('is-open');
+            const t = i.querySelector('.faq-trigger');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          });
+          // Toggle clicked item
+          if (!isOpen) {
+            item.classList.add('is-open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+    });
+  }
+
+  initFAQ();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+  }
 
   // ─── System Pill Selector Buttons ────────────────────────────────────
   const systemPillBtns = document.querySelectorAll('.system-pill-btn');
